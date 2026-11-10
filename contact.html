@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Crescend’eau</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body data-page="contact">
+<div class="site">
+  <div class="hdr-sticky"><div data-include="partials/header.html"></div></div>
+  <main id="contenu">
+    <section class="sec u-pt-48">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+        <div class="u-mb-56">
+          <div class="cr-heading cr-heading--left"><h1 class="cr-title cr-title--display">Parlons de<br><span class="cr-accent">votre site.</span></h1><p class="cr-lead">Un chargé d’affaires vous répond sous 24 h ouvrées. Pour une urgence, appelez-nous directement.</p></div>
+        </div>
+        <div class="qwrap qwrap--5-7">
+          <aside class="qaside" aria-label="Nos coordonnées">
+            <div class="box">
+              <div class="u-flex u-items-center u-gap-14">
+                <span class="icbox"><svg class="cr-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></span>
+                <div><p class="deliv__k">Téléphone</p><a class="tel tel--lg" href="tel:+33300000000">03 XX XX XX XX</a></div>
+              </div>
+              <p>Du lundi au vendredi, de 7 h à 19 h.</p>
+            </div>
+            <div class="box">
+              <div class="u-flex u-items-center u-gap-14">
+                <span class="icbox"><svg class="cr-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg></span>
+                <div><p class="deliv__k">Urgence 7j/7</p><a class="tel" href="tel:+33600000000">06 XX XX XX XX</a></div>
+              </div>
+              <p>Dégât des eaux, sinistre, remise en état express. Réservé aux clients sous contrat. <span class="tbc">[à confirmer]</span></p>
+            </div>
+            <div class="box">
+              <div class="u-flex u-items-center u-gap-14">
+                <span class="icbox"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg></span>
+                <div><p class="deliv__k">Agence de Strasbourg</p><p class="u-ink">Adresse de l’agence <span class="tbc">[à confirmer]</span></p></div>
+              </div>
+              <p>Accueil sur rendez-vous. <a class="u-ink-soft" href="mailto:contact@crescendeau.fr">contact@crescendeau.fr</a> <span class="tbc">[à confirmer]</span></p>
+            </div>
+            <div class="cols2 u-gap-12">
+              <a class="tile tile--compact" href="#"><span class="tile__title">Espace client</span><span class="tile__desc">Rapports, factures, demandes</span></a>
+              <a class="tile tile--compact" href="#"><span class="tile__title">Nous rejoindre</span><span class="tile__desc">Offres et candidatures</span></a>
+            </div>
+          </aside>
+
+          <div class="qcard" id="rappel">
+            <div class="qhead">
+              <h2>Être rappelé ou nous écrire</h2>
+              <p>Tous les champs sont obligatoires, sauf mention contraire.</p>
+            </div>
+            <fieldset class="qgroup">
+              <legend>Votre demande concerne</legend>
+              <div class="picks"><label class="pick"><input type="radio" name="objet" value="Demande de devis"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Demande de devis</label><label class="pick"><input type="radio" name="objet" value="Être rappelé" checked><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Être rappelé</label><label class="pick"><input type="radio" name="objet" value="Candidature"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Candidature</label></div>
+            </fieldset>
+            <form class="form" aria-label="Formulaire de contact" data-no-submit>
+              <div class="field">
+                <label class="field__label" for="c-nom">Nom et prénom</label>
+                <input class="input" id="c-nom" autocomplete="name" placeholder="Ex. : Claire Muller">
+              </div>
+              <div class="field">
+                <label class="field__label" for="c-ent">Entreprise ou organisme</label>
+                <input class="input" id="c-ent" autocomplete="organization" placeholder="Ex. : Groupe Rhénan">
+              </div>
+              <div class="field">
+                <label class="field__label" for="c-tel">Téléphone</label>
+                <input class="input" id="c-tel" type="tel" autocomplete="tel" placeholder="06 12 34 56 78">
+              </div>
+              <div class="field">
+                <label class="field__label" for="c-creneau">Créneau de rappel</label>
+                <div class="select">
+                  <select class="input" id="c-creneau">
+                    <option>Dès que possible</option>
+                    <option>Matin, 8 h – 12 h</option>
+                    <option>Après-midi, 14 h – 18 h</option>
+                  </select>
+                  <span class="select__ic"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></span>
+                </div>
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="c-mail">E-mail professionnel <em>(facultatif)</em></label>
+                <input class="input" id="c-mail" type="email" autocomplete="email" placeholder="nom@entreprise.fr">
+              </div>
+              <div class="field field--full">
+                <label class="field__label" for="c-msg">Message <em>(facultatif)</em></label>
+                <textarea class="input" id="c-msg" rows="4" placeholder="Type de site, surface, besoin…"></textarea>
+              </div>
+              <label class="checkbox field--full"><input type="checkbox"><span>J’accepte que Crescend’eau utilise ces informations pour me recontacter. <a href="#">Politique de confidentialité</a></span></label>
+              <div class="field field--full field--row u-mt-8">
+                <button type="submit" class="cr-btn cr-btn--primary cr-btn--lg"><span>Être rappelé</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button>
+                <span class="note">Rappel sous 24 h ouvrées</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--alt" aria-label="Zone d’intervention">
+      <div class="wrap">
+        <div class="band u-bg-100">
+          <div>
+            <h2>Toute l’Alsace, depuis Strasbourg.</h2>
+            <p>Bas-Rhin et Haut-Rhin, de Haguenau à Saint-Louis, à moins de 45 minutes de votre site. <span class="tbc">[à confirmer]</span></p>
+          </div>
+          <a class="cr-btn cr-btn--secondary cr-btn--lg" href="index.html#zone"><span>Voir la carte</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-include="partials/footer.html"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* Crescend’eau — ajustements du site statique.
+   Chargée en dernier, après tokens.css, components.css et site.css.
+
+   Dans la maquette, ces réglages étaient écrits directement dans le HTML (attribut style)
+   ou posés par les composants JavaScript du design system. Ils sont regroupés ici pour que
+   le HTML ne contienne aucun style. Toutes les valeurs sont celles de la maquette. */
+
+/* L’attribut hidden l’emporte toujours (étapes du devis, filtres, messages d’erreur). */
+.site [hidden] { display: none !important; }
+
+/* ---------- Composants du design system rendus en HTML statique ---------- */
+.cr-logo__img { height: 44px; width: auto; }
+.cr-iconbtn--40 { width: 40px; height: 40px; }
+.cr-iconbtn--44 { width: 44px; height: 44px; }
+.cr-iconbtn--48 { width: 48px; height: 48px; }
+
+/* Comparateur Avant / Après : js/before-after.js met à jour --pos (0 % à 100 %). */
+.cr-ba--16x10 { aspect-ratio: 16 / 10; }
+.cr-ba--4x3 { aspect-ratio: 4 / 3; }
+.cr-ba__before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
+.cr-ba__divider { left: var(--pos, 50%); }
+/* État « Avant » simulé des visuels de démonstration [à confirmer] : à retirer avec les vraies photos. */
+.cr-ba__img--demo { filter: sepia(.6) saturate(.55) brightness(.58) contrast(1.15); }
+
+/* Barre de progression du devis : la largeur suit l’étape (aria-valuenow, mis à jour par js/devis.js). */
+.progress[aria-valuenow="1"] span { width: 12%; }
+.progress[aria-valuenow="2"] span { width: 45%; }
+.progress[aria-valuenow="3"] span { width: 78%; }
+
+/* ---------- Réglages portés par des classes existantes ---------- */
+.hdr-root, .ftr { font-family: var(--font-body); color: var(--ink-soft); }
+.site .facts, .site .fact__v, .site .recap { margin: 0; }
+.site .quote__name, .site .quote__role { display: block; }
+.site .box > .cr-icon, .site .box > .ic { color: var(--accent); }
+
+/* ---------- Variantes ---------- */
+.site .tel { font: 500 20px/28px var(--font-display); letter-spacing: .04em; color: var(--ink); text-decoration: none; }
+.site .tel--lg { font-size: 24px; line-height: 32px; }
+.site .tile--compact { padding: 20px; gap: 8px; }
+.site .tile--compact .tile__title { font-size: 15px; line-height: 22px; }
+.site .field--row { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px; }
+
+/* Grilles à colonnes particulières : uniquement au-dessus des points de rupture de site.css,
+   pour que le passage en une colonne reste valable sur tablette et mobile. */
+@media (min-width: 961px) {
+  .site .split--5-7, .site .qwrap--5-7 { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+}
+@media (min-width: 721px) {
+  .site .form--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- Carte de la zone d’intervention : position des repères ---------- */
+.map__region--vosges { left: 10%; top: 42%; }
+.map__region--allemagne { left: 72%; top: 52%; }
+.map__region--rhin { left: 57%; top: 70%; letter-spacing: .2em; }
+.map__ring--30, .map__ring--60, .map__pulse, .map__pt--strasbourg { left: 61.2%; top: 26%; }
+.map__ring--30 { width: 240px; height: 240px; }
+.map__ring--60 { width: 480px; height: 480px; }
+.map__pt--haguenau { left: 62.9%; top: 9.2%; }
+.map__pt--saverne { left: 43.9%; top: 14.4%; }
+.map__pt--molsheim { left: 49.6%; top: 28.2%; }
+.map__pt--obernai { left: 49.2%; top: 33.7%; }
+.map__pt--erstein { left: 57.2%; top: 36.4%; }
+.map__pt--selestat { left: 48%; top: 47.7%; }
+.map__pt--ribeauville { left: 42%; top: 52.1%; }
+.map__pt--colmar { left: 43.7%; top: 60.1%; }
+.map__pt--guebwiller { left: 37.1%; top: 71.8%; }
+.map__pt--saint-louis { left: 52.7%; top: 92.5%; }
+
+/* ---------- Utilitaires (une propriété, une valeur de la maquette) ---------- */
+.site .u-flex { display: flex; }
+.site .u-col { flex-direction: column; }
+.site .u-between { justify-content: space-between; }
+.site .u-items-center { align-items: center; }
+.site .u-items-start { align-items: start; }
+.site .u-self-start { align-self: flex-start; }
+.site .u-block { display: block; }
+.site .u-relative { position: relative; }
+.site .u-center { text-align: center; }
+.site .u-w-full { width: 100%; }
+.site .u-maxw-620 { max-width: 620px; }
+.site .u-minh-240 { min-height: 240px; }
+
+.site .u-gap-10 { gap: 10px; }
+.site .u-gap-12 { gap: 12px; }
+.site .u-gap-14 { gap: 14px; }
+.site .u-gap-24 { gap: 24px; }
+.site .u-gap-40 { gap: 40px; }
+.site .u-gap-48 { gap: 48px; }
+
+.site .u-m-0 { margin: 0; }
+.site .u-mt-1 { margin-top: 1px; }
+.site .u-mt-8 { margin-top: 8px; }
+.site .u-mt-20 { margin-top: 20px; }
+.site .u-mt-32 { margin-top: 32px; }
+.site .u-mt-40 { margin-top: 40px; }
+.site .u-mt-56 { margin-top: 56px; }
+.site .u-mb-8 { margin-bottom: 8px; }
+.site .u-mb-28 { margin-bottom: 28px; }
+.site .u-mb-32 { margin-bottom: 32px; }
+.site .u-mb-48 { margin-bottom: 48px; }
+.site .u-mb-56 { margin-bottom: 56px; }
+
+.site .u-p-24 { padding: 24px; }
+.site .u-p-40 { padding: 40px; }
+.site .u-pt-0 { padding-top: 0; }
+.site .u-pt-48 { padding-top: 48px; }
+.site .u-pt-56 { padding-top: 56px; }
+.site .u-pb-72 { padding-bottom: 72px; }
+
+.site .u-accent { color: var(--accent); }
+.site .u-ink { color: var(--ink); }
+.site .u-ink-soft { color: var(--ink-soft); }
+.site .u-muted { color: var(--ink-muted); }
+.site .u-strong { color: var(--ink); font-weight: 500; }
+.site .u-bg-100 { background: var(--surface-100); }
+
+.site .u-fs-13 { font-size: 13px; }
+.site .u-text-15 { font-size: 15px; line-height: 24px; }
+.site .u-text-20 { font-size: 20px; line-height: 32px; }
+.site .u-text-22 { font-size: 22px; line-height: 34px; }

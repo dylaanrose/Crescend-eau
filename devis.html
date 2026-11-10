@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demander un devis — Crescend’eau</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body data-page="devis">
+<div class="site">
+  <div class="hdr-sticky"><div data-include="partials/header.html"></div></div>
+  <main id="contenu">
+    <section class="sec u-pt-48">
+      <div class="wrap">
+        <nav class="crumbs" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Demander un devis</span></nav>
+        <div class="u-mb-48">
+          <div class="cr-heading cr-heading--left"><h1 class="cr-title cr-title--display">Demander<br><span class="cr-accent">un devis.</span></h1><p class="cr-lead">Trois étapes, deux minutes. Réponse personnalisée sous 24 h ouvrées, visite et devis gratuits.</p></div>
+        </div>
+
+        <div class="qwrap">
+          <div class="qcard" id="formulaire">
+
+            <div data-progress>
+              <ol class="cr-steps stepper"><li class="cr-steps__item is-active"><span class="cr-steps__num" aria-hidden="true">1</span><span class="cr-steps__text"><span class="cr-steps__label">Votre site</span></span></li><li class="cr-steps__item"><span class="cr-steps__num" aria-hidden="true">2</span><span class="cr-steps__text"><span class="cr-steps__label">Vos besoins</span></span></li><li class="cr-steps__item"><span class="cr-steps__num" aria-hidden="true">3</span><span class="cr-steps__text"><span class="cr-steps__label">Vos coordonnées</span></span></li></ol>
+              <div class="progress" role="progressbar" aria-label="Progression du formulaire" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1" aria-valuetext="Étape 1 sur 3"><span></span></div>
+            </div>
+
+            <div class="alert" role="alert" data-alert hidden>
+                <svg class="cr-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>
+                <div>
+                  <strong data-alert-title data-one="1 champ à corriger avant l’envoi" data-many="{n} champs à corriger avant l’envoi">1 champ à corriger avant l’envoi</strong>
+                  <ul data-alert-list></ul>
+                </div>
+              </div>
+
+            <!-- Étape 1 : votre site -->
+            <div data-step="1">
+              <div class="qhead">
+                <p class="cr-overline u-fs-13 u-muted">Étape 1 sur 3</p>
+                <h2>Votre site</h2>
+                <p>Pour vous orienter vers l’équipe spécialisée de votre secteur. Les champs marqués d’un astérisque sont obligatoires.</p>
+              </div>
+              <fieldset class="qgroup" id="f-type">
+                <legend>Type de site à entretenir <span aria-hidden="true">*</span></legend>
+                <div class="choices">
+                  
+                  <label class="choice">
+                    <input type="radio" name="type-site" value="bureaux">
+                    <span class="choice__ic">
+                      <svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V12l14-4v34"></path><path d="M22 16h18v26"></path><path d="M4 42h40"></path><path d="M12 16h2M16 16h2M12 22h2M16 22h2M12 28h2M16 28h2M12 34h2M16 34h2"></path><path d="M27 22h2M33 22h2M27 28h2M33 28h2"></path><path d="M28 42v-7h6v7"></path></svg>
+                      
+                      
+                    </span>
+                    <span class="choice__t">Bureaux et commerces</span>
+                    <span class="choice__s">Open spaces, boutiques, showrooms</span>
+                    <span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                  </label>
+                
+                  <label class="choice">
+                    <input type="radio" name="type-site" value="industrie">
+                    <span class="choice__ic">
+                      <svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 42h40"></path><path d="M6 42V24l10 6v-6l10 6v-6l10 6V8h6v34"></path><path d="M11 36h4M19 36h4M27 36h4"></path><path d="M38 4c2 1 2 3 0 4"></path><path d="M41 2c2 1 2 3 0 4"></path></svg>
+                      
+                      
+                    </span>
+                    <span class="choice__t">Site industriel</span>
+                    <span class="choice__s">Ateliers, entrepôts, production</span>
+                    <span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                  </label>
+                
+                  <label class="choice">
+                    <input type="radio" name="type-site" value="copro">
+                    <span class="choice__ic">
+                      <svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 42V18L24 8l18 10v24"></path><path d="M4 42h40"></path><path d="M16 40V24h6a5 5 0 0 1 0 10h-6"></path><path d="M30 26l6-3"></path><path d="M31 31h7"></path><path d="M30 36l6 3"></path></svg>
+                      
+                      
+                    </span>
+                    <span class="choice__t">Copropriété ou parking</span>
+                    <span class="choice__s">Parties communes, parkings</span>
+                    <span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                  </label>
+                
+                  <label class="choice">
+                    <input type="radio" name="type-site" value="collectivite">
+                    <span class="choice__ic">
+                      
+                      <svg class="ic ic--48" width="36" height="36" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 18L24 7l18 11"></path><path d="M8 18h32"></path><path d="M12 22v14"></path><path d="M20 22v14"></path><path d="M28 22v14"></path><path d="M36 22v14"></path><path d="M6 40h36"></path><path d="M4 44h40"></path></svg>
+                      
+                    </span>
+                    <span class="choice__t">Collectivité</span>
+                    <span class="choice__s">Bâtiments publics, écoles</span>
+                    <span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                  </label>
+                
+                  <label class="choice">
+                    <input type="radio" name="type-site" value="autre">
+                    <span class="choice__ic">
+                      
+                      
+                      <svg class="ic ic--48" width="36" height="36" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="6" width="15" height="15" rx="2"></rect><rect x="27" y="6" width="15" height="15" rx="2"></rect><rect x="6" y="27" width="15" height="15" rx="2"></rect><path d="M34.5 28v13"></path><path d="M28 34.5h13"></path></svg>
+                    </span>
+                    <span class="choice__t">Autre site</span>
+                    <span class="choice__s">Santé, hôtellerie, enseignement…</span>
+                    <span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                  </label>
+                
+                </div>
+                <p class="field__err" data-err="type" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Choisissez le type de site à entretenir.</p>
+              </fieldset>
+              <div class="form form--3 u-mb-32">
+                <div class="field">
+                  <label class="field__label" for="f-surface">Surface approximative</label>
+                  <div class="select">
+                    <select class="input" id="f-surface">
+                      <option>Choisir…</option>
+                      <option>Moins de 500 m²</option>
+                      <option>500 à 2 000 m²</option>
+                      <option>2 000 à 5 000 m²</option>
+                      <option>Plus de 5 000 m²</option>
+                      <option>Je ne sais pas</option>
+                    </select>
+                    <span class="select__ic"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></span>
+                  </div>
+                </div>
+                <div class="field" id="f-cp-wrap">
+                  <label class="field__label" for="f-cp">Code postal du site <span aria-hidden="true">*</span></label>
+                  <input class="input" id="f-cp" inputmode="numeric" autocomplete="postal-code" placeholder="67000" aria-required="true" aria-invalid="false">
+                  <p class="field__err" data-err="cp" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez un code postal à 5 chiffres (ex. : 67000).</p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-ville">Ville</label>
+                  <input class="input" id="f-ville" autocomplete="address-level2" placeholder="Strasbourg">
+                </div>
+              </div>
+              <fieldset class="qgroup">
+                <legend>Nombre de sites concernés</legend>
+                <div class="picks"><label class="pick"><input type="radio" name="nb-sites" value="Un seul site" checked><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un seul site</label><label class="pick"><input type="radio" name="nb-sites" value="2 à 5 sites"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>2 à 5 sites</label><label class="pick"><input type="radio" name="nb-sites" value="Plus de 5 sites"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Plus de 5 sites</label></div>
+              </fieldset>
+              <div class="qnav">
+                <p class="qnav__hint">Vos réponses sont conservées si vous revenez en arrière.</p>
+                <button type="button" class="cr-btn cr-btn--primary cr-btn--lg" data-action="next"><span>Continuer</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button>
+              </div>
+            </div>
+
+            <!-- Étape 2 : vos besoins -->
+            <div data-step="2" hidden>
+              <div class="qhead">
+                <p class="cr-overline u-fs-13 u-muted">Étape 2 sur 3</p>
+                <h2>Vos besoins</h2>
+                <p>Plusieurs choix possibles. Nous affinerons ensemble lors de la visite.</p>
+              </div>
+              <fieldset class="qgroup" id="f-presta">
+                <legend>Prestations souhaitées <span aria-hidden="true">*</span></legend>
+                <div class="picks"><label class="pick"><input type="checkbox" value="Nettoyage de bureaux"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Nettoyage de bureaux</label><label class="pick"><input type="checkbox" value="Nettoyage industriel"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Nettoyage industriel</label><label class="pick"><input type="checkbox" value="Vitrerie et façades"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Vitrerie et façades</label><label class="pick"><input type="checkbox" value="Parkings et haute pression"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Parkings et haute pression</label><label class="pick"><input type="checkbox" value="Remise en état après travaux"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Remise en état après travaux</label><label class="pick"><input type="checkbox" value="Désinfection"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Désinfection</label><label class="pick"><input type="checkbox" value="Gestion des déchets"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Gestion des déchets</label><label class="pick"><input type="checkbox" value="Fourniture de consommables"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Fourniture de consommables</label></div>
+                <p class="field__err" data-err="presta" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Sélectionnez au moins une prestation.</p>
+              </fieldset>
+              <fieldset class="qgroup" id="f-freq">
+                <legend>Fréquence <span aria-hidden="true">*</span></legend>
+                <div class="picks"><label class="pick"><input type="radio" name="freq" value="Quotidienne"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Quotidienne</label><label class="pick"><input type="radio" name="freq" value="Plusieurs fois par semaine"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Plusieurs fois par semaine</label><label class="pick"><input type="radio" name="freq" value="Hebdomadaire"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Hebdomadaire</label><label class="pick"><input type="radio" name="freq" value="Mensuelle"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Mensuelle</label><label class="pick"><input type="radio" name="freq" value="Ponctuelle"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Ponctuelle</label></div>
+                <p class="field__err" data-err="freq" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez la fréquence souhaitée.</p>
+              </fieldset>
+              <fieldset class="qgroup">
+                <legend>Créneaux d’intervention possibles</legend>
+                <div class="picks"><label class="pick"><input type="checkbox" value="Tôt le matin"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Tôt le matin</label><label class="pick"><input type="checkbox" value="En journée"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>En journée</label><label class="pick"><input type="checkbox" value="En soirée"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>En soirée</label><label class="pick"><input type="checkbox" value="Le week-end"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Le week-end</label></div>
+              </fieldset>
+              <div class="form">
+                <div class="field">
+                  <label class="field__label" for="f-debut">Démarrage souhaité</label>
+                  <div class="select">
+                    <select class="input" id="f-debut">
+                      <option>Dès que possible</option>
+                      <option>Dans le mois</option>
+                      <option>Dans 1 à 3 mois</option>
+                      <option>Plus tard</option>
+                    </select>
+                    <span class="select__ic"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></span>
+                  </div>
+                </div>
+                <div class="field">
+                  <span class="field__label">Cahier des charges <em>(facultatif)</em></span>
+                  <button type="button" class="cr-btn cr-btn--secondary cr-btn--lg u-w-full"><span>Joindre un fichier</span></button>
+                </div>
+                <div class="field field--full">
+                  <label class="field__label" for="f-precisions">Précisions <em>(facultatif)</em></label>
+                  <textarea class="input" id="f-precisions" rows="4" placeholder="Accès, contraintes de sécurité, horaires d’ouverture…"></textarea>
+                  <p class="field__hint">PDF, Word ou Excel, 10 Mo maximum pour les pièces jointes.</p>
+                </div>
+              </div>
+              <div class="qnav">
+                <button type="button" class="cr-btn cr-btn--secondary cr-btn--lg" data-action="back"><span>Retour</span></button>
+                <button type="button" class="cr-btn cr-btn--primary cr-btn--lg" data-action="next"><span>Continuer</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button>
+              </div>
+            </div>
+
+            <!-- Étape 3 : vos coordonnées -->
+            <div data-step="3" hidden>
+              <div class="qhead">
+                <p class="cr-overline u-fs-13 u-muted">Étape 3 sur 3</p>
+                <h2>Vos coordonnées</h2>
+                <p>Un chargé d’affaires vous rappelle sous 24 h ouvrées pour convenir d’une visite.</p>
+              </div>
+              <div class="form">
+                <div class="field" id="f-nom-wrap">
+                  <label class="field__label" for="f-nom">Nom et prénom <span aria-hidden="true">*</span></label>
+                  <input class="input" id="f-nom" autocomplete="name" placeholder="Ex. : Claire Muller" aria-required="true" aria-invalid="false">
+                  <p class="field__err" data-err="nom" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez votre nom et votre prénom.</p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-fonction">Fonction <em>(facultatif)</em></label>
+                  <input class="input" id="f-fonction" autocomplete="organization-title" placeholder="Ex. : Responsable des services généraux">
+                </div>
+                <div class="field" id="f-entreprise-wrap">
+                  <label class="field__label" for="f-entreprise">Entreprise ou organisme <span aria-hidden="true">*</span></label>
+                  <input class="input" id="f-entreprise" autocomplete="organization" placeholder="Ex. : Groupe Rhénan" aria-required="true" aria-invalid="false">
+                  <p class="field__err" data-err="entreprise" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez le nom de votre entreprise ou organisme.</p>
+                </div>
+                <div class="field" id="f-email-wrap">
+                  <label class="field__label" for="f-email">E-mail professionnel <span aria-hidden="true">*</span></label>
+                  <input class="input" id="f-email" type="email" autocomplete="email" placeholder="nom@entreprise.fr" aria-required="true" aria-invalid="false">
+                  <p class="field__err" data-err="email" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez une adresse e-mail complète (ex. : nom@entreprise.fr).</p>
+                </div>
+                <div class="field" id="f-tel-wrap">
+                  <label class="field__label" for="f-tel">Téléphone <span aria-hidden="true">*</span></label>
+                  <input class="input" id="f-tel" type="tel" autocomplete="tel" placeholder="06 12 34 56 78" aria-required="true" aria-invalid="false">
+                  <p class="field__err" data-err="tel" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez un numéro de téléphone à 10 chiffres.</p>
+                </div>
+                <fieldset class="qgroup u-m-0">
+                  <legend>Vous préférez être recontacté par</legend>
+                  <div class="picks"><label class="pick"><input type="radio" name="pref" value="Téléphone" checked><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Téléphone</label><label class="pick"><input type="radio" name="pref" value="E-mail"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>E-mail</label></div>
+                </fieldset>
+                <div class="field field--full u-mt-8" id="f-consent-wrap">
+                  <label class="checkbox"><input type="checkbox" aria-required="true" aria-invalid="false"><span>J’accepte que Crescend’eau utilise ces informations pour me recontacter au sujet de ma demande. <a href="#">Politique de confidentialité</a> <span aria-hidden="true">*</span></span></label>
+                  <p class="field__err" data-err="consent" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Cochez cette case pour que nous puissions vous recontacter.</p>
+                </div>
+              </div>
+              <div class="qnav">
+                <button type="button" class="cr-btn cr-btn--secondary cr-btn--lg" data-action="back"><span>Retour</span></button>
+                <button type="button" class="cr-btn cr-btn--primary cr-btn--lg" data-action="next"><span>Envoyer ma demande</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button>
+              </div>
+            </div>
+
+            <!-- Confirmation -->
+            <div class="done" role="status" data-step="4" hidden>
+                <span class="done__ic" aria-hidden="true"><svg class="cr-icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span>
+                <p class="done__status"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Demande envoyée</p>
+                <h2 class="cr-title cr-title--h2">Merci, <span data-out="prenom">à</span>.<br><span class="cr-accent">Demande bien reçue.</span></h2>
+                <p class="u-maxw-620">Votre demande n° CR-2611-0482 <span class="tbc">[exemple]</span> est enregistrée. Un e-mail de confirmation vient d’être envoyé à <strong class="u-strong" data-out="email"></strong>.</p>
+                <div class="u-w-full">
+                  <p class="cr-overline u-fs-13 u-mb-8">Prochaines étapes</p>
+                  <ol class="timeline">
+                    <li><span class="cr-steps__num" aria-hidden="true">1</span><span><strong class="u-strong u-block">Appel d’un chargé d’affaires</strong><span class="muted">Sous 24 h ouvrées, pour préciser vos besoins.</span></span></li>
+                    <li><span class="cr-steps__num" aria-hidden="true">2</span><span><strong class="u-strong u-block">Visite gratuite de votre site</strong><span class="muted">À la date de votre choix, 45 minutes environ.</span></span></li>
+                    <li><span class="cr-steps__num" aria-hidden="true">3</span><span><strong class="u-strong u-block">Devis détaillé</strong><span class="muted">Sous 48 h après la visite, sans engagement.</span></span></li>
+                  </ol>
+                </div>
+                <dl class="recap">
+                  <dt>Type de site</dt><dd data-out="type">—</dd><dt>Surface</dt><dd data-out="surface">—</dd><dt>Localisation</dt><dd data-out="lieu">—</dd><dt>Prestations</dt><dd data-out="presta">—</dd><dt>Fréquence</dt><dd data-out="freq">—</dd><dt>Contact</dt><dd data-out="contact"> · </dd>
+                </dl>
+                <div class="actions">
+                  <a class="cr-btn cr-btn--secondary cr-btn--lg" href="index.html"><span>Retour à l’accueil</span></a>
+                  <a class="cr-btn cr-btn--secondary cr-btn--lg" href="realisations.html"><span>Nos réalisations</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+                </div>
+              </div>
+          </div>
+
+          <aside class="qaside" aria-label="Informations utiles">
+            <div class="box">
+              <h3>Après votre demande</h3>
+              <ul class="ticks">
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Rappel sous 24 h ouvrées</li>
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Visite de votre site, gratuite</li>
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Devis détaillé, sans engagement</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Une question ?</h3>
+              <p>Un chargé d’affaires vous répond du lundi au vendredi, de 7 h à 19 h.</p>
+              <div class="u-flex u-items-center u-gap-14">
+                <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler Crescend’eau" title="Appeler Crescend’eau" href="tel:+33300000000"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+                <a class="tel" href="tel:+33300000000">03 XX XX XX XX</a>
+              </div>
+            </div>
+            <figure class="quote u-p-24">
+              <div class="quote__top"><span class="quote__mark" aria-hidden="true">“</span><span class="tbc">[exemple]</span></div>
+              <blockquote class="u-text-15">Devis reçu deux jours après la visite, clair et détaillé poste par poste.</blockquote>
+              <figcaption><span class="avatar" aria-hidden="true">TE</span><span><span class="quote__name">Thomas Ehrhart</span><span class="quote__role">Directeur de site · Obernai</span></span></figcaption>
+            </figure>
+            <p class="note u-flex u-gap-10"><svg class="ic u-accent u-mt-1" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg><span>Vos données servent uniquement à traiter votre demande et ne sont jamais cédées. <span class="tbc">[à confirmer]</span></span></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-include="partials/footer.html"></div>
+</div>
+</body>
+</html>
