@@ -14,18 +14,53 @@
 .cr-iconbtn--44 { width: 44px; height: 44px; }
 .cr-iconbtn--48 { width: 48px; height: 48px; }
 
-/* Comparateur Avant / Après : js/before-after.js met à jour --pos (0 % à 100 %). */
+/* Comparateur Avant / Après : js/before-after.js met à jour --pos (0 % à 100 %).
+   Les deux photos sont des fichiers distincts dans assets/img/avant-apres/. */
 .cr-ba--16x10 { aspect-ratio: 16 / 10; }
 .cr-ba--4x3 { aspect-ratio: 4 / 3; }
 .cr-ba__before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
 .cr-ba__divider { left: var(--pos, 50%); }
-/* État « Avant » simulé des visuels de démonstration [à confirmer] : à retirer avec les vraies photos. */
-.cr-ba__img--demo { filter: sepia(.6) saturate(.55) brightness(.58) contrast(1.15); }
 
 /* Barre de progression du devis : la largeur suit l’étape (aria-valuenow, mis à jour par js/devis.js). */
 .progress[aria-valuenow="1"] span { width: 12%; }
 .progress[aria-valuenow="2"] span { width: 45%; }
 .progress[aria-valuenow="3"] span { width: 78%; }
+
+/* Lien de la page courante : aria-current est posé dans le HTML par tools/sync-partials.mjs. */
+.cr-nav__link[aria-current="page"]::after { width: 16px; }
+.mnav a[aria-current="page"] { color: var(--accent); }
+
+/* ---------- Correctifs de la maquette ---------- */
+/* Ces marges sont écrites dans site.css et components.css, mais y sont annulées par les règles générales
+   « .site p { margin: 0 } » et « .site ul { margin: 0 } », plus spécifiques. Elles sont rétablies ici à l’identique. */
+.site .proof { margin-top: 32px; }
+.site .hero__zone { margin-top: 40px; }
+.site .targets { margin-top: 40px; }
+.site .cities { margin: 32px 0; }
+.site .checks { margin-top: 32px; }
+.site .cr-logos__title { margin-bottom: var(--space-6); }
+.site .cr-logos__list { margin: 0 auto; }
+@media (max-width: 720px) {
+  .site .proof { margin-top: 24px; }
+  .site .hero__zone { margin-top: 28px; }
+  /* Visuel du hero : sur mobile, le décalage prévu pour l’ordinateur (34 % / 46 %) restait appliqué
+     et rognait la photo. Elle reprend toute la largeur, comme le prévoit components.css. */
+  .hero .cr-hero__media, .phero .cr-hero__media { inset: auto; }
+  /* Fil d’étapes du devis : à l’étape 3, « Vos coordonnées » sur une seule ligne élargissait la carte
+     au-delà de l’écran. Écarts resserrés, libellé sur deux lignes, et la carte ne peut plus déborder. */
+  .qwrap > * { min-width: 0; }
+  .stepper.cr-steps, .stepper .cr-steps__item { gap: var(--space-2); }
+  .stepper .cr-steps__label { white-space: normal; }
+}
+
+/* Carte de la zone d’intervention : la légende est sortie du cadre .map (parent .map-wrap).
+   Même position sur ordinateur ; sur mobile elle passe sous la carte au lieu de recouvrir Saint-Louis,
+   et « Allemagne » s’aligne à droite au lieu d’être coupé. */
+.map-wrap { position: relative; }
+@media (max-width: 720px) {
+  .map .map__region--allemagne { left: auto; right: var(--space-3); }
+  .map__legend { position: static; margin-top: var(--space-3); }
+}
 
 /* ---------- Réglages portés par des classes existantes ---------- */
 .hdr-root, .ftr { font-family: var(--font-body); color: var(--ink-soft); }
@@ -49,6 +84,50 @@
   .site .form--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+/* Texte long (pages légales, pages hors maquette) : colonne de la largeur des titres de section. */
+.prose { display: flex; flex-direction: column; gap: var(--space-5); max-width: 760px; }
+.site .prose h2 { margin-top: var(--space-5); }
+
+/* ---------- Page « Composants et états » (composants.html) ---------- */
+.kit__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; padding-bottom: 40px; }
+.kit__grid { display: grid; }
+.kit__grid--7-5 { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+.kit__grid--5-7 { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.kit__grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.kit__states { display: grid; grid-template-columns: 160px repeat(4, minmax(0, 1fr)); gap: 24px 32px; align-items: center; }
+.kit__wavebox { position: relative; height: 200px; overflow: hidden; background: var(--surface-000); }
+.kit__wave { position: absolute; right: 0; bottom: 0; width: 70%; height: 70%; }
+.kit__clip { border-radius: var(--radius-md); overflow: hidden; }
+.kit__bleed { display: flex; flex-direction: column; gap: 24px; margin: 0 -64px; }
+.site .choices--1 { grid-template-columns: 1fr; }
+.site .done__ic--sm { width: 48px; height: 48px; }
+.swatch__c--surface-000 { background: var(--surface-000); }
+.swatch__c--surface-100 { background: var(--surface-100); }
+.swatch__c--surface-200 { background: var(--surface-200); }
+.swatch__c--surface-300 { background: var(--surface-300); }
+.swatch__c--surface-400 { background: var(--surface-400); }
+.swatch__c--line { background: var(--line); }
+.swatch__c--line-strong { background: var(--line-strong); }
+.swatch__c--ink { background: var(--ink); }
+.swatch__c--ink-soft { background: var(--ink-soft); }
+.swatch__c--ink-muted { background: var(--ink-muted); }
+.swatch__c--accent { background: var(--accent); }
+.swatch__c--accent-hover { background: var(--accent-hover); }
+.swatch__c--accent-deep { background: var(--accent-deep); }
+.swatch__c--accent-soft { background: var(--accent-soft); }
+.swatch__c--on-accent { background: var(--on-accent); }
+.swatch__c--focus-ring { background: var(--focus-ring); }
+.swatch__c--success { background: var(--success); }
+.swatch__c--danger { background: var(--danger); }
+/* La planche est figée à 1440 px dans la maquette : ici elle s’adapte. */
+@media (max-width: 960px) {
+  .kit__grid--7-5, .kit__grid--5-7, .kit__grid--3 { grid-template-columns: 1fr; }
+  .kit__states { grid-template-columns: 160px repeat(4, max-content); overflow-x: auto; }
+}
+@media (max-width: 720px) {
+  .kit__bleed { margin: 0 calc(-1 * var(--space-5)); }
+}
+
 /* ---------- Carte de la zone d’intervention : position des repères ---------- */
 .map__region--vosges { left: 10%; top: 42%; }
 .map__region--allemagne { left: 72%; top: 52%; }
@@ -70,21 +149,33 @@
 /* ---------- Utilitaires (une propriété, une valeur de la maquette) ---------- */
 .site .u-flex { display: flex; }
 .site .u-col { flex-direction: column; }
+.site .u-row { flex-direction: row; }
 .site .u-between { justify-content: space-between; }
+.site .u-justify-center { justify-content: center; }
 .site .u-items-center { align-items: center; }
 .site .u-items-start { align-items: start; }
+.site .u-items-fstart { align-items: flex-start; }
+.site .u-items-stretch { align-items: stretch; }
 .site .u-self-start { align-self: flex-start; }
 .site .u-block { display: block; }
 .site .u-relative { position: relative; }
 .site .u-center { text-align: center; }
+.site .u-disabled { opacity: .45; }
 .site .u-w-full { width: 100%; }
+.site .u-w-220 { width: 220px; }
+.site .u-maxw-460 { max-width: 460px; }
+.site .u-maxw-520 { max-width: 520px; }
 .site .u-maxw-620 { max-width: 620px; }
+.site .u-minh-232 { min-height: 232px; }
 .site .u-minh-240 { min-height: 240px; }
 
 .site .u-gap-10 { gap: 10px; }
 .site .u-gap-12 { gap: 12px; }
 .site .u-gap-14 { gap: 14px; }
+.site .u-gap-16 { gap: 16px; }
+.site .u-gap-20 { gap: 20px; }
 .site .u-gap-24 { gap: 24px; }
+.site .u-gap-32 { gap: 32px; }
 .site .u-gap-40 { gap: 40px; }
 .site .u-gap-48 { gap: 48px; }
 
@@ -96,6 +187,7 @@
 .site .u-mt-40 { margin-top: 40px; }
 .site .u-mt-56 { margin-top: 56px; }
 .site .u-mb-8 { margin-bottom: 8px; }
+.site .u-mb-12 { margin-bottom: 12px; }
 .site .u-mb-28 { margin-bottom: 28px; }
 .site .u-mb-32 { margin-bottom: 32px; }
 .site .u-mb-48 { margin-bottom: 48px; }
@@ -113,6 +205,7 @@
 .site .u-ink-soft { color: var(--ink-soft); }
 .site .u-muted { color: var(--ink-muted); }
 .site .u-strong { color: var(--ink); font-weight: 500; }
+.site .u-bg-000 { background: var(--surface-000); }
 .site .u-bg-100 { background: var(--surface-100); }
 
 .site .u-fs-13 { font-size: 13px; }

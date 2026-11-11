@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Composants et états — maquette Crescend’eau</title>
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/pages.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body data-page="composants">
+<div class="site">
+  <div class="hdr-sticky">
+<!-- partial:header -->
+<!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<div class="hdr-root">
+<a class="skip" href="#contenu">Aller au contenu</a>
+<header class="hdr">
+  <div class="hdr__top">
+    <div class="wrap hdr__top-in">
+      <p><span class="hdr__dot" aria-hidden="true"></span>Nettoyage professionnel B2B en Alsace · Intervention 7j/7 <span class="tbc">[à confirmer]</span></p>
+      <nav class="hdr__util" aria-label="Accès rapides">
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap hdr__bar">
+    <span class="hdr__logo"><a class="cr-logo" href="index.html"><img class="cr-logo__img" src="assets/img/logo-crescendeau.png" height="44" alt="Crescend’eau, une vague de propreté : retour à l’accueil"></a></span>
+    <nav class="hdr__nav" aria-label="Navigation principale">
+      <a class="cr-nav__link" href="prestations.html" data-nav="prestations">Prestations</a>
+      <a class="cr-nav__link" href="index.html#secteurs" data-nav="secteurs">Secteurs</a>
+      <a class="cr-nav__link" href="methode.html" data-nav="methode">La Méthode</a>
+      <a class="cr-nav__link" href="realisations.html" data-nav="realisations">Réalisations</a>
+      <a class="cr-nav__link" href="entreprise.html" data-nav="entreprise">L’entreprise</a>
+      <a class="cr-nav__link" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+    <div class="hdr__right">
+      <a class="hdr__tel" href="tel:+33300000000" aria-label="Appeler Crescend’eau au 03 XX XX XX XX"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg><span>03 XX XX XX XX</span></a>
+      <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html"><span>Demander un devis</span></a>
+    </div>
+    <div class="hdr__mob">
+      <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler Crescend’eau" title="Appeler Crescend’eau" href="tel:+33300000000"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+      <button type="button" class="hdr__burger" aria-expanded="false" aria-controls="menu-mobile" aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hdr__panel" id="menu-mobile">
+    <nav class="mnav" aria-label="Menu mobile">
+      <a href="prestations.html" data-nav="prestations">Prestations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="index.html#secteurs" data-nav="secteurs">Secteurs<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="methode.html" data-nav="methode">La Méthode<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="realisations.html" data-nav="realisations">Réalisations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="entreprise.html" data-nav="entreprise">L’entreprise<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="contact.html" data-nav="contact">Contact<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    </nav>
+    <div class="mnav__extra">
+      <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+      <p class="note u-center">Réponse sous 24 h · Devis gratuit · Intervention 7j/7</p>
+      <div class="mnav__links">
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="callbar" role="region" aria-label="Contact rapide">
+  <a class="cr-btn cr-btn--secondary cr-btn--md" href="tel:+33300000000"><span>Appeler</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+  <a class="cr-btn cr-btn--primary cr-btn--md" href="devis.html"><span>Devis en 24 h</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+<!-- /partial:header -->
+  </div>
+  <main id="contenu">
+  <div class="kit">
+    <header class="kit__head">
+      <div>
+        <p class="cr-overline u-mb-12">Maquette du site V2 · récapitulatif</p>
+        <h1 class="cr-title cr-title--display">Composants<br><span class="cr-accent">et états.</span></h1>
+      </div>
+      <p class="muted u-maxw-460">Tous les éléments utilisés dans les pages, avec leurs états : défaut, survol, focus clavier, désactivé, erreur. Design system Crescend’eau, thème unique Nuit.</p>
+    </header>
+
+    <section class="kit__sec" aria-labelledby="k-couleurs">
+      <h2 id="k-couleurs">Couleurs</h2>
+      <p>Le noir d’abord : 90 % de surfaces sombres, un seul turquoise sous 5 % de la surface. Le texte posé sur le turquoise est toujours on-accent.</p>
+      <div class="kit__row u-gap-16">
+        <div class="swatch"><i class="swatch__c--surface-000"></i><b>surface-000</b>#010509 · header, pied</div>
+        <div class="swatch"><i class="swatch__c--surface-100"></i><b>surface-100</b>#02070a · page</div>
+        <div class="swatch"><i class="swatch__c--surface-200"></i><b>surface-200</b>#090e11 · section alt.</div>
+        <div class="swatch"><i class="swatch__c--surface-300"></i><b>surface-300</b>#0a1317 · cartes</div>
+        <div class="swatch"><i class="swatch__c--surface-400"></i><b>surface-400</b>#0f1b20 · survol</div>
+        <div class="swatch"><i class="swatch__c--line"></i><b>line</b>#1a262d · filets</div>
+        <div class="swatch"><i class="swatch__c--line-strong"></i><b>line-strong</b>#5e6a72 · contrôles</div>
+        <div class="swatch"><i class="swatch__c--ink"></i><b>ink</b>#f5f6f6 · titres</div>
+        <div class="swatch"><i class="swatch__c--ink-soft"></i><b>ink-soft</b>#dfe4e6 · texte</div>
+        <div class="swatch"><i class="swatch__c--ink-muted"></i><b>ink-muted</b>#a9b3b8 · descriptions</div>
+        <div class="swatch"><i class="swatch__c--accent"></i><b>accent</b>#3ab0b5 · CTA, fin de titre</div>
+        <div class="swatch"><i class="swatch__c--accent-hover"></i><b>accent-hover</b>#11d4d9 · survol</div>
+        <div class="swatch"><i class="swatch__c--accent-deep"></i><b>accent-deep</b>#2a8a90 · baseline</div>
+        <div class="swatch"><i class="swatch__c--accent-soft"></i><b>accent-soft</b>#0c2a2e · pastilles</div>
+        <div class="swatch"><i class="swatch__c--on-accent"></i><b>on-accent</b>#04181b · texte sur accent</div>
+        <div class="swatch"><i class="swatch__c--focus-ring"></i><b>focus-ring</b>#8fe6e9 · focus clavier</div>
+        <div class="swatch"><i class="swatch__c--success"></i><b>success</b>#5fcf8f · confirmation</div>
+        <div class="swatch"><i class="swatch__c--danger"></i><b>danger</b>#ff7a6b · erreur</div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-typo">
+      <h2 id="k-typo">Typographie, logo et signature</h2>
+      <p>Montserrat 500 en capitales pour titres, sur-titres, boutons et étapes ; DM Sans pour le texte et la navigation. La fin du titre passe en turquoise et se termine par un point.</p>
+      <div class="kit__grid kit__grid--7-5 u-gap-48 u-items-start">
+        <div class="u-flex u-col u-gap-20">
+          <p class="cr-title cr-title--display-xl">La propreté en <span class="cr-accent">puissance.</span></p>
+          <p class="note">H1 accueil · 72/78 · Montserrat 500 · mobile 44/48</p>
+          <p class="cr-title cr-title--h2">Nos <span class="cr-accent">prestations.</span></p>
+          <p class="note">H2 · 40/48 · mobile 28/34 — H1 intérieur 56/62</p>
+          <p class="cr-title cr-title--h3">Nettoyage de bureaux</p>
+          <p class="note">H3 · 24/32</p>
+          <p class="cr-lead">Solutions premium de nettoyage pour environnements exigeants.</p>
+          <p class="note">Chapô · DM Sans 20/30</p>
+          <p>Texte courant en DM Sans 17/28, couleur ink-soft, en vouvoiement et typographie française.</p>
+        </div>
+        <div class="u-flex u-col u-gap-24">
+          <div class="box u-bg-000 u-items-fstart">
+            <p class="state__k">Logo · horizontal · fond sombre uniquement</p>
+            <span class="cr-logo"><img class="cr-logo__img" src="assets/img/logo-crescendeau.png" height="44" alt="Crescend'eau — Une vague de propreté"></span>
+            <p class="state__k u-mt-8">Symbole · petits formats</p>
+            <span class="cr-logo"><img class="cr-logo__img" src="assets/img/logo-symbole.png" height="44" alt="Symbole Crescend’eau"></span>
+          </div>
+          <div class="box kit__wavebox">
+            <p class="state__k">WaveAccent · corner (une fois par écran, en bordure)</p>
+            <div class="kit__wave" aria-hidden="true"><svg class="cr-wave cr-wave--corner wave-fill" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><filter id="crw-1" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter></defs><g filter="url(#crw-1)" class="cr-wave__glow"><path d="M40 300 C 180 300, 240 180, 330 120 S 470 30, 600 20"></path></g><g class="cr-wave__lines"><path d="M40 300 C 180 300, 240 180, 330 120 S 470 30, 600 20" class="cr-wave__l0"></path><path d="M20 300 C 170 290, 250 200, 340 140 S 480 60, 600 50" class="cr-wave__l1"></path><path d="M0 300 C 150 285, 250 220, 350 165 S 490 95, 600 85" class="cr-wave__l2"></path></g></svg></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-boutons">
+      <h2 id="k-boutons">Button et IconButton</h2>
+      <p>Pilule, capitales espacées. Un seul bouton primaire par écran (hors en-tête), les autres en contour. Seule la lueur turquoise est autorisée au survol. Libellés à l’infinitif, trois mots maximum.</p>
+      <div class="kit__states">
+        <span></span><span class="state__k">Défaut</span><span class="state__k">Survol</span><span class="state__k">Focus clavier</span><span class="state__k">Désactivé</span>
+        <span class="state__k">Primaire</span>
+        <div><button type="button" class="cr-btn cr-btn--primary cr-btn--md"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button></div>
+        <div><button type="button" class="cr-btn cr-btn--primary cr-btn--md is-hover"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button></div>
+        <div><button type="button" class="cr-btn cr-btn--primary cr-btn--md is-focus"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button></div>
+        <div><button type="button" class="cr-btn cr-btn--primary cr-btn--md" disabled><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button></div>
+        <span class="state__k">Secondaire</span>
+        <div><button type="button" class="cr-btn cr-btn--secondary cr-btn--md"><span>Être rappelé</span></button></div>
+        <div><button type="button" class="cr-btn cr-btn--secondary cr-btn--md is-hover"><span>Être rappelé</span></button></div>
+        <div><button type="button" class="cr-btn cr-btn--secondary cr-btn--md is-focus"><span>Être rappelé</span></button></div>
+        <div><button type="button" class="cr-btn cr-btn--secondary cr-btn--md" disabled><span>Être rappelé</span></button></div>
+        <span class="state__k">IconButton</span>
+        <div><button class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler" title="Appeler" type="button"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></button></div>
+        <div><button class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44 is-hover" aria-label="Appeler" title="Appeler" type="button"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></button></div>
+        <div><button class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44 is-focus" aria-label="Appeler" title="Appeler" type="button"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></button></div>
+        <div class="u-disabled"><button class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler" title="Appeler" type="button" disabled><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></button></div>
+      </div>
+      <div class="kit__row u-mt-32 u-items-center">
+        <div class="state"><span class="state__k">Tailles sm · md · lg</span><div class="actions"><button type="button" class="cr-btn cr-btn--primary cr-btn--sm"><span>Demander un devis</span></button><button type="button" class="cr-btn cr-btn--secondary cr-btn--md"><span>Notre méthode</span></button><button type="button" class="cr-btn cr-btn--secondary cr-btn--lg"><span>Audit gratuit</span></button></div></div>
+        <div class="state"><span class="state__k">IconButton rempli</span><button class="cr-iconbtn cr-iconbtn--filled cr-iconbtn--44" aria-label="En savoir plus" title="En savoir plus" type="button"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button></div>
+        <div class="state"><span class="state__k">Lien texte</span><a class="textlink" href="#">Voir le détail<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a></div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-champs">
+      <h2 id="k-champs">Champs de formulaire</h2>
+      <p>Libellé toujours visible, filet line-strong (3,6:1). L’erreur combine filet danger, pictogramme et message : le sens ne repose jamais sur la couleur seule.</p>
+      <div class="kit__grid kit__grid--3 u-gap-32">
+        <div class="field"><span class="state__k">Défaut</span><label class="field__label" for="k1">Entreprise</label><input class="input" id="k1" placeholder="Ex. : Groupe Rhénan"></div>
+        <div class="field"><span class="state__k">Survol</span><label class="field__label" for="k2">Entreprise</label><input class="input is-hover" id="k2" placeholder="Ex. : Groupe Rhénan"></div>
+        <div class="field"><span class="state__k">Focus clavier</span><label class="field__label" for="k3">Entreprise</label><input class="input is-focus" id="k3" value="Groupe Rhé"></div>
+        <div class="field is-error"><span class="state__k">Erreur</span><label class="field__label" for="k4">E-mail professionnel</label><input class="input" id="k4" value="claire.muller@" aria-invalid="true"><p class="field__err"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez une adresse e-mail complète (ex. : nom@entreprise.fr).</p></div>
+        <div class="field"><span class="state__k">Désactivé</span><label class="field__label" for="k5">Code client</label><input class="input" id="k5" value="CR-0482" disabled></div>
+        <div class="field"><span class="state__k">Liste déroulante</span><label class="field__label" for="k6">Type de site</label><div class="select"><select class="input" id="k6"><option>Bureaux ou commerce</option></select><span class="select__ic"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></span></div></div>
+      </div>
+      <div class="kit__row u-mt-40">
+        <div class="state u-w-220"><span class="state__k">Carte de choix · défaut</span><label class="choice"><input type="radio" name="kc"><span class="choice__ic"><svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V12l14-4v34"></path><path d="M22 16h18v26"></path><path d="M4 42h40"></path><path d="M12 16h2M16 16h2M12 22h2M16 22h2M12 28h2M16 28h2M12 34h2M16 34h2"></path><path d="M27 22h2M33 22h2M27 28h2M33 28h2"></path><path d="M28 42v-7h6v7"></path></svg></span><span class="choice__t">Bureaux et commerces</span><span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span></label></div>
+        <div class="state u-w-220"><span class="state__k">Sélectionnée</span><label class="choice"><input type="radio" name="kc" checked><span class="choice__ic"><svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 42h40"></path><path d="M6 42V24l10 6v-6l10 6v-6l10 6V8h6v34"></path><path d="M11 36h4M19 36h4M27 36h4"></path><path d="M38 4c2 1 2 3 0 4"></path><path d="M41 2c2 1 2 3 0 4"></path></svg></span><span class="choice__t">Site industriel</span><span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span></label></div>
+        <div class="state u-w-220"><span class="state__k">Erreur</span><div class="choices is-error choices--1"><label class="choice"><input type="radio" name="kc2"><span class="choice__ic"><svg class="cr-icon" width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 42V18L24 8l18 10v24"></path><path d="M4 42h40"></path><path d="M16 40V24h6a5 5 0 0 1 0 10h-6"></path><path d="M30 26l6-3"></path><path d="M31 31h7"></path><path d="M30 36l6 3"></path></svg></span><span class="choice__t">Copropriété ou parking</span><span class="choice__check" aria-hidden="true"><svg class="cr-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span></label></div></div>
+        <div class="state"><span class="state__k">Pastilles · défaut / sélectionnée</span><div class="picks"><label class="pick"><input type="checkbox"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Hebdomadaire</label><label class="pick"><input type="checkbox" checked><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Quotidienne</label></div></div>
+        <div class="state"><span class="state__k">Case à cocher · défaut / cochée / erreur</span><div class="u-flex u-col u-gap-10"><label class="checkbox"><input type="checkbox"><span>J’accepte d’être recontacté</span></label><label class="checkbox"><input type="checkbox" checked><span>J’accepte d’être recontacté</span></label><label class="checkbox is-error"><input type="checkbox"><span>J’accepte d’être recontacté</span></label></div></div>
+      </div>
+      <div class="kit__row u-mt-40 u-items-stretch">
+        <div class="alert u-m-0 u-maxw-520" role="alert"><svg class="cr-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg><div><strong>2 champs à corriger avant l’envoi</strong><ul><li><a href="#">Indiquez une adresse e-mail complète.</a></li><li><a href="#">Indiquez un numéro de téléphone à 10 chiffres.</a></li></ul></div></div>
+        <div class="box u-row u-items-center u-gap-16"><span class="done__ic done__ic--sm" aria-hidden="true"><svg class="cr-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg></span><p class="done__status"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Demande envoyée</p></div>
+        <div class="state u-justify-center"><span class="state__k">Étiquettes</span><div class="actions"><span class="tbc">[à confirmer]</span><span class="tbc">[exemple]</span><span class="chip">Quotidien</span><span class="badge"><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>ISO 9001</span></div></div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-cartes">
+      <h2 id="k-cartes">Cartes</h2>
+      <p>Coins de 8 px, filet line, aucune ombre portée. Au survol : surface-400, contour accent et lueur turquoise.</p>
+      <div class="kit__grid kit__grid--3 u-gap-24">
+        <div class="state"><span class="state__k">SectorCard · défaut</span><a class="cr-card cr-card--link" href="#"><span class="cr-card__icon"><svg class="cr-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 42V12l14-4v34"></path><path d="M22 16h18v26"></path><path d="M4 42h40"></path><path d="M12 16h2M16 16h2M12 22h2M16 22h2M12 28h2M16 28h2M12 34h2M16 34h2"></path><path d="M27 22h2M33 22h2M27 28h2M33 28h2"></path><path d="M28 42v-7h6v7"></path></svg></span><h3 class="cr-card__title">Bureaux et commerces</h3><p class="cr-card__desc">Espaces de travail entretenus sans gêner votre activité.</p></a></div>
+        <div class="state"><span class="state__k">SectorCard · survol</span><a class="cr-card cr-card--link is-hover" href="#"><span class="cr-card__icon"><svg class="cr-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 42h40"></path><path d="M6 42V24l10 6v-6l10 6v-6l10 6V8h6v34"></path><path d="M11 36h4M19 36h4M27 36h4"></path><path d="M38 4c2 1 2 3 0 4"></path><path d="M41 2c2 1 2 3 0 4"></path></svg></span><h3 class="cr-card__title">Industries</h3><p class="cr-card__desc">Ateliers, entrepôts et zones de production.</p></a></div>
+        <div class="state"><span class="state__k">SectorCard · focus clavier</span><a class="cr-card cr-card--link is-focus" href="#"><span class="cr-card__icon"><svg class="cr-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 42V18L24 8l18 10v24"></path><path d="M4 42h40"></path><path d="M16 40V24h6a5 5 0 0 1 0 10h-6"></path><path d="M30 26l6-3"></path><path d="M31 31h7"></path><path d="M30 36l6 3"></path></svg></span><h3 class="cr-card__title">Copropriétés et syndics</h3><p class="cr-card__desc">Parties communes, parkings et abords.</p></a></div>
+        <div class="state"><span class="state__k">Tuile bento · défaut</span><a class="tile u-minh-232" href="#"><span class="tile__icon"><svg class="cr-icon" width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h32v36H8z"></path><path d="M24 6v36"></path><path d="M8 24h32"></path><path d="M13 19l6-6"></path><path d="M13 15l2-2"></path><path d="M29 37l6-6"></path><path d="M33 37l2-2"></path></svg></span><span class="tile__arrow" aria-hidden="true"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></span><span class="tile__body"><span class="tile__title">Vitrerie et façades</span><span class="tile__desc">Vitres et façades vitrées, y compris en hauteur.</span></span></a></div>
+        <div class="state"><span class="state__k">Tuile bento · survol</span><a class="tile is-hover u-minh-232" href="#"><span class="tile__icon"><svg class="cr-icon" width="40" height="40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 42h40"></path><path d="M6 42V24l10 6v-6l10 6v-6l10 6V8h6v34"></path><path d="M11 36h4M19 36h4M27 36h4"></path><path d="M38 4c2 1 2 3 0 4"></path><path d="M41 2c2 1 2 3 0 4"></path></svg></span><span class="tile__arrow" aria-hidden="true"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></span><span class="tile__body"><span class="tile__title">Nettoyage industriel</span><span class="tile__desc">Autolaveuses, dégraissage, protocoles d’hygiène.</span></span></a></div>
+        <div class="state"><span class="state__k">Témoignage</span><figure class="quote u-p-24"><div class="quote__top"><span class="quote__mark" aria-hidden="true">“</span><span class="tbc">[exemple]</span></div><blockquote class="u-text-15">Le rapport de passage arrive chaque matin.</blockquote><figcaption><span class="avatar" aria-hidden="true">CM</span><span><span class="quote__name">Claire Muller</span><span class="quote__role">Services généraux</span></span></figcaption></figure></div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-sections">
+      <h2 id="k-sections">Sections et contenu</h2>
+      <p>SectionHeading, MethodSteps (étape active pleine), BeforeAfter piloté au clavier, LogoCloud avec emplacements en pointillés.</p>
+      <div class="kit__grid kit__grid--5-7 u-gap-48 u-items-start">
+        <div class="u-flex u-col u-gap-40">
+          <div class="cr-heading cr-heading--left"><p class="cr-overline">Sur-titre</p><h2 class="cr-title cr-title--h2">Un nettoyage au service<br><span class="cr-accent">de vos exigences.</span></h2><p class="cr-lead">Chapô d’une phrase, deux lignes maximum.</p></div>
+          <ol class="cr-steps"><li class="cr-steps__item"><span class="cr-steps__num" aria-hidden="true">1</span><span class="cr-steps__text"><span class="cr-steps__label">Audit du site</span></span></li><li class="cr-steps__item is-active"><span class="cr-steps__num" aria-hidden="true">2</span><span class="cr-steps__text"><span class="cr-steps__label">Plan d’intervention</span></span></li><li class="cr-steps__item"><span class="cr-steps__num" aria-hidden="true">3</span><span class="cr-steps__text"><span class="cr-steps__label">Exécution technique</span></span></li><li class="cr-steps__item"><span class="cr-steps__num" aria-hidden="true">4</span><span class="cr-steps__text"><span class="cr-steps__label">Contrôle qualité</span></span></li></ol>
+        </div>
+        <figure class="cr-ba cr-ba--16x10"><img class="cr-ba__img" src="assets/img/avant-apres/parking-souterrain-apres.jpg" alt="Parking après intervention"><div class="cr-ba__before"><img class="cr-ba__img" src="assets/img/avant-apres/parking-souterrain-avant.jpg" alt="Parking avant intervention"></div><span class="cr-ba__tag cr-ba__tag--before">Avant</span><span class="cr-ba__tag cr-ba__tag--after">Après</span><span class="cr-ba__divider" aria-hidden="true"><span class="cr-ba__handle"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 7l-5 5 5 5"></path><path d="M15 7l5 5-5 5"></path></svg></span></span><input class="cr-ba__range" type="range" min="0" max="100" value="50" aria-label="Comparer Avant et Après"></figure>
+      </div>
+      <div class="u-mt-40 kit__clip">
+        <section class="cr-logos" aria-label="Ils nous font confiance"><p class="cr-overline cr-logos__title">Ils nous font confiance</p><ul class="cr-logos__list"><li class="cr-logos__item"><span class="cr-logos__placeholder">Logo client 1</span></li><li class="cr-logos__item"><span class="cr-logos__placeholder">Logo client 2</span></li><li class="cr-logos__item"><span class="cr-logos__placeholder">Logo client 3</span></li><li class="cr-logos__item"><span class="cr-logos__placeholder">Logo client 4</span></li><li class="cr-logos__item"><span class="cr-logos__placeholder">Logo client 5</span></li></ul></section>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-nav">
+      <h2 id="k-nav">En-tête : défaut et compacté au défilement</h2>
+      <p>Navbar étendue : barre utilitaire (zone, Nous rejoindre, Espace client), six liens, téléphone et CTA. Au défilement, la barre utilitaire se replie et l’en-tête passe de 88 à 68 px avec elevation-1. Sous 960 px : burger, bouton d’appel et barre d’appel collante en bas d’écran.</p>
+      <div class="kit__bleed">
+        <!-- partial:header demo actif=prestations -->
+<!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<header class="hdr" inert>
+  <div class="hdr__top">
+    <div class="wrap hdr__top-in">
+      <p><span class="hdr__dot" aria-hidden="true"></span>Nettoyage professionnel B2B en Alsace · Intervention 7j/7 <span class="tbc">[à confirmer]</span></p>
+      <nav class="hdr__util" aria-label="Accès rapides">
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap hdr__bar">
+    <span class="hdr__logo"><a class="cr-logo" href="index.html"><img class="cr-logo__img" src="assets/img/logo-crescendeau.png" height="44" alt="Crescend’eau, une vague de propreté : retour à l’accueil"></a></span>
+    <nav class="hdr__nav" aria-label="Navigation principale">
+      <a class="cr-nav__link" href="prestations.html" data-nav="prestations" aria-current="page">Prestations</a>
+      <a class="cr-nav__link" href="index.html#secteurs" data-nav="secteurs">Secteurs</a>
+      <a class="cr-nav__link" href="methode.html" data-nav="methode">La Méthode</a>
+      <a class="cr-nav__link" href="realisations.html" data-nav="realisations">Réalisations</a>
+      <a class="cr-nav__link" href="entreprise.html" data-nav="entreprise">L’entreprise</a>
+      <a class="cr-nav__link" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+    <div class="hdr__right">
+      <a class="hdr__tel" href="tel:+33300000000" aria-label="Appeler Crescend’eau au 03 XX XX XX XX"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg><span>03 XX XX XX XX</span></a>
+      <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html"><span>Demander un devis</span></a>
+    </div>
+    <div class="hdr__mob">
+      <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler Crescend’eau" title="Appeler Crescend’eau" href="tel:+33300000000"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+      <button type="button" class="hdr__burger" aria-expanded="false" aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hdr__panel">
+    <nav class="mnav" aria-label="Menu mobile">
+      <a href="prestations.html" data-nav="prestations" aria-current="page">Prestations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="index.html#secteurs" data-nav="secteurs">Secteurs<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="methode.html" data-nav="methode">La Méthode<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="realisations.html" data-nav="realisations">Réalisations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="entreprise.html" data-nav="entreprise">L’entreprise<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="contact.html" data-nav="contact">Contact<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    </nav>
+    <div class="mnav__extra">
+      <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+      <p class="note u-center">Réponse sous 24 h · Devis gratuit · Intervention 7j/7</p>
+      <div class="mnav__links">
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /partial:header -->
+        <!-- partial:header demo compact actif=prestations -->
+<!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<header class="hdr is-compact" inert>
+  <div class="hdr__top">
+    <div class="wrap hdr__top-in">
+      <p><span class="hdr__dot" aria-hidden="true"></span>Nettoyage professionnel B2B en Alsace · Intervention 7j/7 <span class="tbc">[à confirmer]</span></p>
+      <nav class="hdr__util" aria-label="Accès rapides">
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+      </nav>
+    </div>
+  </div>
+  <div class="wrap hdr__bar">
+    <span class="hdr__logo"><a class="cr-logo" href="index.html"><img class="cr-logo__img" src="assets/img/logo-crescendeau.png" height="44" alt="Crescend’eau, une vague de propreté : retour à l’accueil"></a></span>
+    <nav class="hdr__nav" aria-label="Navigation principale">
+      <a class="cr-nav__link" href="prestations.html" data-nav="prestations" aria-current="page">Prestations</a>
+      <a class="cr-nav__link" href="index.html#secteurs" data-nav="secteurs">Secteurs</a>
+      <a class="cr-nav__link" href="methode.html" data-nav="methode">La Méthode</a>
+      <a class="cr-nav__link" href="realisations.html" data-nav="realisations">Réalisations</a>
+      <a class="cr-nav__link" href="entreprise.html" data-nav="entreprise">L’entreprise</a>
+      <a class="cr-nav__link" href="contact.html" data-nav="contact">Contact</a>
+    </nav>
+    <div class="hdr__right">
+      <a class="hdr__tel" href="tel:+33300000000" aria-label="Appeler Crescend’eau au 03 XX XX XX XX"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg><span>03 XX XX XX XX</span></a>
+      <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html"><span>Demander un devis</span></a>
+    </div>
+    <div class="hdr__mob">
+      <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Appeler Crescend’eau" title="Appeler Crescend’eau" href="tel:+33300000000"><svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+      <button type="button" class="hdr__burger" aria-expanded="false" aria-label="Ouvrir le menu" data-label-open="Ouvrir le menu" data-label-close="Fermer le menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hdr__panel">
+    <nav class="mnav" aria-label="Menu mobile">
+      <a href="prestations.html" data-nav="prestations" aria-current="page">Prestations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="index.html#secteurs" data-nav="secteurs">Secteurs<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="methode.html" data-nav="methode">La Méthode<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="realisations.html" data-nav="realisations">Réalisations<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="entreprise.html" data-nav="entreprise">L’entreprise<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+      <a href="contact.html" data-nav="contact">Contact<svg class="cr-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg></a>
+    </nav>
+    <div class="mnav__extra">
+      <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+      <p class="note u-center">Réponse sous 24 h · Devis gratuit · Intervention 7j/7</p>
+      <div class="mnav__links">
+        <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
+        <a href="nous-rejoindre.html">Nous rejoindre</a>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- /partial:header -->
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-ecarts">
+      <h2 id="k-ecarts">Écarts au design system, à valider</h2>
+      <p>Ces éléments ont été composés à partir des composants et des tokens existants pour répondre au cahier des charges. Ils sont à intégrer au design system s’ils sont validés.</p>
+      <div class="cols3">
+        <div class="box"><h3>Navbar étendue</h3><p>Téléphone, Espace client et barre utilitaire : props à ajouter au composant Navbar. Barre d’appel collante sur mobile.</p></div>
+        <div class="box"><h3>Footer à colonnes</h3><p>Quatre colonnes de liens et bloc de coordonnées : le composant Footer actuel ne propose que des liens légaux.</p></div>
+        <div class="box"><h3>Hero avec réassurance</h3><p>Ligne « réponse sous 24 h · devis gratuit · 7j/7 » et zone d’intervention sous les boutons.</p></div>
+        <div class="box"><h3>Pictogrammes ajoutés</h3>
+          <div class="actions u-accent u-gap-20">
+            <svg class="ic ic--48" width="40" height="40" viewBox="0 0 48 48" role="img" aria-label="Collectivité"><path d="M6 18L24 7l18 11"></path><path d="M8 18h32"></path><path d="M12 22v14"></path><path d="M20 22v14"></path><path d="M28 22v14"></path><path d="M36 22v14"></path><path d="M6 40h36"></path><path d="M4 44h40"></path></svg>
+            <svg class="ic ic--48" width="40" height="40" viewBox="0 0 48 48" role="img" aria-label="Remise en état"><path d="M8 8h26v10H8z"></path><path d="M34 13h5v11H22v6"></path><path d="M19 30h6v12h-6z"></path></svg>
+            <svg class="ic ic--48" width="40" height="40" viewBox="0 0 48 48" role="img" aria-label="Services complémentaires"><path d="M16 18h12l4 6v18H12V24z"></path><path d="M18 18v-6h8l8 3"></path><path d="M38 10h3"></path><path d="M38 15h4"></path><path d="M38 20h3"></path><path d="M17 32h10"></path></svg>
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" role="img" aria-label="Interlocuteur"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" role="img" aria-label="Écolabel"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"></path><path d="M5 19c3-4 6-6 10-8"></path></svg>
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" role="img" aria-label="Assurance"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+            <svg class="ic" width="28" height="28" viewBox="0 0 24 24" role="img" aria-label="Contrôle qualité"><path d="M9 3.5h6v3H9z"></path><path d="M9 5H6v16h12V5h-3"></path><path d="M9 14l2 2 4-4"></path></svg>
+          </div>
+          <p>Même trait que le jeu fourni (1,5 px sur 48, 1,75 px sur 24).</p>
+        </div>
+        <div class="box"><h3>Bento, carte et formulaires</h3><p>Tuiles de prestations, carte de zone, carte de choix, pastilles, alerte et confirmation : composés uniquement à partir des tokens.</p></div>
+        <div class="box"><h3>Mouvement</h3><p>Compteurs animés, vague qui ondule (9 s), en-tête compacté : tout est coupé avec prefers-reduced-motion.</p></div>
+      </div>
+    </section>
+
+    <section class="kit__sec" aria-labelledby="k-ecrans">
+      <h2 id="k-ecrans">Écrans de la maquette</h2>
+      <p>Chaque écran de la maquette correspond à une adresse du site. Les écrans « Mobile 390 » sont les mêmes adresses, ouvertes dans une fenêtre de 390 px de large. Les états du devis sont préremplis avec les données d’exemple de la maquette et n’envoient rien.</p>
+      <div class="cols3">
+        <div class="box">
+          <h3>Pages</h3>
+          <div class="u-flex u-col u-gap-12 u-items-fstart">
+            <a class="textlink" href="index.html">Accueil et secteurs<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="prestations.html">Prestations<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="prestation-bureaux.html">Nettoyage de bureaux<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="methode.html">La Méthode<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="realisations.html">Réalisations<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="entreprise.html">L’entreprise<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="contact.html">Contact<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>Devis en 3 étapes</h3>
+          <div class="u-flex u-col u-gap-12 u-items-fstart">
+            <a class="textlink" href="devis.html">Étape 1<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="devis.html?etat=etape2&amp;type_site=bureaux&amp;surface=500+%C3%A0+2+000+m%C2%B2&amp;code_postal=67000&amp;ville=Strasbourg&amp;prestations=Nettoyage+de+bureaux">Étape 2<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="devis.html?etat=etape3&amp;type_site=bureaux&amp;surface=500+%C3%A0+2+000+m%C2%B2&amp;code_postal=67000&amp;ville=Strasbourg&amp;prestations=Nettoyage+de+bureaux&amp;prestations=Vitrerie+et+fa%C3%A7ades&amp;frequence=Plusieurs+fois+par+semaine&amp;creneaux=T%C3%B4t+le+matin&amp;precisions=Badge+d%E2%80%99acc%C3%A8s+%C3%A0+r%C3%A9cup%C3%A9rer+%C3%A0+l%E2%80%99accueil.+Open+space+au+3e+%C3%A9tage+et+deux+salles+de+r%C3%A9union.">Étape 3<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="devis.html?etat=erreur&amp;type_site=bureaux&amp;surface=500+%C3%A0+2+000+m%C2%B2&amp;code_postal=67000&amp;ville=Strasbourg&amp;prestations=Nettoyage+de+bureaux&amp;prestations=Vitrerie+et+fa%C3%A7ades&amp;frequence=Plusieurs+fois+par+semaine&amp;creneaux=T%C3%B4t+le+matin&amp;precisions=Badge+d%E2%80%99acc%C3%A8s+%C3%A0+r%C3%A9cup%C3%A9rer+%C3%A0+l%E2%80%99accueil.+Open+space+au+3e+%C3%A9tage+et+deux+salles+de+r%C3%A9union.&amp;nom=Claire+Muller&amp;fonction=Responsable+des+services+g%C3%A9n%C3%A9raux&amp;entreprise=Groupe+Rh%C3%A9nan&amp;email=claire.muller%40grouperhenan">Étape 3 avec erreurs<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="textlink" href="devis.html?etat=confirmation&amp;type_site=bureaux&amp;surface=500+%C3%A0+2+000+m%C2%B2&amp;code_postal=67000&amp;ville=Strasbourg&amp;prestations=Nettoyage+de+bureaux&amp;prestations=Vitrerie+et+fa%C3%A7ades&amp;frequence=Plusieurs+fois+par+semaine&amp;creneaux=T%C3%B4t+le+matin&amp;precisions=Badge+d%E2%80%99acc%C3%A8s+%C3%A0+r%C3%A9cup%C3%A9rer+%C3%A0+l%E2%80%99accueil.+Open+space+au+3e+%C3%A9tage+et+deux+salles+de+r%C3%A9union.&amp;nom=Claire+Muller&amp;fonction=Responsable+des+services+g%C3%A9n%C3%A9raux&amp;entreprise=Groupe+Rh%C3%A9nan&amp;email=claire.muller%40grouperhenan.fr&amp;telephone=06+12+34+56+78">Confirmation<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+        <div class="box">
+          <h3>États mobiles</h3>
+          <p>À ouvrir dans une fenêtre de moins de 960 px de large.</p>
+          <div class="u-flex u-col u-gap-12 u-items-fstart">
+            <a class="textlink" href="index.html?menu=ouvert">Accueil, menu ouvert<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  </main>
+  <!-- partial:footer -->
+<!-- Généré depuis partials/footer.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<footer class="ftr">
+  <div class="wrap ftr__grid">
+    <div class="ftr__brand">
+      <a class="cr-logo" href="index.html"><img class="cr-logo__img" src="assets/img/logo-crescendeau.png" height="44" alt="Crescend’eau, une vague de propreté : retour à l’accueil"></a>
+      <p>Nettoyage et services aux entreprises, copropriétés et collectivités. Des équipes formées, une méthode tracée, un interlocuteur unique.</p>
+      <ul class="ftr__contact">
+        <li><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg><a href="tel:+33300000000">03 XX XX XX XX</a></li>
+        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg><span><a href="mailto:contact@crescendeau.fr">contact@crescendeau.fr</a> <span class="tbc">[à confirmer]</span></span></li>
+        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><span>Agence de Strasbourg, adresse <span class="tbc">[à confirmer]</span></span></li>
+        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Lun.–ven. 7 h–19 h · Urgences 7j/7</span></li>
+      </ul>
+      <div class="ftr__socials">
+        <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" aria-label="Crescend’eau sur LinkedIn" title="Crescend’eau sur LinkedIn" href="#"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17"></path><path d="M8 7.2v.1"></path><path d="M12 17v-6.5"></path><path d="M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg></a>
+        <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" aria-label="Crescend’eau sur Facebook" title="Crescend’eau sur Facebook" href="#"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 21v-8h3l.5-3.5H14V7.6c0-1 .4-1.7 1.8-1.7h1.8V2.9A23 23 0 0 0 15 2.7c-2.6 0-4.3 1.6-4.3 4.5v2.3H8V13h2.7v8"></path></svg></a>
+        <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" aria-label="Crescend’eau sur Instagram" title="Crescend’eau sur Instagram" href="#"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><path d="M17.5 6.5v.1"></path></svg></a>
+      </div>
+    </div>
+    <nav class="ftr__col" aria-label="Prestations">
+      <h2>Prestations</h2>
+      <ul>
+        <li><a href="prestation-bureaux.html">Nettoyage de bureaux</a></li>
+        <li><a href="prestations.html">Nettoyage industriel</a></li>
+        <li><a href="prestations.html">Vitrerie et façades</a></li>
+        <li><a href="prestations.html">Parkings et haute pression</a></li>
+        <li><a href="prestations.html">Remise en état</a></li>
+        <li><a href="prestations.html">Services complémentaires</a></li>
+      </ul>
+    </nav>
+    <nav class="ftr__col" aria-label="Secteurs">
+      <h2>Secteurs</h2>
+      <ul>
+        <li><a href="index.html#secteurs">Bureaux et commerces</a></li>
+        <li><a href="index.html#secteurs">Industries</a></li>
+        <li><a href="index.html#secteurs">Copropriétés et syndics</a></li>
+        <li><a href="index.html#secteurs">Collectivités</a></li>
+      </ul>
+    </nav>
+    <nav class="ftr__col" aria-label="Entreprise">
+      <h2>Entreprise</h2>
+      <ul>
+        <li><a href="entreprise.html">L’entreprise</a></li>
+        <li><a href="nos-valeurs.html">Nos valeurs</a></li>
+        <li><a href="methode.html">La Méthode</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="espace-client.html">Espace client</a></li>
+      </ul>
+    </nav>
+    <nav class="ftr__col" aria-label="Nous rejoindre">
+      <h2>Nous rejoindre</h2>
+      <ul>
+        <li><a href="nous-rejoindre.html#offres">Nos offres d’emploi</a></li>
+        <li><a href="nous-rejoindre.html#candidature">Candidature spontanée</a></li>
+        <li><a href="nous-rejoindre.html#metiers">Nos métiers</a></li>
+        <li><a href="nous-rejoindre.html#formation">Formation et évolution</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap">
+    <div class="ftr__bottom">
+      <p>© 2026 Crescend’eau · SIRET <span class="tbc">[à confirmer]</span></p>
+      <nav class="ftr__legal" aria-label="Informations légales">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="politique-confidentialite.html">Politique de confidentialité</a>
+        <a href="cookies.html">Gestion des cookies</a>
+        <a href="plan-du-site.html">Plan du site</a>
+      </nav>
+    </div>
+  </div>
+  <div class="ftr__wave" aria-hidden="true"><svg class="cr-wave cr-wave--band wave-fill" viewBox="0 0 960 140" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><filter id="crw-ftr-1" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="6"></feGaussianBlur></filter></defs><g filter="url(#crw-ftr-1)" class="cr-wave__glow"><path d="M0 70 C 160 20, 320 120, 480 60 S 800 10, 960 70"></path></g><g class="cr-wave__lines"><path d="M0 70 C 160 20, 320 120, 480 60 S 800 10, 960 70" class="cr-wave__l0"></path><path d="M0 84 C 180 40, 330 130, 500 72 S 820 30, 960 88" class="cr-wave__l1"></path><path d="M0 96 C 200 70, 360 130, 520 90 S 830 60, 960 104" class="cr-wave__l2"></path></g></svg></div>
+</footer>
+<!-- /partial:footer -->
+</div>
+</body>
+</html>

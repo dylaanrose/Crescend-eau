@@ -1,14 +1,8 @@
-// En-tête : lien actif, compactage au défilement, menu mobile.
+// En-tête : compactage au défilement et menu mobile.
+// Le lien de la page courante est posé en dur dans le HTML par tools/sync-partials.mjs.
 export function initHeader() {
-  const header = document.querySelector('.hdr');
+  const header = document.querySelector('.hdr-sticky .hdr'); // le vrai en-tête, pas les exemplaires de composants.html
   if (!header) return;
-
-  // Lien actif : <body data-page="…"> correspond au data-nav du lien.
-  const page = document.body.dataset.page;
-  header.querySelectorAll('[data-nav="' + page + '"]').forEach((link) => {
-    link.classList.add('is-active');
-    if (link.classList.contains('cr-nav__link')) link.setAttribute('aria-current', 'page');
-  });
 
   // Compactage : s’enclenche après 96 px, se relâche sous 8 px (évite le clignotement).
   let compact = false;
@@ -32,4 +26,6 @@ export function initHeader() {
   header.querySelector('.hdr__panel').addEventListener('click', (event) => {
     if (event.target.closest('a')) setOpen(false); // lien d’ancre vers la page courante
   });
+  // État de la maquette « menu ouvert » : index.html?menu=ouvert
+  if (new URLSearchParams(window.location.search).get('menu') === 'ouvert') setOpen(true);
 }

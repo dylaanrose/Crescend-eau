@@ -1,57 +1,43 @@
-// Formulaire de devis en 3 étapes : navigation, validation, récapitulatif de confirmation.
-// Tous les textes (messages d’erreur, titres) sont dans devis.html ; ce module ne fait que les afficher.
+// Formulaire de devis en 3 étapes : navigation, récapitulatif de confirmation, états de la maquette.
+// La validation, les messages et l’envoi viennent de forms.js ; tous les textes sont dans devis.html.
+import { invalid, showErrors, errorAnchor, send, setState } from './forms.js';
+
+// États de la maquette ouverts par l’adresse : devis.html?etat=… → [étape, erreurs affichées]
+const STATES = { etape2: [2, false], etape3: [3, false], erreur: [3, true], confirmation: [4, false] };
+
 export function initDevis() {
-  const card = document.querySelector('#formulaire');
-  if (!card) return;
+  const form = document.querySelector('#formulaire');
+  if (!form) return;
 
-  const one = (selector) => card.querySelector(selector);
-  const all = (selector) => [...card.querySelectorAll(selector)];
-  const text = (id) => one('#' + id).value.trim();
-  const picked = (selector) => all(selector + ' input:checked').map((input) => input.value);
+  const one = (selector) => form.querySelector(selector);
+  const all = (selector) => [...form.querySelectorAll(selector)];
+  const text = (name) => form.elements[name].value.trim();
+  const picked = (name) => all('[name="' + name + '"]:checked');
 
-  let step = 1;        // 1 à 3 : étapes ; 4 : confirmation
-  let showErrors = false; // les erreurs n’apparaissent qu’après une tentative de passage à la suite
+  let step = 1;           // 1 à 3 : étapes ; 4 : confirmation
+  let showing = false;    // les erreurs n’apparaissent qu’après une tentative de passage à la suite
+  const errors = () => (step <= 3 ? invalid(form, one('[data-step="' + step + '"]')) : []);
 
-  // Champs invalides de chaque étape, dans l’ordre d’affichage.
-  const invalid = {
-    1: () => [
-      !one('input[name="type-site"]:checked') && 'type',
-      !/^\d{5}$/.test(text('f-cp')) && 'cp',
-    ],
-    2: () => [
-      !picked('#f-presta').length && 'presta',
-      !picked('#f-freq').length && 'freq',
-    ],
-    3: () => [
-      !text('f-nom') && 'nom',
-      !text('f-entreprise') && 'entreprise',
-      !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(text('f-email')) && 'email',
-      text('f-tel').replace(/\D/g, '').length < 10 && 'tel',
-      !one('#f-consent-wrap input').checked && 'consent',
-    ],
-  };
-  const errors = () => (step <= 3 ? invalid[step]().filter(Boolean) : []);
-
-  // Valeurs par défaut du récapitulatif (« — »), lues dans le HTML.
+  // Récapitulatif : chaque [data-out] garde son texte d’origine (« — ») comme valeur par défaut.
   const outputs = new Map(all('[data-out]').map((el) => [el.dataset.out, { el, empty: el.textContent }]));
   const write = (key, value) => {
-    const { el, empty } = outputs.get(key);
-    el.textContent = value || empty;
+    const output = outputs.get(key);
+    if (output) output.el.textContent = value || output.empty;
   };
   const fillRecap = () => {
-    const type = one('input[name="type-site"]:checked');
-    write('prenom', text('f-nom').split(' ')[0]);
-    write('email', text('f-email'));
+    const type = picked('type_site')[0];
+    write('prenom', text('nom').split(' ')[0]);
+    write('email', text('email'));
     write('type', type && type.closest('.choice').querySelector('.choice__t').textContent);
-    write('surface', one('#f-surface').value);
-    write('lieu', (text('f-cp') + ' ' + text('f-ville')).trim());
-    write('presta', picked('#f-presta').join(', '));
-    write('freq', picked('#f-freq')[0]);
-    write('contact', text('f-nom') + ' · ' + text('f-tel'));
+    write('surface', text('surface'));
+    write('lieu', (text('code_postal') + ' ' + text('ville')).trim());
+    write('presta', picked('prestations').map((input) => input.value).join(', '));
+    write('freq', picked('frequence').map((input) => input.value)[0]);
+    write('contact', [text('nom'), text('telephone')].filter(Boolean).join(' · '));
   };
 
   const render = () => {
-    const shown = showErrors ? errors() : [];
+    const shown = showing ? errors() : [];
 
     // Étape affichée, fil d’étapes et barre de progression
     all('[data-step]').forEach((el) => { el.hidden = Number(el.dataset.step) !== step; });
@@ -62,55 +48,69 @@ export function initDevis() {
     bar.setAttribute('aria-valuenow', current);
     bar.setAttribute('aria-valuetext', bar.getAttribute('aria-valuetext').replace(/\d/, current));
 
-    // Erreurs champ par champ
-    all('[data-err]').forEach((message) => {
-      const key = message.dataset.err;
-      const on = shown.includes(key);
-      message.hidden = !on;
-      if (key === 'type') one('#f-type .choices').classList.toggle('is-error', on);
-      const wrap = one('#f-' + key + '-wrap'); // champs de saisie et case de consentement
-      if (!wrap) return;
-      (wrap.querySelector('.checkbox') || wrap).classList.toggle('is-error', on);
-      wrap.querySelector('input').setAttribute('aria-invalid', String(on));
-    });
-
-    // Résumé des erreurs en tête de formulaire
+    // Erreurs champ par champ, puis résumé en tête de formulaire
+    showErrors(form, shown);
     one('[data-alert]').hidden = !shown.length;
-    if (shown.length) {
-      const title = one('[data-alert-title]');
-      title.textContent = shown.length > 1 ? title.dataset.many.replace('{n}', shown.length) : title.dataset.one;
-      one('[data-alert-list]').replaceChildren(...shown.map((key) => {
-        const item = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = '#f-' + key + (one('#f-' + key + '-wrap') ? '-wrap' : '');
-        link.textContent = one('[data-err="' + key + '"]').textContent.trim();
-        item.append(link);
-        return item;
-      }));
-    }
+    if (!shown.length) return;
+    const title = one('[data-alert-title]');
+    title.textContent = shown.length > 1 ? title.dataset.many.replace('{n}', shown.length) : title.dataset.one;
+    one('[data-alert-list]').replaceChildren(...shown.map((name) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = errorAnchor(form, name);
+      link.textContent = one('[data-err="' + name + '"]').textContent.trim();
+      item.append(link);
+      return item;
+    }));
   };
 
-  card.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-action]');
-    if (!button) return;
-    if (button.dataset.action === 'back') {
+  const go = async (action) => {
+    if (action === 'back') {
       step = Math.max(1, step - 1);
-      showErrors = false;
+      showing = false;
     } else if (errors().length) {
-      showErrors = true;
-    } else {
+      showing = true;
+    } else if (step < 3) {
       step += 1;
-      showErrors = false;
-      if (step === 4) fillRecap();
+      showing = false;
+    } else {
+      // Dernière étape : envoi. En cas d’échec, on reste ici avec les réponses conservées.
+      setState(form, 'sending');
+      const { state, numero } = await send(form);
+      setState(form, state);
+      showing = false;
+      if (state !== 'error') {
+        fillRecap();
+        write('numero', numero);
+        step = 4;
+      }
     }
     render();
-    // Ramène le haut du formulaire (nouvelle étape ou résumé des erreurs) sous l’en-tête collant.
+    // Ramène le haut du formulaire (nouvelle étape, résumé des erreurs) sous l’en-tête collant.
     const headerSlot = document.querySelector('.hdr-sticky');
-    window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - (headerSlot ? headerSlot.offsetHeight : 0) });
+    window.scrollTo({ top: form.getBoundingClientRect().top + window.scrollY - (headerSlot ? headerSlot.offsetHeight : 0) });
+  };
+
+  form.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-action]');
+    if (button) go(button.dataset.action);
   });
-
+  // Touche Entrée dans un champ : même effet que « Continuer ».
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (step <= 3) go('next');
+  });
   // Une fois les erreurs affichées, elles se mettent à jour pendant la correction.
-  card.addEventListener('input', () => { if (showErrors) render(); });
+  form.addEventListener('input', () => { if (showing) render(); });
 
+  // État de la maquette demandé par l’adresse (les champs sont déjà préremplis par forms.js).
+  const preset = STATES[new URLSearchParams(window.location.search).get('etat')];
+  if (preset) {
+    [step, showing] = preset;
+    if (step === 4) {
+      fillRecap();
+      setState(form, 'demo');
+    }
+  }
   render();
 }
