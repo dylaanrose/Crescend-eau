@@ -84,6 +84,12 @@
   .site .form--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
+/* Tuile photo haute (rubriques de l’accueil) : texte en bas, hauteur de la tuile photo de la maquette sur tablette. */
+.site .tile--tall { justify-content: flex-end; min-height: 240px; }
+@media (min-width: 721px) {
+  .site .tile--tall { min-height: 400px; }
+}
+
 /* Texte long (pages légales, pages hors maquette) : colonne de la largeur des titres de section. */
 .prose { display: flex; flex-direction: column; gap: var(--space-5); max-width: 760px; }
 .site .prose h2 { margin-top: var(--space-5); }
@@ -145,6 +151,55 @@
 .map__pt--colmar { left: 43.7%; top: 60.1%; }
 .map__pt--guebwiller { left: 37.1%; top: 71.8%; }
 .map__pt--saint-louis { left: 52.7%; top: 92.5%; }
+
+/* ---------- Carte cliquable de la zone d’intervention (secteurs.html, js/zone.js) ---------- */
+/* Les repères de la carte sont des boutons. Leur marge intérieure agrandit la zone cliquable ;
+   le décalage de site.css est corrigé d’autant pour que le point reste sur ses coordonnées. */
+.map__pt { padding: var(--space-1) var(--space-2); border: 0; border-radius: var(--radius-pill); background: none; font: inherit; color: inherit; cursor: pointer; transform: translate(calc(-5px - var(--space-2)), -50%); }
+.map__pt--left { transform: translate(calc(-100% + 5px + var(--space-2)), -50%); }
+.map__pt--hq { transform: translate(calc(-8px - var(--space-2)), -50%); }
+.map__pt:hover span, .map__pt.is-hint span, .map__pt.is-on span { color: var(--ink); }
+/* Ville survolée, ou dont la fiche est ouverte : le point prend l’éclat du repère de l’agence. */
+.map__pt:hover i, .map__pt.is-hint i, .map__pt.is-on i { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(17, 212, 217, .16), 0 0 24px rgba(17, 212, 217, .55); }
+
+/* Les villes de la liste sont aussi des boutons, cliquables sur toute la hauteur de leur ligne. */
+.cities__btn { flex: 1; min-width: 0; margin: -10px 0; padding: 10px 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.cities__btn:hover { color: var(--ink); }
+.cities__btn.is-on { color: var(--accent); }
+.cities li:has(.cities__btn:hover)::before, .cities li:has(.cities__btn.is-on)::before { background: var(--accent-hover); }
+
+/* Fiche d’une ville : élément [popover], placé sur son repère par js/zone.js (--x et --y, en px dans la page).
+   Sans JavaScript, le navigateur l’ouvre au centre de l’écran. */
+.map__card { width: 300px; max-width: calc(100% - 2 * var(--space-3)); color: var(--ink-soft); box-shadow: var(--elevation-1); scroll-margin: calc(var(--header-height) + var(--space-7)) 0 var(--space-9); }
+.map__card:not(:popover-open) { display: none; }
+/* Navigateur sans fiches [popover] (avant 2024) : elles restent masquées et la carte se lit comme une image. */
+@supports not selector(:popover-open) {
+  .map__card { display: none; }
+}
+.map__card.is-placed { position: absolute; inset: auto; margin: 0; left: clamp(150px + var(--space-3), var(--x), 100% - 150px - var(--space-3)); top: var(--y); transform: translate(-50%, var(--space-4)); }
+.map__card.is-placed.is-above { transform: translate(-50%, calc(-100% - var(--space-4))); }
+.map__card .cr-iconbtn { cursor: pointer; }
+
+/* « Vérifier mon adresse » : code postal et bouton sur une ligne, l’un sous l’autre sur mobile. */
+.zcheck__row { display: flex; align-items: center; gap: var(--space-3); }
+.zcheck__row .input { flex: 1; min-width: 0; }
+.zcheck__row .cr-btn { flex: none; }
+.zcheck [role="status"] { font-size: 15px; line-height: 24px; }
+.zcheck .done__status { align-items: flex-start; }
+.zcheck .done__status .cr-icon { margin-top: 3px; }
+.zcheck a { color: var(--ink); }
+@media (max-width: 720px) {
+  .zcheck__row { flex-direction: column; align-items: stretch; }
+  .zcheck__row .input { flex: none; }
+}
+
+/* ---------- Devis : sous-services d’une prestation ---------- */
+/* Bloc affiché sous les pastilles quand sa prestation est cochée (activé par js/devis.js).
+   La légende est flottante pour s’afficher dans le bloc, et non à cheval sur sa bordure. */
+.subs { flex: 0 0 100%; margin: 0; padding: var(--space-5); background: var(--surface-300); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.subs:disabled { display: none; }
+.subs legend { float: left; margin-bottom: 0; }
+.subs legend em { font-style: normal; font-weight: 400; color: var(--ink-muted); }
 
 /* ---------- Utilitaires (une propriété, une valeur de la maquette) ---------- */
 .site .u-flex { display: flex; }

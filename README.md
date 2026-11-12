@@ -29,6 +29,7 @@ js/header.js        en-tête compact au défilement, menu mobile
 js/counters.js      chiffres clés animés
 js/before-after.js  comparateur avant / après
 js/filters.js       filtres par secteur
+js/zone.js          carte de la zone d’intervention : fiches des villes, code postal
 tools/sync-partials.mjs  recopie l’en-tête et le pied de page dans toutes les pages
 assets/img/         images, logo ; avant-apres/ pour les comparateurs
 assets/fonts/       Montserrat et DM Sans (variables)
@@ -37,6 +38,8 @@ assets/fonts/       Montserrat et DM Sans (variables)
 ## Pages
 
 - **Maquette** : `index`, `prestations`, `prestation-bureaux`, `methode`, `realisations`, `entreprise`, `contact`, `devis`.
+- **Secteurs** : `secteurs.html` réunit les sections « Secteurs » et « Zone d’intervention » de la maquette, qui se
+  trouvaient sur l’accueil. L’onglet Secteurs y mène.
 - **Référence interne** : `composants.html` (planche « Composants et états » de la maquette). Elle montre chaque
   composant dans tous ses états et liste, en bas de page, l’adresse de chaque écran de la maquette. Non indexée.
 - **Hors maquette**, composées avec les composants existants : `mentions-legales`, `politique-confidentialite`,
@@ -44,6 +47,8 @@ assets/fonts/       Montserrat et DM Sans (variables)
 
 ## Règles du projet
 
+- **Une rubrique, une page.** Chaque onglet du menu mène à sa propre page, et le contenu d’une rubrique ne vit que
+  sur cette page. L’accueil n’en reprend aucune : il renvoie vers chacune par une tuile.
 - **Un langage par dossier.** Le HTML ne contient ni attribut `style`, ni bloc `<style>`, ni script en ligne.
   Tout style va dans `css/`, tout comportement dans `js/`. Les textes (libellés, messages d’erreur) restent dans le HTML.
 - **Un composant se modifie à un seul endroit.** Un bouton est toujours `class="cr-btn cr-btn--…"` :
@@ -81,8 +86,24 @@ Quatre formulaires : devis rapide (accueil), contact, devis en 3 étapes, candid
   mais n’envoient rien, et l’affichent clairement.
 - **À vérifier côté hébergeur** : la pièce jointe peut atteindre 10 Mo, plus que la limite par défaut de
   beaucoup d’hébergements. Le numéro de demande est tiré au hasard dans le navigateur : le serveur devra l’attribuer.
+- **Sous-services du devis** : une prestation peut ouvrir un bloc de sous-services. Dans `devis.html`, sa case porte
+  `aria-controls="identifiant"` et le bloc est un `<fieldset class="qgroup subs" id="identifiant" disabled>` qui
+  contient des cases avec leur propre `name`. Aucun JavaScript à écrire. Champs envoyés aujourd’hui :
+  `services_complementaires` et `depannage_multiservices`, seulement si leur prestation est cochée.
 - **Ajouter un champ contrôlé** : lui donner un `name`, `required` et/ou `pattern`, et placer à côté
   `<p class="field__err" data-err="son-name" hidden>message</p>`. Aucun JavaScript à écrire.
+
+## Carte de la zone d’intervention
+
+Sur `secteurs.html`. Une ville tient en trois éléments, reliés par le même identifiant `ville-<nom>` :
+
+- son bouton dans la liste (`.cities`) et son bouton sur la carte (`.map__pt map__pt--<nom>`), tous deux avec
+  `popovertarget="ville-<nom>"` ;
+- sa fiche, `<div class="box map__card" id="ville-<nom>" popover>`, où se trouvent tous ses textes.
+
+La position du point se règle dans `css/pages.css` (`.map__pt--<nom> { left: …%; top: …% }`). « Vérifier mon adresse »
+accepte les départements listés dans `data-zone="67 68"`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran
+et le code postal est transmis au devis.
 
 ## Images
 

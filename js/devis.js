@@ -14,6 +14,11 @@ export function initDevis() {
   const text = (name) => form.elements[name].value.trim();
   const picked = (name) => all('[name="' + name + '"]:checked');
 
+  // Sous-services : une prestation peut désigner (aria-controls) un bloc de sous-services. Le bloc n’est
+  // actif que si elle est cochée : inactif, il est masqué et ses cases ne sont ni envoyées ni reprises.
+  const subsOf = (input) => document.getElementById(input.getAttribute('aria-controls'));
+  const syncSubs = () => all('[name="prestations"][aria-controls]').forEach((input) => { subsOf(input).disabled = !input.checked; });
+
   let step = 1;           // 1 à 3 : étapes ; 4 : confirmation
   let showing = false;    // les erreurs n’apparaissent qu’après une tentative de passage à la suite
   const errors = () => (step <= 3 ? invalid(form, one('[data-step="' + step + '"]')) : []);
@@ -31,7 +36,11 @@ export function initDevis() {
     write('type', type && type.closest('.choice').querySelector('.choice__t').textContent);
     write('surface', text('surface'));
     write('lieu', (text('code_postal') + ' ' + text('ville')).trim());
-    write('presta', picked('prestations').map((input) => input.value).join(', '));
+    // Chaque prestation, suivie entre parenthèses de ses sous-services cochés.
+    write('presta', picked('prestations').map((input) => {
+      const subs = input.hasAttribute('aria-controls') ? [...subsOf(input).querySelectorAll(':checked')].map((sub) => sub.value) : [];
+      return input.value + (subs.length ? ' (' + subs.join(', ') + ')' : '');
+    }).join(', '));
     write('freq', picked('frequence').map((input) => input.value)[0]);
     write('contact', [text('nom'), text('telephone')].filter(Boolean).join(' · '));
   };
@@ -102,6 +111,8 @@ export function initDevis() {
   });
   // Une fois les erreurs affichées, elles se mettent à jour pendant la correction.
   form.addEventListener('input', () => { if (showing) render(); });
+  form.addEventListener('change', syncSubs);
+  syncSubs(); // prestations déjà cochées par l’adresse
 
   // État de la maquette demandé par l’adresse (les champs sont déjà préremplis par forms.js).
   const preset = STATES[new URLSearchParams(window.location.search).get('etat')];

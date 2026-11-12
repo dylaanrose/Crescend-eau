@@ -6,10 +6,12 @@ import { initBeforeAfter } from './before-after.js';
 import { initFilters } from './filters.js';
 import { initForms } from './forms.js';
 import { initDevis } from './devis.js';
+import { initZone } from './zone.js';
 
 initHeader();
 initCounters();
 initBeforeAfter();
 initFilters();
+initZone();
 initForms(); // avant initDevis : prérempli les champs que le devis relit
 initDevis();

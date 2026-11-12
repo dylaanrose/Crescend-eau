@@ -1,5 +1,6 @@
 // Filtres par secteur (prestations, réalisations).
 // Boutons : .filter[data-filter] ; éléments filtrés : [data-sec="secteur1 secteur2"] ; compteur : [data-count].
+// Un filtre peut être présélectionné par l’adresse : ?secteur=<data-filter>.
 export function initFilters() {
   document.querySelectorAll('.filters').forEach((group) => {
     const section = group.closest('section');
@@ -23,5 +24,10 @@ export function initFilters() {
       });
       if (counter) counter.textContent = shown + ' ' + (shown > 1 ? counter.dataset.many : counter.dataset.one);
     });
+
+    // Filtre demandé par l’adresse (prestations.html?secteur=industries, depuis la page Secteurs).
+    const wanted = new URLSearchParams(window.location.search).get('secteur');
+    const preset = [...group.querySelectorAll('.filter')].find((button) => button.dataset.filter === wanted);
+    if (preset) preset.click();
   });
 }
