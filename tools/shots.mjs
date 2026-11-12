@@ -4,6 +4,7 @@
 //
 //   node tools/shots.mjs                          toutes les pages, en 390 et 1440 px, dans .captures/
 //   node tools/shots.mjs --pages index,devis      seulement ces pages
+//   node tools/shots.mjs --pages "index?menu=ouvert"   un état de démonstration (voir README)
 //   node tools/shots.mjs --largeurs 390,960,1440,1920
 //   node tools/shots.mjs --reduit                 émule « prefers-reduced-motion: reduce »
 //   node tools/shots.mjs --sans-js                JavaScript désactivé
@@ -104,11 +105,12 @@ try {
     for (const name of pages) {
       errors.length = 0;
       const loaded = new Promise((ok) => { onLoad = ok; setTimeout(ok, 15000); });
-      await cmd('Page.navigate', { url: base + name + '.html' });
+      const [page, query] = name.split('?');
+      await cmd('Page.navigate', { url: base + page + '.html' + (query ? '?' + query : '') });
       await loaded;
       await sleep(500);
       const size = async () => (await cmd('Page.getLayoutMetrics')).cssContentSize;
-      const file = (n) => join(out, `${name}-${width}-${String(n).padStart(2, '0')}.png`);
+      const file = (n) => join(out, `${name.replace(/[^\w-]+/g, '-')}-${width}-${String(n).padStart(2, '0')}.png`);
       let slices = 0;
       if (noJs) {
         // Sans JavaScript, rien ne réagit au défilement : on découpe la page d’un seul tenant.

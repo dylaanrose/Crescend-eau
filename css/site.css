@@ -85,7 +85,9 @@ img { max-width: 100%; }
   .hdr__bar, .hdr.is-compact .hdr__bar { height: 64px; }
   .hdr__logo .cr-logo__img { height: 34px !important; }
   .hdr__mob { display: flex; }
-  .hdr.is-open .hdr__panel { display: block; position: absolute; top: 100%; left: 0; right: 0; background: var(--surface-000); border-bottom: 1px solid var(--line); box-shadow: var(--elevation-1); padding: 8px var(--space-5) var(--space-6); }
+  /* Menu ouvert : le panneau occupe tout l’écran sous la barre, la page ne défile plus derrière. */
+  .hdr.is-open .hdr__panel { display: block; position: absolute; top: 100%; left: 0; right: 0; height: calc(100dvh - var(--hdr-h)); overflow-y: auto; overscroll-behavior: contain; background: var(--surface-000); padding: 8px var(--space-5) var(--space-6); }
+  html:has(.hdr.is-open) { overflow: hidden; }
 }
 
 /* Barre d’appel collante (mobile) */
@@ -93,6 +95,9 @@ img { max-width: 100%; }
 @media (max-width: 720px) {
   .callbar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px; position: fixed; left: 0; right: 0; bottom: 0; z-index: var(--z-callbar); padding: 12px 16px; background: var(--surface-000); border-top: 1px solid var(--line); box-shadow: var(--elevation-1); }
   .callbar .cr-btn { width: 100%; }
+  /* Inutile quand le menu propose déjà le devis, et sur la page du devis elle-même. */
+  .hdr.is-open ~ .callbar, [data-page="devis"] .callbar { display: none; }
+  [data-page="devis"] .site { padding-bottom: 0; }
   .site { padding-bottom: var(--callbar-h); }
 }
 

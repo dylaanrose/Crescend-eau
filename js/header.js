@@ -26,6 +26,11 @@ export function initHeader() {
   header.querySelector('.hdr__panel').addEventListener('click', (event) => {
     if (event.target.closest('a')) setOpen(false); // lien d’ancre vers la page courante
   });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !header.classList.contains('is-open')) return;
+    setOpen(false);
+    burger.focus();
+  });
   // État de la maquette « menu ouvert » : index.html?menu=ouvert
   if (new URLSearchParams(window.location.search).get('menu') === 'ouvert') setOpen(true);
 }
