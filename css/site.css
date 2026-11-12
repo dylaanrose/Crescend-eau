@@ -10,7 +10,8 @@ img { max-width: 100%; }
 .site { position: relative; background: var(--surface-100); color: var(--ink-soft); font-family: var(--font-body); font-size: 17px; line-height: 28px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 .site p, .site h1, .site h2, .site h3, .site h4, .site figure, .site blockquote { margin: 0; }
 .site ul, .site ol { margin: 0; padding: 0; list-style: none; }
-.site a { color: inherit; }
+/* :where() garde une spécificité nulle : la couleur d’un composant (.cr-btn--primary, .textlink…) l’emporte. */
+:where(.site) a { color: inherit; }
 .site :is(a, button, input, select, textarea, summary):focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
 .ic { display: block; flex: none; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .ic--48 { stroke-width: 1.5; }
