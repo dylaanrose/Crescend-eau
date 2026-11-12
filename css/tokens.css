@@ -55,17 +55,17 @@
   --radius-pill: 999px; /* Tous les boutons (CTA, secondaires), boutons ronds, pastilles numérotées. */
   --font-display: Montserrat, "Helvetica Neue", Arial, sans-serif;
   --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-  --text-display-xl: 500 72px/78px var(--font-display); /* H1 du hero de la page d'accueil, en capitales. Le dernier mot (ou groupe) en accent, terminé par un point. Mobile : 44/48. */
-  --text-display: 500 56px/62px var(--font-display); /* H1 des pages intérieures (Services, Secteurs…). Mobile : 36/42. */
-  --text-h2: 500 40px/48px var(--font-display); /* Titre de section, capitales, 1 ou 2 lignes ; seconde ligne en accent. Mobile : 28/34. */
-  --text-h3: 500 24px/32px var(--font-display); /* Titre de carte secteur / service, capitales. Mobile : 20/28. */
+  --text-display-xl: 500 clamp(2.75rem, 2.1rem + 2.667vw, 5.5rem)/1.08 var(--font-display); /* H1 de l’accueil, en capitales : 44 px sur mobile, 72 px à 1440, 88 px au plus. */
+  --text-display: 500 clamp(2.25rem, 1.786rem + 1.905vw, 4rem)/1.12 var(--font-display); /* H1 des pages intérieures : 36 px sur mobile, 56 px à 1440, 64 px au plus. */
+  --text-h2: 500 clamp(1.75rem, 1.471rem + 1.143vw, 2.75rem)/1.2 var(--font-display); /* Titre de section : 28 px sur mobile, 40 px à 1440, 44 px au plus. */
+  --text-h3: 500 clamp(1.25rem, 1.157rem + 0.381vw, 1.5rem)/1.35 var(--font-display); /* Sous-titre et titre d’étape : 20 px sur mobile, 24 px à partir de 1440. */
   --text-h4: 500 18px/26px var(--font-display); /* Petit titre : engagement, encadré, réalisation, carte compacte. */
   --text-overline: 500 16px/24px var(--font-display); /* Sur-titre de section et bandeaux de réassurance, capitales espacées. */
   --text-label: 500 13px/20px var(--font-display); /* Étiquette en capitales espacées : clé d’un fait, d’un livrable, d’un état. */
   --text-step: 500 15px/24px var(--font-display); /* Libellés d'étapes de la méthode et listes courtes en capitales. */
   --text-button: 600 13px/16px var(--font-display); /* Libellé de bouton, toujours en capitales. */
   --text-tagline: 500 11px/16px var(--font-display); /* Baseline sous le wordmark (en accent-deep ou accent). Jamais en texte courant. */
-  --text-lead: 400 20px/30px var(--font-body); /* Chapô du hero et introductions de section, en ink-soft. 2 lignes max. */
+  --text-lead: 400 clamp(1.125rem, 1.079rem + 0.19vw, 1.25rem)/1.5 var(--font-body); /* Chapô du hero et introductions de section, en ink-soft : 18 px sur mobile, 20 px à partir de 1440. */
   --text-body: 400 17px/28px var(--font-body); /* Texte courant en ink-soft. */
   --text-body-sm: 400 15px/24px var(--font-body); /* Description de carte en ink-muted. */
   --text-nav: 500 15px/20px var(--font-body); /* Liens de navigation (casse phrase) et liens du pied de page. */

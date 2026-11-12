@@ -9,6 +9,8 @@ img { max-width: 100%; }
 
 .site { position: relative; background: var(--surface-100); color: var(--ink-soft); font-family: var(--font-body); font-size: 17px; line-height: 28px; -webkit-font-smoothing: antialiased; overflow-x: clip; }
 .site p, .site h1, .site h2, .site h3, .site h4, .site figure, .site blockquote { margin: 0; }
+.site :is(h1, h2, h3, h4) { text-wrap: balance; }
+.site p { text-wrap: pretty; }
 .site ul, .site ol { margin: 0; padding: 0; list-style: none; }
 /* :where() garde une spécificité nulle : la couleur d’un composant (.cr-btn--primary, .textlink…) l’emporte. */
 :where(.site) a { color: inherit; }
