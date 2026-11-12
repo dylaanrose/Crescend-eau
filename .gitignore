@@ -1,1 +1,5 @@
 .DS_Store
+# Skills et réglages locaux de l’assistant (hors site)
+.claude/
+# Captures d’écran de contrôle (node tools/shots.mjs)
+.captures/
