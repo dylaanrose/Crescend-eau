@@ -30,9 +30,14 @@ js/counters.js      chiffres clés animés
 js/before-after.js  comparateur avant / après
 js/filters.js       filtres par secteur
 js/zone.js          carte de la zone d’intervention : fiches des villes, code postal
+js/scrolly.js       hero immersif de l’accueil : séquence d’images pilotée par le défilement
 tools/sync-partials.mjs  recopie l’en-tête et le pied de page dans toutes les pages
-assets/img/         images, logo ; avant-apres/ pour les comparateurs
+tools/check.mjs     vérifie les règles du projet sur toutes les pages
+tools/shots.mjs     captures d’écran de contrôle (Chrome sans interface)
+tools/images.mjs    prépare les images : versions WebP d’une photo, séquence du hero
+assets/img/         images, logo ; avant-apres/ pour les comparateurs ; hero/ pour la séquence de l’accueil
 assets/fonts/       Montserrat et DM Sans (variables)
+PRODUCT.md          à qui s’adresse le site, sa personnalité et ses principes de design
 ```
 
 ## Pages
@@ -48,7 +53,8 @@ assets/fonts/       Montserrat et DM Sans (variables)
 ## Règles du projet
 
 - **Une rubrique, une page.** Chaque onglet du menu mène à sa propre page, et le contenu d’une rubrique ne vit que
-  sur cette page. L’accueil n’en reprend aucune : il renvoie vers chacune par une tuile.
+  sur cette page. L’accueil présente chaque rubrique par un aperçu court (un comparateur, une mosaïque, quatre
+  étapes en une ligne) et y renvoie, sans en recopier le contenu.
 - **Un langage par dossier.** Le HTML ne contient ni attribut `style`, ni bloc `<style>`, ni script en ligne.
   Tout style va dans `css/`, tout comportement dans `js/`. Les textes (libellés, messages d’erreur) restent dans le HTML.
 - **Un composant se modifie à un seul endroit.** Un bouton est toujours `class="cr-btn cr-btn--…"` :
@@ -56,6 +62,18 @@ assets/fonts/       Montserrat et DM Sans (variables)
 - **Aucune valeur inventée.** Les couleurs, tailles et rayons viennent de `css/tokens.css` (`var(--…)`).
 - Les mentions `[à confirmer]` et `[exemple]` signalent un contenu à valider avec l’entreprise : ne pas les retirer sans validation.
 - Le site doit rester correct à 390 px de large (points de rupture : 1100, 960 et 720 px).
+- **Tout mouvement est facultatif.** Le site reste complet en mouvement réduit et sans JavaScript.
+
+## Vérifier avant de publier
+
+```bash
+node tools/check.mjs                 # règles du projet : aucun style ni script dans le HTML, classes connues, typographie
+node tools/shots.mjs                 # captures de toutes les pages en 390 et 1440 px, dans .captures/
+node tools/shots.mjs --reduit        # les mêmes en mouvement réduit
+node tools/shots.mjs --sans-js       # les mêmes sans JavaScript
+```
+
+`tools/shots.mjs` signale aussi les erreurs de console et tout débordement horizontal. Il lui faut Google Chrome.
 
 ## Modifier l’en-tête ou le pied de page
 
@@ -105,14 +123,33 @@ La position du point se règle dans `css/pages.css` (`.map__pt--<nom> { left: �
 accepte les départements listés dans `data-zone="67 68"`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran
 et le code postal est transmis au devis.
 
+## Hero de l’accueil
+
+Le hero fait défiler une séquence d’images au rythme de la page (`js/scrolly.js`, styles `.scrolly` dans `css/site.css`).
+
+- La section porte le nombre d’images et leur dossier : `data-frames` et `data-src` (ordinateur),
+  `data-frames-sm` et `data-src-sm` (mobile, images recadrées et deux fois moins nombreuses).
+- Sa hauteur de défilement est le token `--scrolly-len` ; les seuils où le texte change sont en tête de `js/scrolly.js`.
+- En mouvement réduit, sans JavaScript ou sur un écran de moins de 600 px de haut, le hero est une image fixe :
+  la balise `<picture>` choisit alors l’image d’arrivée (`hero-apres`) au lieu de l’image de départ (`hero-avant`).
+- Pour refaire la séquence à partir d’une autre vidéo :
+
+```bash
+node tools/images.mjs sequence video.mp4 hero/d --fin 112
+node tools/images.mjs sequence video.mp4 hero/m --fin 112 --pas 2 --recadrage 600:720
+```
+
 ## Images
 
-- **Comparateurs avant / après** : `assets/img/avant-apres/<chantier>-avant.jpg` et `<chantier>-apres.jpg`.
-  Pour passer aux vraies photos, remplacer ces fichiers (même lieu, même cadrage), sans toucher au code.
-  Les « avant » actuels sont simulés à partir des « après ».
-- **Logo** : `assets/img/logo-crescendeau.png` et `logo-symbole.png` sont des extraits basse définition de la maquette,
-  à remplacer par les fichiers vectoriels de l’entreprise.
-- Les autres photos sont des visuels d’ambiance de la maquette, à remplacer par des photos de chantier.
+Toutes les images du site sont générées (lieux et matières, sans personne ni logo) et servent d’illustration.
+Elles sont en WebP, en plusieurs largeurs, avec `srcset`, `width`, `height` et `loading="lazy"`.
+
+- **Remplacer une image par une vraie photo** : `node tools/images.mjs photo ma-photo.jpg <nom>` réécrit
+  `assets/img/<nom>-800.webp`, `-1600.webp`… sans toucher au code (garder le même nom et le même cadrage).
+- **Comparateurs avant / après** : `assets/img/avant-apres/<chantier>-avant-*.webp` et `<chantier>-apres-*.webp`,
+  deux photos prises du même point. Ceux de la page Réalisations sont encore les visuels simulés de la maquette.
+- **Logo** : `assets/img/logo-crescendeau.webp` et `logo-symbole.png` sont détourés à partir de `Logo.webp`.
+  À remplacer par les fichiers vectoriels de l’entreprise s’ils existent.
 
 ## Sources
 

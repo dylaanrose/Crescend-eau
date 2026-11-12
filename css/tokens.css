@@ -21,6 +21,7 @@
   --warning: #f2b544; /* Avertissement de formulaire. Toujours avec icône et texte. ≥ 9,5:1 sur toutes les surfaces. */
   --danger: #ff7a6b; /* Erreur de champ, toujours avec icône et message : success et danger ne se distinguent pas par la luminosité (1,3:1), le sens ne repose jamais sur la couleur seule. ≥ 6,8:1 sur toutes les surfaces. */
   --overlay: rgba(2, 7, 10, 0.72); /* Voile sombre posé sur les photos pour garantir la lisibilité du texte (côté gauche des visuels hero). */
+  --overlay-soft: rgba(2, 7, 10, 0.45); /* Voile léger : second palier des dégradés posés sur une photo. */
   --glow-accent: 0 0 0 1px rgba(58, 176, 181, 0.35), 0 8px 32px rgba(58, 176, 181, 0.22); /* Survol du CTA principal et carte secteur active : halo turquoise discret, rappel de la vague lumineuse. */
   --elevation-1: 0 12px 40px rgba(0, 0, 0, 0.55); /* Menu déroulant, poignée du comparateur Avant/Après, header collant au scroll. */
 }
@@ -40,6 +41,7 @@
   --hdr-h: 129px; /* En-tête complet : barre d’information (40) + navigation (88) + filet (1). Réservé dans la page. */
   --hdr-h-compact: 69px; /* En-tête compacté au défilement : navigation (68) + filet (1). */
   --callbar-h: 72px; /* Barre d’appel collée en bas de l’écran sur mobile. */
+  --scrolly-len: 300vh; /* Hauteur de défilement du hero immersif de l’accueil : trois écrans (2,4 sur mobile). */
   --z-header: 60; /* En-tête collant. */
   --z-callbar: 70; /* Barre d’appel mobile, au-dessus de l’en-tête. */
   --z-skip: 100; /* Lien d’évitement, au-dessus de tout. */
@@ -55,11 +57,13 @@
   --radius-pill: 999px; /* Tous les boutons (CTA, secondaires), boutons ronds, pastilles numérotées. */
   --font-display: Montserrat, "Helvetica Neue", Arial, sans-serif;
   --font-body: "DM Sans", "Helvetica Neue", Arial, sans-serif;
-  --text-display-xl: 500 clamp(2.75rem, 2.1rem + 2.667vw, 5.5rem)/1.08 var(--font-display); /* H1 de l’accueil, en capitales : 44 px sur mobile, 72 px à 1440, 88 px au plus. */
+  --text-display-xl: 500 clamp(2.5rem, 1.757rem + 3.048vw, 5.5rem)/1.08 var(--font-display); /* H1 de l’accueil, en capitales : 40 px sur mobile (« EN PUISSANCE. » tient sur une ligne), 72 px à 1440, 88 px au plus. */
   --text-display: 500 clamp(2.25rem, 1.786rem + 1.905vw, 4rem)/1.12 var(--font-display); /* H1 des pages intérieures : 36 px sur mobile, 56 px à 1440, 64 px au plus. */
   --text-h2: 500 clamp(1.75rem, 1.471rem + 1.143vw, 2.75rem)/1.2 var(--font-display); /* Titre de section : 28 px sur mobile, 40 px à 1440, 44 px au plus. */
   --text-h3: 500 clamp(1.25rem, 1.157rem + 0.381vw, 1.5rem)/1.35 var(--font-display); /* Sous-titre et titre d’étape : 20 px sur mobile, 24 px à partir de 1440. */
   --text-h4: 500 18px/26px var(--font-display); /* Petit titre : engagement, encadré, réalisation, carte compacte. */
+  --text-card: 600 20px/28px var(--font-display); /* Titre de tuile et de carte, en casse normale. */
+  --text-quote: 400 clamp(1.25rem, 1.064rem + 0.762vw, 1.75rem)/1.45 var(--font-body); /* Citation mise en avant : 20 px sur mobile, 28 px à 1440. */
   --text-overline: 500 16px/24px var(--font-display); /* Sur-titre de section et bandeaux de réassurance, capitales espacées. */
   --text-label: 500 13px/20px var(--font-display); /* Étiquette en capitales espacées : clé d’un fait, d’un livrable, d’un état. */
   --text-step: 500 15px/24px var(--font-display); /* Libellés d'étapes de la méthode et listes courtes en capitales. */
@@ -73,6 +77,9 @@
 }
 @media (max-width: 960px) {
   :root { --hdr-h: 65px; --hdr-h-compact: 65px; } /* Barre mobile : 64 + filet (1), sans barre d’information. */
+}
+@media (max-width: 720px) {
+  :root { --scrolly-len: 240vh; }
 }
 @font-face {
   font-family: "Montserrat";

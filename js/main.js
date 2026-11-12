@@ -7,7 +7,9 @@ import { initFilters } from './filters.js';
 import { initForms } from './forms.js';
 import { initDevis } from './devis.js';
 import { initZone } from './zone.js';
+import { initScrolly } from './scrolly.js';
 
+initScrolly(); // en premier : la hauteur du hero de l’accueil en dépend
 initHeader();
 initCounters();
 initBeforeAfter();

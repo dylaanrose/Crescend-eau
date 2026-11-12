@@ -18,6 +18,7 @@
    Les deux photos sont des fichiers distincts dans assets/img/avant-apres/. */
 .cr-ba--16x10 { aspect-ratio: 16 / 10; }
 .cr-ba--4x3 { aspect-ratio: 4 / 3; }
+.cr-ba--16x9 { aspect-ratio: 16 / 9; }
 .cr-ba__before { clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0); }
 .cr-ba__divider { left: var(--pos, 50%); }
 
@@ -34,7 +35,7 @@
 /* Ces marges sont écrites dans site.css et components.css, mais y sont annulées par les règles générales
    « .site p { margin: 0 } » et « .site ul { margin: 0 } », plus spécifiques. Elles sont rétablies ici à l’identique. */
 .site .proof { margin-top: 32px; }
-.site .hero__zone { margin-top: 40px; }
+.site .scrolly .proof { margin-top: 0; }
 .site .targets { margin-top: 40px; }
 .site .cities { margin: 32px 0; }
 .site .checks { margin-top: 32px; }
@@ -42,10 +43,9 @@
 .site .cr-logos__list { margin: 0 auto; }
 @media (max-width: 720px) {
   .site .proof { margin-top: 24px; }
-  .site .hero__zone { margin-top: 28px; }
   /* Visuel du hero : sur mobile, le décalage prévu pour l’ordinateur (34 % / 46 %) restait appliqué
      et rognait la photo. Elle reprend toute la largeur, comme le prévoit components.css. */
-  .hero .cr-hero__media, .phero .cr-hero__media { inset: auto; }
+  .phero .cr-hero__media { inset: auto; }
   /* Fil d’étapes du devis : à l’étape 3, « Vos coordonnées » sur une seule ligne élargissait la carte
      au-delà de l’écran. Écarts resserrés, libellé sur deux lignes, et la carte ne peut plus déborder. */
   .qwrap > * { min-width: 0; }
@@ -189,6 +189,7 @@
 .zcheck .done__status .cr-icon { margin-top: 3px; }
 .zcheck a { color: var(--ink); }
 @media (max-width: 720px) {
+  .cr-ba--16x9 { aspect-ratio: 4 / 3; }
   .zcheck__row { flex-direction: column; align-items: stretch; }
   .zcheck__row .input { flex: none; }
 }

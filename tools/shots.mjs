@@ -108,7 +108,7 @@ try {
       const [page, query] = name.split('?');
       await cmd('Page.navigate', { url: base + page + '.html' + (query ? '?' + query : '') });
       await loaded;
-      await sleep(500);
+      await sleep(noJs ? 1600 : 500); // sans JavaScript, on laisse finir les animations d’entrée en CSS
       const size = async () => (await cmd('Page.getLayoutMetrics')).cssContentSize;
       const file = (n) => join(out, `${name.replace(/[^\w-]+/g, '-')}-${width}-${String(n).padStart(2, '0')}.png`);
       let slices = 0;
