@@ -121,7 +121,7 @@ img { max-width: 100%; }
 /* Les trois temps du texte occupent la même case : sans la séquence, seul le premier s’affiche. */
 .scrolly__beats { display: grid; width: 100%; max-width: 760px; }
 .scrolly__beat { grid-area: 1 / 1; display: flex; flex-direction: column; gap: var(--space-5); }
-.scrolly__line { font: var(--text-display); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); text-wrap: balance; }
+.scrolly__line { display: block; font: var(--text-display); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); text-wrap: balance; }
 .scrolly:not(.is-live) .scrolly__beat:not(:first-child), .scrolly:not(.is-live) .scrolly__skip { display: none; }
 .scrolly.is-live .scrolly__beat { opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out); }
 .scrolly.is-live[data-beat="1"] .scrolly__beat:nth-child(1), .scrolly.is-live[data-beat="2"] .scrolly__beat:nth-child(2), .scrolly.is-live[data-beat="3"] .scrolly__beat:nth-child(3) { opacity: 1; transform: none; pointer-events: auto; }
