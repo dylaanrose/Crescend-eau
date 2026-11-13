@@ -438,6 +438,9 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 .alert ul { display: flex; flex-direction: column; gap: 4px; margin-top: 6px; font-size: 15px; line-height: 22px; }
 .alert a { color: var(--danger); }
 .qaside { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 961px) {
+  .qaside { position: sticky; top: calc(var(--hdr-h-compact) + var(--space-5)); }
+}
 .done { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
 .done__ic { width: 72px; height: 72px; border-radius: 50%; border: 1px solid var(--success); color: var(--success); display: flex; align-items: center; justify-content: center; }
 .done__status { display: inline-flex; align-items: center; gap: 8px; color: var(--success); font-weight: 500; }
@@ -588,6 +591,9 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
   .qcard { padding: 24px 20px; border-radius: var(--radius-md); }
   .stepper .cr-steps__text { display: none; }
   .stepper .cr-steps__item.is-active .cr-steps__text { display: flex; }
+  .stepper .cr-steps__item { flex: 1 1 auto; }
+  .stepper .cr-steps__item:last-child { flex: 0 1 auto; }
+  .stepper .cr-steps__label { font: var(--text-label); letter-spacing: .04em; } /* « Vos coordonnées » tient dans la carte */
   .stepper .cr-steps__item:not(:last-child)::after { min-width: 8px; }
   .progress { margin: 20px 0 28px; }
   .choices { grid-template-columns: 1fr 1fr; }
