@@ -63,6 +63,7 @@
   --text-h3: 500 clamp(1.25rem, 1.157rem + 0.381vw, 1.5rem)/1.35 var(--font-display); /* Sous-titre et titre d’étape : 20 px sur mobile, 24 px à partir de 1440. */
   --text-h4: 500 18px/26px var(--font-display); /* Petit titre : engagement, encadré, réalisation, carte compacte. */
   --text-card: 600 20px/28px var(--font-display); /* Titre de tuile et de carte, en casse normale. */
+  --text-card-sm: 600 18px/26px var(--font-display); /* Titre d’une carte compacte : encadré, engagement, réalisation. */
   --text-quote: 400 clamp(1.25rem, 1.064rem + 0.762vw, 1.75rem)/1.45 var(--font-body); /* Citation mise en avant : 20 px sur mobile, 28 px à 1440. */
   --text-overline: 500 16px/24px var(--font-display); /* Sur-titre de section et bandeaux de réassurance, capitales espacées. */
   --text-label: 500 13px/20px var(--font-display); /* Étiquette en capitales espacées : clé d’un fait, d’un livrable, d’un état. */

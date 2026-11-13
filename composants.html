@@ -221,6 +221,60 @@
       </div>
     </section>
 
+    <section class="kit__sec" aria-labelledby="k-refonte">
+      <h2 id="k-refonte">Cartes illustrées, étapes et bandeau d’appel</h2>
+      <p>Une image est toujours en WebP, avec srcset, sizes, width, height, loading="lazy" et decoding="async" (alt vide si elle ne fait qu’illustrer le titre voisin). Une carte n’est un lien que si elle mène à une page&nbsp;; sinon c’est un article qui porte un lien d’action. Un seul bandeau d’appel par page, l’action principale en premier.</p>
+      <div class="plist">
+        <a class="pcard pcard--photo" href="prestation-bureaux.html">
+          <div class="pcard__media"><img src="assets/img/prestation-bureaux-800.webp" srcset="assets/img/prestation-bureaux-800.webp 800w, assets/img/prestation-bureaux-1600.webp 1600w" sizes="(max-width: 1100px) 100vw, 590px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></div>
+          <div class="pcard__body">
+            <h3 class="pcard__title">Carte illustrée qui mène à une page</h3>
+            <p class="pcard__desc">Toute la carte est un lien&nbsp;: elle réagit au survol par sa bordure.</p>
+            <ul class="ticks"><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un point clé</li><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un second point clé</li></ul>
+            <div class="pcard__meta"><span class="chip">Quotidien</span><span class="chip">Hebdomadaire</span></div>
+          </div>
+        </a>
+        <article class="pcard pcard--photo">
+          <div class="pcard__media"><img src="assets/img/prestation-industriel-800.webp" srcset="assets/img/prestation-industriel-800.webp 800w, assets/img/prestation-industriel-1600.webp 1600w" sizes="(max-width: 1100px) 100vw, 590px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></div>
+          <div class="pcard__body">
+            <h3 class="pcard__title">Carte illustrée sans page dédiée</h3>
+            <p class="pcard__desc">Un article, pas un lien&nbsp;: l’action est portée par le lien du pied de carte.</p>
+            <ul class="ticks"><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un point clé</li><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un second point clé</li></ul>
+            <div class="pcard__foot"><span class="note">Industries</span><a class="textlink" href="devis.html?prestations=Nettoyage+industriel">Demander un devis<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a></div>
+          </div>
+        </article>
+        <article class="pcard pcard--photo pcard--wide">
+          <div class="pcard__media"><img src="assets/img/prestation-depannage-800.webp" srcset="assets/img/prestation-depannage-800.webp 800w, assets/img/prestation-depannage-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 500px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></div>
+          <div class="pcard__body">
+            <h3 class="pcard__title">Carte en pleine largeur</h3>
+            <p class="pcard__desc">Pour la dernière carte d’une liste impaire, ou une carte au contenu plus long&nbsp;: image à gauche, texte à droite sur grand écran.</p>
+            <ul class="ticks"><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un point clé</li><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un second point clé</li><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un troisième point clé</li></ul>
+            <div class="pcard__foot"><span class="note">Tous secteurs</span><a class="textlink" href="devis.html">Demander un devis<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a></div>
+          </div>
+        </article>
+      </div>
+      <ol class="u-mt-40">
+        <li class="steprow steprow--media">
+          <figure class="steprow__media"><img src="assets/img/prestation-remise-en-etat-800.webp" srcset="assets/img/prestation-remise-en-etat-800.webp 800w, assets/img/prestation-remise-en-etat-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 480px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></figure>
+          <div class="steprow__body"><span class="cr-steps__num" aria-hidden="true">1</span><h3>Étape illustrée</h3><p>L’image et le texte se placent côte à côte.</p><ul class="ticks"><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un point clé</li></ul></div>
+        </li>
+        <li class="steprow steprow--media">
+          <figure class="steprow__media"><img src="assets/img/prestation-vitrerie-800.webp" srcset="assets/img/prestation-vitrerie-800.webp 800w, assets/img/prestation-vitrerie-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 480px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></figure>
+          <div class="steprow__body"><span class="cr-steps__num" aria-hidden="true">2</span><h3>Étape suivante</h3><p>Une étape sur deux, l’image passe à droite. Sur mobile, elle reste au-dessus du texte.</p><ul class="ticks"><li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Un point clé</li></ul></div>
+        </li>
+      </ol>
+      <div class="band u-mt-40">
+        <div>
+          <h2>Bandeau d’appel.</h2>
+          <p>La seule surface teintée de turquoise de la page.</p>
+        </div>
+        <div class="actions">
+          <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          <a class="cr-btn cr-btn--secondary cr-btn--lg" href="tel:+33300000000"><span>Nous appeler</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
+        </div>
+      </div>
+    </section>
+
     <section class="kit__sec" aria-labelledby="k-nav">
       <h2 id="k-nav">En-tête&nbsp;: défaut et compacté au défilement</h2>
       <p>Navbar étendue&nbsp;: barre utilitaire (zone, Nous rejoindre, Espace client), six liens, téléphone et CTA. Au défilement, la barre utilitaire se replie et l’en-tête passe de 88 à 68 px avec elevation-1. Sous 960 px&nbsp;: burger, bouton d’appel et barre d’appel collante en bas d’écran.</p>
