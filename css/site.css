@@ -337,7 +337,8 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 .ticks li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 24px; color: var(--ink-soft); }
 .ticks .cr-icon { color: var(--accent); margin-top: 4px; }
 .pcard__meta { display: flex; flex-wrap: wrap; gap: 8px; }
-.pcard__foot { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+.pcard__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+.pcard__foot .textlink { white-space: nowrap; }
 /* Carte de prestation avec photo : l’image coiffe la carte, le texte vient dessous. */
 .pcard--photo { grid-template-columns: 1fr; gap: 0; padding: 0; overflow: hidden; }
 .pcard__media { aspect-ratio: 16 / 9; }

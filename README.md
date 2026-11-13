@@ -147,7 +147,8 @@ Elles sont en WebP, en plusieurs largeurs, avec `srcset`, `width`, `height` et `
 - **Remplacer une image par une vraie photo** : `node tools/images.mjs photo ma-photo.jpg <nom>` réécrit
   `assets/img/<nom>-800.webp`, `-1600.webp`… sans toucher au code (garder le même nom et le même cadrage).
 - **Comparateurs avant / après** : `assets/img/avant-apres/<chantier>-avant-*.webp` et `<chantier>-apres-*.webp`,
-  deux photos prises du même point. Ceux de la page Réalisations sont encore les visuels simulés de la maquette.
+  deux images au même cadrage. Ce sont des illustrations de démonstration, marquées « exemple » sur le site :
+  à remplacer par deux photos du chantier prises du même point.
 - **Logo** : `assets/img/logo-crescendeau.webp` et `logo-symbole.png` sont détourés à partir de `Logo.webp`.
   À remplacer par les fichiers vectoriels de l’entreprise s’ils existent.
 

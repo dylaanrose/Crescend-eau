@@ -75,36 +75,41 @@
   </div>
   <main id="contenu">
 
-    <section class="sec u-pt-48" id="entreprise">
-      <div class="wrap">
+    <section class="cr-hero phero" aria-label="Présentation">
+      <div class="cr-hero__media"><img class="cr-hero__img" src="assets/img/hero-entreprise-1200.webp" srcset="assets/img/hero-entreprise-1200.webp 1200w, assets/img/hero-entreprise-2000.webp 2000w" sizes="(max-width: 720px) 100vw, 55vw" width="2000" height="1130" fetchpriority="high" decoding="async" alt="Hall de bureaux vitré, la nuit, sol poli comme un miroir, toits d’une vieille ville au fond"></div>
+      <div class="cr-hero__content">
         <nav class="crumbs" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">L’entreprise</span></nav>
-        <div class="u-mb-56">
-          <div class="cr-heading"><h1 class="cr-title cr-title--display">Pourquoi<br><span class="cr-accent">Crescend’eau.</span></h1><p class="cr-lead">Ce qui change pour vous, concrètement, dès le premier mois.</p></div>
-        </div>
+        <div class="cr-heading"><h1 class="cr-title cr-title--display">Pourquoi<br><span class="cr-accent">Crescend’eau.</span></h1><p class="cr-lead">Ce qui change pour vous, concrètement.</p></div>
+      </div>
+    </section>
+
+    <section class="sec" id="entreprise" aria-label="Nos engagements">
+      <div class="wrap">
         <ul class="pledges pledges--3">
           <li class="pledge">
             <span class="icbox icbox--lg"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></span>
-            <h3>Interlocuteur unique</h3>
+            <h2>Interlocuteur unique</h2>
             <p>Un responsable de site dédié, joignable en direct, qui connaît vos locaux et vos priorités.</p>
           </li>
           <li class="pledge">
             <span class="icbox icbox--lg"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"></path><path d="M5 19c3-4 6-6 10-8"></path></svg></span>
-            <h3>Produits respectueux</h3>
+            <h2>Produits respectueux</h2>
             <p>Des produits choisis pour leur faible impact et un dosage maîtrisé, pour vos équipes comme pour l’environnement. <span class="tbc">[à confirmer]</span></p>
           </li>
           <li class="pledge">
             <span class="icbox icbox--lg"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg></span>
-            <h3>Équipes formées et assurées</h3>
+            <h2>Équipes formées et assurées</h2>
             <p>Agents déclarés, formés à nos protocoles et couverts par notre responsabilité civile professionnelle.</p>
           </li>
         </ul>
+        <p class="u-mt-40"><a class="textlink" href="nos-valeurs.html">Découvrir nos valeurs<svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a></p>
       </div>
     </section>
 
-    <section class="sec sec--alt" id="temoignages">
+    <section class="sec sec--alt" id="temoignages" aria-labelledby="temoignages-titre">
       <div class="wrap">
         <div class="sec-head">
-          <div class="cr-heading"><p class="cr-overline">Témoignages</p><h2 class="cr-title cr-title--h2">Ce qu’en disent<br><span class="cr-accent">nos clients.</span></h2></div>
+          <div class="cr-heading"><h2 id="temoignages-titre" class="cr-title cr-title--h2">Ce qu’en disent nos clients.</h2></div>
           <div class="sec-head__aside">
             <div class="rating-sum">
               <p class="rating-sum__n">4,8</p>
@@ -138,10 +143,13 @@
       <div class="wrap">
         <div class="band">
           <div>
-            <h2>Envie de travailler avec nous&nbsp;?</h2>
+            <h2>Un site à entretenir&nbsp;?</h2>
             <p>Visite de votre site et devis gratuits, sans engagement.</p>
           </div>
-          <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          <div class="actions">
+            <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="cr-btn cr-btn--secondary cr-btn--lg" href="contact.html#rappel"><span>Être rappelé</span></a>
+          </div>
         </div>
       </div>
     </section>
