@@ -33,7 +33,7 @@ Le ton est celui d'un prestataire qui montre plutôt qu'il ne promet : phrases c
 
 1. **Montrer le résultat.** La preuve (avant/après, lieux, matières) passe avant le discours.
 2. **La vague est la signature.** Une nappe d'eau et de lumière, utilisée avec parcimonie : hero, comparateur avant/après, transitions.
-3. **La nuit est le décor réel du métier**, pas un effet de style. Fonds sombres, lumière turquoise réservée à l'action et à une seule emphase par écran.
+3. **Le travail se fait de jour**, aucune évocation de la nuit dans les textes. Le thème sombre est un parti pris graphique : fonds sombres, lumière turquoise réservée à l'action et à une seule emphase par écran.
 4. **Chaque contenu vit sur sa page.** L'accueil donne envie et renvoie, sans recopier.
 5. **Rien d'inventé présenté comme vrai.** Les images générées montrent des lieux et des matières, sans personne ni logo. Les contenus à valider restent marqués `[à confirmer]` ou `[exemple]`.
 
