@@ -1,12 +1,10 @@
-// Zone d’intervention (secteurs.html) : fiches des villes sur la carte, vérification du code postal.
+// Zone d’intervention (secteurs.html) : fiches des villes sur la carte.
 // Les fiches sont des éléments [popover] du HTML. Leur ouverture par les boutons [popovertarget], leur
 // fermeture (Échap, clic ailleurs) et leur annonce aux lecteurs d’écran sont assurées par le navigateur :
 // ce module ne fait que les placer sur la carte. Tous les textes sont dans secteurs.html.
 export function initZone() {
   const map = document.querySelector('.map');
   if (map) initMap(map);
-  const check = document.querySelector('[data-zone-check]');
-  if (check) initCheck(check);
 }
 
 function initMap(map) {
@@ -70,19 +68,4 @@ function initMap(map) {
   };
   ['mouseover', 'focusin'].forEach((type) => zone.addEventListener(type, hint(true)));
   ['mouseout', 'focusout'].forEach((type) => zone.addEventListener(type, hint(false)));
-}
-
-// « Vérifier mon adresse » : le code postal est couvert si son département figure dans data-zone.
-// Sans JavaScript, le formulaire mène au devis avec le code postal déjà rempli.
-function initCheck(form) {
-  const input = form.elements.code_postal;
-  const departments = form.dataset.zone.split(' ');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const code = input.value.trim();
-    const result = !/^\d{5}$/.test(code) ? 'invalide' : departments.includes(code.slice(0, 2)) ? 'couvert' : 'hors-zone';
-    form.querySelectorAll('[data-zone-result]').forEach((message) => { message.hidden = message.dataset.zoneResult !== result; });
-    input.setAttribute('aria-invalid', String(result === 'invalide'));
-    if (result === 'couvert') form.querySelector('[data-zone-devis]').href = form.getAttribute('action') + '?code_postal=' + code;
-  });
 }

@@ -29,7 +29,7 @@ js/header.js        en-tête compact au défilement, menu mobile
 js/counters.js      chiffres clés animés
 js/before-after.js  comparateur avant / après
 js/filters.js       filtres par secteur
-js/zone.js          carte de la zone d’intervention : fiches des villes, code postal
+js/zone.js          carte de la zone d’intervention : fiches des villes
 js/scrolly.js       hero immersif de l’accueil : séquence d’images pilotée par le défilement
 tools/sync-partials.mjs  recopie l’en-tête et le pied de page dans toutes les pages
 tools/check.mjs     vérifie les règles du projet sur toutes les pages
@@ -106,8 +106,8 @@ Quatre formulaires : devis rapide (accueil), contact, devis en 3 étapes, candid
   beaucoup d’hébergements. Le numéro de demande est tiré au hasard dans le navigateur : le serveur devra l’attribuer.
 - **Sous-services du devis** : une prestation peut ouvrir un bloc de sous-services. Dans `devis.html`, sa case porte
   `aria-controls="identifiant"` et le bloc est un `<fieldset class="qgroup subs" id="identifiant" disabled>` qui
-  contient des cases avec leur propre `name`. Aucun JavaScript à écrire. Champs envoyés aujourd’hui :
-  `services_complementaires` et `depannage_multiservices`, seulement si leur prestation est cochée.
+  contient des cases avec leur propre `name`. Aucun JavaScript à écrire. Champ envoyé aujourd’hui :
+  `depannage_multiservices`, seulement si sa prestation est cochée.
 - **Ajouter un champ contrôlé** : lui donner un `name`, `required` et/ou `pattern`, et placer à côté
   `<p class="field__err" data-err="son-name" hidden>message</p>`. Aucun JavaScript à écrire.
 
@@ -119,9 +119,9 @@ Sur `secteurs.html`. Une ville tient en trois éléments, reliés par le même i
   `popovertarget="ville-<nom>"` ;
 - sa fiche, `<div class="box map__card" id="ville-<nom>" popover>`, où se trouvent tous ses textes.
 
-La position du point se règle dans `css/pages.css` (`.map__pt--<nom> { left: …%; top: …% }`). « Vérifier mon adresse »
-accepte les départements listés dans `data-zone="67 68"`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran
-et le code postal est transmis au devis.
+La carte est graduée en kilomètres autour d’Obernai (au centre) : la position d’un point se règle dans
+`css/pages.css` avec ses écarts réels, `.map__pt--<nom> { --dx: …; --dy: … }` (km vers l’est et vers le sud). Les deux
+cercles (10 et 20 km) sont `.map__ring--10` et `.map__ring--20`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran.
 
 ## Hero de l’accueil
 

@@ -58,7 +58,6 @@
    et « Allemagne » s’aligne à droite au lieu d’être coupé. */
 .map-wrap { position: relative; }
 @media (max-width: 720px) {
-  .map .map__region--allemagne { left: auto; right: var(--space-3); }
   .map__legend { position: static; margin-top: var(--space-3); }
 }
 
@@ -134,23 +133,27 @@
   .kit__bleed { margin: 0 calc(-1 * var(--space-5)); }
 }
 
-/* ---------- Carte de la zone d’intervention : position des repères ---------- */
-.map__region--vosges { left: 10%; top: 42%; }
-.map__region--allemagne { left: 72%; top: 52%; }
-.map__region--rhin { left: 57%; top: 70%; letter-spacing: .2em; }
-.map__ring--30, .map__ring--60, .map__pulse, .map__pt--strasbourg { left: 61.2%; top: 26%; }
-.map__ring--30 { width: 240px; height: 240px; }
-.map__ring--60 { width: 480px; height: 480px; }
-.map__pt--haguenau { left: 62.9%; top: 9.2%; }
-.map__pt--saverne { left: 43.9%; top: 14.4%; }
-.map__pt--molsheim { left: 49.6%; top: 28.2%; }
-.map__pt--obernai { left: 49.2%; top: 33.7%; }
-.map__pt--erstein { left: 57.2%; top: 36.4%; }
-.map__pt--selestat { left: 48%; top: 47.7%; }
-.map__pt--ribeauville { left: 42%; top: 52.1%; }
-.map__pt--colmar { left: 43.7%; top: 60.1%; }
-.map__pt--guebwiller { left: 37.1%; top: 71.8%; }
-.map__pt--saint-louis { left: 52.7%; top: 92.5%; }
+/* ---------- Carte de la zone d’intervention : repères, en kilomètres autour d’Obernai ---------- */
+/* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 52 sur mobile) : tout se place en
+   km autour d’Obernai, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
+.map { --w: 64; --h: 58; height: auto; aspect-ratio: var(--w) / var(--h); }
+.map__svg { inset: auto; left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
+.map__ring, .map__pulse, .map__pt--obernai { left: 50%; top: 50%; }
+.map__ring { aspect-ratio: 1; }
+.map__ring--10 { width: calc(20 * 100% / var(--w)); }
+.map__ring--20 { width: calc(40 * 100% / var(--w)); }
+.map__ring span { top: auto; bottom: -10px; }
+.map__pt { left: calc(50% + var(--dx, 0) * 100% / var(--w)); top: calc(50% + var(--dy, 0) * 100% / var(--h)); }
+.map__pt--molsheim { --dx: .9; --dy: -8.7; }
+.map__pt--mutzig { --dx: -2.1; --dy: -9.8; }
+.map__region--vosges { left: 6%; top: 12%; }
+.map__region--allemagne { left: auto; right: var(--space-3); top: 88%; }
+.map__region--rhin { left: calc(50% + 18 * 100% / var(--w)); top: calc(50% + 4 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
+@media (max-width: 720px) {
+  .map { --w: 48; --h: 52; }
+}
+/* Renvoi « Votre site est à la limite ? » : aligné à gauche sous la liste des villes. */
+.site .zone__grid .targets { justify-content: flex-start; margin-top: 0; }
 
 /* ---------- Carte cliquable de la zone d’intervention (secteurs.html, js/zone.js) ---------- */
 /* Les repères de la carte sont des boutons. Leur marge intérieure agrandit la zone cliquable ;
@@ -159,7 +162,7 @@
 .map__pt--left { transform: translate(calc(-100% + 5px + var(--space-2)), -50%); }
 .map__pt--hq { transform: translate(calc(-8px - var(--space-2)), -50%); }
 .map__pt:hover span, .map__pt.is-hint span, .map__pt.is-on span { color: var(--ink); }
-/* Ville survolée, ou dont la fiche est ouverte : le point prend l’éclat du repère de l’agence. */
+/* Ville survolée, ou dont la fiche est ouverte : le point prend l’éclat du repère de la base. */
 .map__pt:hover i, .map__pt.is-hint i, .map__pt.is-on i { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(17, 212, 217, .16), 0 0 24px rgba(17, 212, 217, .55); }
 
 /* Les villes de la liste sont aussi des boutons, cliquables sur toute la hauteur de leur ligne. */
@@ -180,18 +183,8 @@
 .map__card.is-placed.is-above { transform: translate(-50%, calc(-100% - var(--space-4))); }
 .map__card .cr-iconbtn { cursor: pointer; }
 
-/* « Vérifier mon adresse » : code postal et bouton sur une ligne, l’un sous l’autre sur mobile. */
-.zcheck__row { display: flex; align-items: center; gap: var(--space-3); }
-.zcheck__row .input { flex: 1; min-width: 0; }
-.zcheck__row .cr-btn { flex: none; }
-.zcheck [role="status"] { font-size: 15px; line-height: 24px; }
-.zcheck .done__status { align-items: flex-start; }
-.zcheck .done__status .cr-icon { margin-top: 3px; }
-.zcheck a { color: var(--ink); }
 @media (max-width: 720px) {
   .cr-ba--16x9 { aspect-ratio: 4 / 3; }
-  .zcheck__row { flex-direction: column; align-items: stretch; }
-  .zcheck__row .input { flex: none; }
 }
 
 /* ---------- Devis : sous-services d’une prestation ---------- */
@@ -268,3 +261,29 @@
 .site .u-text-15 { font-size: 15px; line-height: 24px; }
 .site .u-text-20 { font-size: 20px; line-height: 32px; }
 .site .u-text-22 { font-size: 22px; line-height: 34px; }
+
+/* Accueil : les deux dernières tuiles de la grille se partagent la ligne (la maquette en avait quatre). */
+@media (min-width: 1101px) {
+  .site .tile--half { grid-column: span 6; }
+}
+
+/* ---------- Pied de page réduit ---------- */
+/* Trois colonnes de liens au lieu de quatre, sans phrase de présentation, et des espacements resserrés. */
+.ftr { padding-top: var(--space-7); }
+.ftr__grid { grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2fr)); gap: var(--space-6) var(--space-5); }
+.ftr__brand { gap: var(--space-4); }
+.ftr__col h2 { margin-bottom: var(--space-3); }
+.ftr__col ul { gap: var(--space-2); }
+.ftr__bottom { margin-top: var(--space-6); padding-bottom: var(--space-9); }
+@media (max-width: 1100px) {
+  .ftr__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .ftr { padding-top: var(--space-7); }
+  .ftr__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
+  .ftr__bottom { padding-bottom: 104px; }
+}
+
+/* ---------- Méthode de l’accueil : sans le filet bleu au-dessus des étapes ---------- */
+/* Les étapes gardent leur décalage en escalier ; seul le trait disparaît. */
+.crescendo__step { border-top: 0; }

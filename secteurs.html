@@ -58,7 +58,7 @@
     </nav>
     <div class="mnav__extra">
       <a class="cr-btn cr-btn--primary cr-btn--lg" href="devis.html"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-      <p class="note u-center">Réponse sous 24&nbsp;h · Devis gratuit · Intervention 7j/7</p>
+      <p class="note u-center">Devis gratuit · Intervention 7j/7</p>
       <div class="mnav__links">
         <a href="espace-client.html"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg>Espace client</a>
         <a href="nous-rejoindre.html">Nous rejoindre</a>
@@ -68,7 +68,7 @@
 </header>
 <div class="callbar" role="region" aria-label="Contact rapide">
   <a class="cr-btn cr-btn--secondary cr-btn--md" href="tel:+33300000000"><span>Appeler</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg></a>
-  <a class="cr-btn cr-btn--primary cr-btn--md" href="devis.html"><span>Devis en 24&nbsp;h</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+  <a class="cr-btn cr-btn--primary cr-btn--md" href="devis.html"><span>Devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
 </div>
 </div>
 <!-- /partial:header -->
@@ -116,126 +116,51 @@
     <section class="sec sec--alt" id="zone" aria-labelledby="zone-titre">
       <div class="wrap zone__grid">
         <div>
-          <div class="cr-heading"><h2 id="zone-titre" class="cr-title cr-title--h2">Partout en Alsace.</h2><p class="cr-lead">Une agence à Strasbourg et des équipes mobiles sur tout le Bas-Rhin et le Haut-Rhin, à moins de 45 minutes de votre site.</p></div>
+          <div class="cr-heading"><h2 id="zone-titre" class="cr-title cr-title--h2">Autour d’Obernai.</h2><p class="cr-lead">Nos équipes partent d’Obernai et interviennent dans un rayon de 10 à 20&nbsp;km autour de la base.</p></div>
           <ul class="cities" aria-label="Villes desservies">
-            <li><button type="button" class="cities__btn" popovertarget="ville-strasbourg">Strasbourg et Eurométropole</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-haguenau">Haguenau</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-saverne">Saverne</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-molsheim">Molsheim</button></li>
             <li><button type="button" class="cities__btn" popovertarget="ville-obernai">Obernai</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-erstein">Erstein</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-selestat">Sélestat</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-ribeauville">Ribeauvillé</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-colmar">Colmar</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-guebwiller">Guebwiller</button></li>
-            <li><button type="button" class="cities__btn" popovertarget="ville-saint-louis">Saint-Louis</button></li>
+            <li><button type="button" class="cities__btn" popovertarget="ville-molsheim">Molsheim</button></li>
+            <li><button type="button" class="cities__btn" popovertarget="ville-mutzig">Mutzig</button></li>
           </ul>
-          <p class="note u-mb-28">Agence, villes et rayon d’intervention <span class="tbc">[à confirmer]</span></p>
-          <form class="field zcheck" action="devis.html" method="get" data-zone-check data-zone="67 68">
-            <label class="field__label" for="z-cp">Votre code postal</label>
-            <div class="zcheck__row">
-              <input class="input" id="z-cp" name="code_postal" inputmode="numeric" autocomplete="postal-code" placeholder="67000" maxlength="5" aria-describedby="z-resultat">
-              <button type="submit" class="cr-btn cr-btn--secondary cr-btn--md"><span>Vérifier mon adresse</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></button>
-            </div>
-            <div id="z-resultat" role="status">
-              <p class="field__err" data-zone-result="invalide" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l10 18H2z"></path><path d="M12 10v5"></path><path d="M12 18v.5"></path></svg>Indiquez un code postal à 5 chiffres (ex.&nbsp;: 67000).</p>
-              <p class="done__status" data-zone-result="couvert" hidden><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg><span>Ce code postal est dans notre zone d’intervention. <a href="devis.html" data-zone-devis>Demander un devis</a></span></p>
-              <p class="field__hint" data-zone-result="hors-zone" hidden>Ce code postal est en dehors de notre zone habituelle, le Bas-Rhin et le Haut-Rhin. <a href="contact.html">Contactez-nous</a> pour en parler.</p>
-            </div>
-          </form>
+          <p class="note u-mb-28">Base, villes et rayons d’intervention <span class="tbc">[à confirmer]</span></p>
+          <p class="targets">Votre site est à la limite&nbsp;?<a class="textlink" href="contact.html">Parlons-en</a></p>
         </div>
         <div class="map-wrap">
-          <div class="map" role="group" aria-label="Carte de la zone d’intervention : agence à Strasbourg, rayons de 30 et 60 kilomètres, villes desservies de Haguenau au nord à Saint-Louis au sud. Sélectionnez une ville pour ouvrir sa fiche.">
-          <svg class="map__svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="map__river" d="M82.4 -1.4 L77.6 6.9 L70 17.2 L63.3 26.2 L61.1 37.9 L55.3 51.7 L53.6 64.1 L51.3 78.6 L54 95.9 L55.3 101"></path></svg>
+          <div class="map" role="group" aria-label="Carte de la zone d’intervention : base à Obernai, cercles de 10 et 20 kilomètres, villes desservies Obernai, Molsheim et Mutzig. Sélectionnez une ville pour ouvrir sa fiche.">
+          <svg class="map__svg" viewBox="-32 -29 64 58" preserveAspectRatio="none" aria-hidden="true"><path class="map__river" d="M27.4 -29 L23.5 -13.5 L19 4.5 L16 15.7 L11.9 29"></path></svg>
           <span class="map__region map__region--vosges">Vosges</span>
           <span class="map__region map__region--allemagne">Allemagne</span>
           <span class="map__region map__region--rhin">Rhin</span>
-          <span class="map__ring map__ring--30"><span>30&nbsp;km</span></span>
-          <span class="map__ring map__ring--60"></span>
+          <span class="map__ring map__ring--10"><span>10&nbsp;km</span></span>
+          <span class="map__ring map__ring--20"><span>20&nbsp;km</span></span>
           <span class="map__pulse"></span>
-          <button type="button" class="map__pt map__pt--hq map__pt--strasbourg" popovertarget="ville-strasbourg"><i></i><span>Strasbourg</span></button>
-          <button type="button" class="map__pt map__pt--haguenau" popovertarget="ville-haguenau"><i></i><span>Haguenau</span></button>
-          <button type="button" class="map__pt map__pt--left map__pt--saverne" popovertarget="ville-saverne"><i></i><span>Saverne</span></button>
-          <button type="button" class="map__pt map__pt--left map__pt--molsheim" popovertarget="ville-molsheim"><i></i><span>Molsheim</span></button>
-          <button type="button" class="map__pt map__pt--left map__pt--obernai" popovertarget="ville-obernai"><i></i><span>Obernai</span></button>
-          <button type="button" class="map__pt map__pt--erstein" popovertarget="ville-erstein"><i></i><span>Erstein</span></button>
-          <button type="button" class="map__pt map__pt--selestat" popovertarget="ville-selestat"><i></i><span>Sélestat</span></button>
-          <button type="button" class="map__pt map__pt--left map__pt--ribeauville" popovertarget="ville-ribeauville"><i></i><span>Ribeauvillé</span></button>
-          <button type="button" class="map__pt map__pt--colmar" popovertarget="ville-colmar"><i></i><span>Colmar</span></button>
-          <button type="button" class="map__pt map__pt--left map__pt--guebwiller" popovertarget="ville-guebwiller"><i></i><span>Guebwiller</span></button>
-          <button type="button" class="map__pt map__pt--saint-louis" popovertarget="ville-saint-louis"><i></i><span>Saint-Louis</span></button>
+          <button type="button" class="map__pt map__pt--hq map__pt--obernai" popovertarget="ville-obernai"><i></i><span>Obernai</span></button>
+          <button type="button" class="map__pt map__pt--molsheim" popovertarget="ville-molsheim"><i></i><span>Molsheim</span></button>
+          <button type="button" class="map__pt map__pt--left map__pt--mutzig" popovertarget="ville-mutzig"><i></i><span>Mutzig</span></button>
           </div>
           <div class="map__legend">
-            <span><i class="is-hq"></i>Agence <span class="tbc">[à confirmer]</span></span>
+            <span><i class="is-hq"></i>Base d’intervention</span>
             <span><i></i>Villes desservies</span>
             <span>Sélectionnez une ville pour ouvrir sa fiche</span>
           </div>
           <!-- Fiches des villes : ouvertes par les boutons de la carte et de la liste (attribut popovertarget). -->
-          <div class="box map__card" id="ville-strasbourg" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-strasbourg" popovertargetaction="hide" aria-label="Fermer la fiche de Strasbourg" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Strasbourg</h3>
-            <p>Agence <span class="tbc">[à confirmer]</span></p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Strasbourg"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-haguenau" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-haguenau" popovertargetaction="hide" aria-label="Fermer la fiche de Haguenau" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Haguenau</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Haguenau"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-saverne" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-saverne" popovertargetaction="hide" aria-label="Fermer la fiche de Saverne" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Saverne</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Saverne"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+          <div class="box map__card" id="ville-obernai" popover>
+            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-obernai" popovertargetaction="hide" aria-label="Fermer la fiche d’Obernai" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
+            <h3>Obernai</h3>
+            <p>Base d’intervention</p>
+            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Obernai"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
           </div>
           <div class="box map__card" id="ville-molsheim" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-molsheim" popovertargetaction="hide" aria-label="Fermer la fiche de Molsheim" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
+            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-molsheim" popovertargetaction="hide" aria-label="Fermer la fiche d’Molsheim" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
             <h3>Molsheim</h3>
             <p>Ville desservie</p>
             <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Molsheim"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
           </div>
-          <div class="box map__card" id="ville-obernai" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-obernai" popovertargetaction="hide" aria-label="Fermer la fiche d’Obernai" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Obernai</h3>
+          <div class="box map__card" id="ville-mutzig" popover>
+            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-mutzig" popovertargetaction="hide" aria-label="Fermer la fiche d’Mutzig" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
+            <h3>Mutzig</h3>
             <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Obernai"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-erstein" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-erstein" popovertargetaction="hide" aria-label="Fermer la fiche d’Erstein" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Erstein</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Erstein"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-selestat" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Bas-Rhin (67)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-selestat" popovertargetaction="hide" aria-label="Fermer la fiche de Sélestat" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Sélestat</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=S%C3%A9lestat"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-ribeauville" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Haut-Rhin (68)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-ribeauville" popovertargetaction="hide" aria-label="Fermer la fiche de Ribeauvillé" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Ribeauvillé</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Ribeauvill%C3%A9"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-colmar" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Haut-Rhin (68)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-colmar" popovertargetaction="hide" aria-label="Fermer la fiche de Colmar" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Colmar</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Colmar"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-guebwiller" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Haut-Rhin (68)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-guebwiller" popovertargetaction="hide" aria-label="Fermer la fiche de Guebwiller" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Guebwiller</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Guebwiller"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
-          </div>
-          <div class="box map__card" id="ville-saint-louis" popover>
-            <div class="u-flex u-between u-items-center u-gap-16"><p>Haut-Rhin (68)</p><button type="button" class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--40" popovertarget="ville-saint-louis" popovertargetaction="hide" aria-label="Fermer la fiche de Saint-Louis" title="Fermer"><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg></button></div>
-            <h3>Saint-Louis</h3>
-            <p>Ville desservie</p>
-            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Saint-Louis"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
+            <a class="cr-btn cr-btn--primary cr-btn--sm" href="devis.html?ville=Mutzig"><span>Demander un devis</span><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"></path><path d="M14 6l6 6-6 6"></path></svg></a>
           </div>
         </div>
       </div>
@@ -264,12 +189,11 @@
   <div class="wrap ftr__grid">
     <div class="ftr__brand">
       <a class="cr-logo" href="index.html"><img class="cr-logo__img" src="assets/img/logo-crescendeau.webp" width="227" height="44" alt="Crescend’eau, une vague de propreté : retour à l’accueil"></a>
-      <p>Nettoyage et services aux entreprises, copropriétés et collectivités. Des équipes formées, une méthode tracée, un interlocuteur unique.</p>
       <ul class="ftr__contact">
         <li><svg class="cr-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"></path></svg><a href="tel:+33300000000">03 XX XX XX XX</a></li>
         <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg><span><a href="mailto:contact@crescendeau.fr">contact@crescendeau.fr</a> <span class="tbc">[à confirmer]</span></span></li>
-        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><span>Agence de Strasbourg, adresse <span class="tbc">[à confirmer]</span></span></li>
-        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Lun.–ven. 7&nbsp;h–19&nbsp;h · Urgences 7j/7</span></li>
+        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><span>Obernai et 20&nbsp;km alentour</span></li>
+        <li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Horaires <span class="tbc">[à confirmer]</span> · Urgences 7j/7</span></li>
       </ul>
       <div class="ftr__socials">
         <a class="cr-iconbtn cr-iconbtn--outline cr-iconbtn--44" aria-label="Crescend’eau sur LinkedIn" title="Crescend’eau sur LinkedIn" href="#"><svg class="ic" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 10.5V17"></path><path d="M8 7.2v.1"></path><path d="M12 17v-6.5"></path><path d="M12 13.5a2.5 2.5 0 0 1 5 0V17"></path></svg></a>
@@ -284,8 +208,6 @@
         <li><a href="prestations.html">Nettoyage industriel</a></li>
         <li><a href="prestations.html">Vitrerie et façades</a></li>
         <li><a href="prestations.html">Parkings et haute pression</a></li>
-        <li><a href="prestations.html">Remise en état</a></li>
-        <li><a href="prestations.html">Services complémentaires</a></li>
         <li><a href="prestations.html">Dépannage &amp; Multiservices</a></li>
       </ul>
     </nav>
@@ -307,15 +229,7 @@
         <li><a href="realisations.html">Réalisations</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="espace-client.html">Espace client</a></li>
-      </ul>
-    </nav>
-    <nav class="ftr__col" aria-label="Nous rejoindre">
-      <h2>Nous rejoindre</h2>
-      <ul>
-        <li><a href="nous-rejoindre.html#offres">Nos offres d’emploi</a></li>
-        <li><a href="nous-rejoindre.html#candidature">Candidature spontanée</a></li>
-        <li><a href="nous-rejoindre.html#metiers">Nos métiers</a></li>
-        <li><a href="nous-rejoindre.html#formation">Formation et évolution</a></li>
+        <li><a href="nous-rejoindre.html">Nous rejoindre</a></li>
       </ul>
     </nav>
   </div>
