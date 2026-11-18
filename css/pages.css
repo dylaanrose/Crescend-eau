@@ -37,7 +37,6 @@
 .site .proof { margin-top: 32px; }
 .site .scrolly .proof { margin-top: 0; }
 .site .targets { margin-top: 40px; }
-.site .cities { margin: 32px 0; }
 .site .checks { margin-top: 32px; }
 .site .cr-logos__title { margin-bottom: var(--space-6); }
 .site .cr-logos__list { margin: 0 auto; }
@@ -133,43 +132,44 @@
   .kit__bleed { margin: 0 calc(-1 * var(--space-5)); }
 }
 
-/* ---------- Carte de la zone d’intervention : repères, en kilomètres autour d’Obernai ---------- */
+/* ---------- Carte de la zone d’intervention : repères, en kilomètres autour de la base ---------- */
 /* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 52 sur mobile) : tout se place en
-   km autour d’Obernai, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
+   km autour de la base, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
 .map { --w: 64; --h: 58; height: auto; aspect-ratio: var(--w) / var(--h); }
 .map__svg { inset: auto; left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
-.map__ring, .map__pulse, .map__pt--obernai { left: 50%; top: 50%; }
+.map__ring, .map__pulse, .map__pt--hq { left: 50%; top: 50%; }
 .map__ring { aspect-ratio: 1; }
 .map__ring--10 { width: calc(20 * 100% / var(--w)); }
 .map__ring--20 { width: calc(40 * 100% / var(--w)); }
 .map__ring span { top: auto; bottom: -10px; }
 .map__pt { left: calc(50% + var(--dx, 0) * 100% / var(--w)); top: calc(50% + var(--dy, 0) * 100% / var(--h)); }
-.map__pt--molsheim { --dx: .9; --dy: -8.7; }
-.map__pt--mutzig { --dx: -2.1; --dy: -9.8; }
+.map__pt--obernai { --dx: 1; --dy: -5.7; }
+.map__pt--rosheim { --dx: .1; --dy: -9.5; }
+.map__pt--molsheim { --dx: 1.8; --dy: -14.6; }
+.map__pt--mutzig { --dx: -1; --dy: -14.1; }
+.map__pt--benfeld { --dx: 9.2; --dy: 4.5; }
+.map__pt--erstein { --dx: 14.3; --dy: -1.2; }
+.map__pt--selestat { --dx: -1.1; --dy: 16.8; }
 .map__region--vosges { left: 6%; top: 12%; }
 .map__region--allemagne { left: auto; right: var(--space-3); top: 88%; }
-.map__region--rhin { left: calc(50% + 18 * 100% / var(--w)); top: calc(50% + 4 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
+.map__region--rhin { left: calc(50% + 22 * 100% / var(--w)); top: calc(50% - 12 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
 @media (max-width: 720px) {
   .map { --w: 48; --h: 52; }
 }
-/* Renvoi « Votre site est à la limite ? » : aligné à gauche sous la liste des villes. */
+/* Renvoi « Votre site est à la limite ? » : aligné à gauche sous le texte. */
+.site .zone__grid .note { margin-top: var(--space-5); }
 .site .zone__grid .targets { justify-content: flex-start; margin-top: 0; }
 
 /* ---------- Carte cliquable de la zone d’intervention (secteurs.html, js/zone.js) ---------- */
-/* Les repères de la carte sont des boutons. Leur marge intérieure agrandit la zone cliquable ;
+/* Les repères des villes sont des boutons. Leur marge intérieure agrandit la zone cliquable ;
    le décalage de site.css est corrigé d’autant pour que le point reste sur ses coordonnées. */
 .map__pt { padding: var(--space-1) var(--space-2); border: 0; border-radius: var(--radius-pill); background: none; font: inherit; color: inherit; cursor: pointer; transform: translate(calc(-5px - var(--space-2)), -50%); }
 .map__pt--left { transform: translate(calc(-100% + 5px + var(--space-2)), -50%); }
-.map__pt--hq { transform: translate(calc(-8px - var(--space-2)), -50%); }
+.map__pt--hq { transform: translate(calc(-8px - var(--space-2)), -50%); cursor: default; }
 .map__pt:hover span, .map__pt.is-hint span, .map__pt.is-on span { color: var(--ink); }
 /* Ville survolée, ou dont la fiche est ouverte : le point prend l’éclat du repère de la base. */
 .map__pt:hover i, .map__pt.is-hint i, .map__pt.is-on i { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(17, 212, 217, .16), 0 0 24px rgba(17, 212, 217, .55); }
 
-/* Les villes de la liste sont aussi des boutons, cliquables sur toute la hauteur de leur ligne. */
-.cities__btn { flex: 1; min-width: 0; margin: -10px 0; padding: 10px 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
-.cities__btn:hover { color: var(--ink); }
-.cities__btn.is-on { color: var(--accent); }
-.cities li:has(.cities__btn:hover)::before, .cities li:has(.cities__btn.is-on)::before { background: var(--accent-hover); }
 
 /* Fiche d’une ville : élément [popover], placé sur son repère par js/zone.js (--x et --y, en px dans la page).
    Sans JavaScript, le navigateur l’ouvre au centre de l’écran. */

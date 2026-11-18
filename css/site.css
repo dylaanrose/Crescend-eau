@@ -239,9 +239,6 @@ img { max-width: 100%; }
 
 /* ---------- Zone d’intervention ---------- */
 .zone__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: center; }
-.cities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; margin: 32px 0; }
-.cities li { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 15px; line-height: 24px; color: var(--ink-soft); }
-.cities li::before { content: ""; width: 6px; height: 6px; flex: none; border-radius: 50%; background: var(--accent); }
 .map { position: relative; height: 640px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius-lg); background-color: var(--surface-000); background-image: radial-gradient(circle, var(--line) 1.2px, transparent 1.6px); background-size: 18px 18px; }
 .map__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .map__river { fill: none; stroke: var(--accent-deep); stroke-width: 1.5; stroke-dasharray: 2 6; stroke-linecap: round; vector-effect: non-scaling-stroke; opacity: .9; }

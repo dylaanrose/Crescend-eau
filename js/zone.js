@@ -30,10 +30,10 @@ function initMap(map) {
     const card = event.target;
     if (!card.matches('.map__card')) return;
     const open = event.newState === 'open';
-    // La ville ouverte est marquée sur la carte et dans la liste.
+    // La ville ouverte est marquée sur la carte.
     zone.querySelectorAll('[popovertarget="' + card.id + '"]:not([popovertargetaction])')
       .forEach((button) => button.classList.toggle('is-on', open));
-    // Ville choisie dans la liste alors que la carte est hors de l’écran (mobile) : on y amène la fiche.
+    // Fiche ouverte alors qu’elle dépasse de l’écran (mobile) : on l’y ramène.
     if (open) {
       card.scrollIntoView({ block: 'nearest' });
       seen = inView(card);
@@ -60,12 +60,4 @@ function initMap(map) {
     if (inView(card)) seen = true;
     else if (seen) card.hidePopover();
   }, { passive: true });
-
-  // Survol ou focus d’une ville de la liste : son repère s’allume sur la carte.
-  const hint = (on) => (event) => {
-    const button = event.target.closest('.cities [popovertarget]');
-    if (button) point(button.getAttribute('popovertarget')).classList.toggle('is-hint', on);
-  };
-  ['mouseover', 'focusin'].forEach((type) => zone.addEventListener(type, hint(true)));
-  ['mouseout', 'focusout'].forEach((type) => zone.addEventListener(type, hint(false)));
 }

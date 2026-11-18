@@ -113,13 +113,12 @@ Quatre formulaires : devis rapide (accueil), contact, devis en 3 étapes, candid
 
 ## Carte de la zone d’intervention
 
-Sur `secteurs.html`. Une ville tient en trois éléments, reliés par le même identifiant `ville-<nom>` :
+Sur `secteurs.html`. Une ville tient en deux éléments, reliés par le même identifiant `ville-<nom>` :
 
-- son bouton dans la liste (`.cities`) et son bouton sur la carte (`.map__pt map__pt--<nom>`), tous deux avec
-  `popovertarget="ville-<nom>"` ;
+- son bouton sur la carte (`.map__pt map__pt--<nom>`), avec `popovertarget="ville-<nom>"` ;
 - sa fiche, `<div class="box map__card" id="ville-<nom>" popover>`, où se trouvent tous ses textes.
 
-La carte est graduée en kilomètres autour d’Obernai (au centre) : la position d’un point se règle dans
+La carte est graduée en kilomètres autour de la base (au centre, sans nom de village) : la position d’un point se règle dans
 `css/pages.css` avec ses écarts réels, `.map__pt--<nom> { --dx: …; --dy: … }` (km vers l’est et vers le sud). Les deux
 cercles (10 et 20 km) sont `.map__ring--10` et `.map__ring--20`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran.
 
