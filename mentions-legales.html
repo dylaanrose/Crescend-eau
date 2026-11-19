@@ -13,6 +13,36 @@
 </head>
 <body data-page="mentions">
 <div class="site">
+<!-- partial:cookies -->
+<!-- Généré depuis partials/cookies.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<section class="consent" id="consent" role="dialog" aria-labelledby="consent-titre" hidden>
+  <div class="consent__view" data-consent-view="banner">
+    <div class="consent__text">
+      <h2 id="consent-titre" class="consent__title">Vos choix sur les cookies</h2>
+      <p>Ce site utilise uniquement les cookies nécessaires à son fonctionnement. Avec votre accord, il pourra aussi utiliser des cookies de mesure d’audience et charger des contenus externes. Refuser ne change rien à votre navigation, et vous pouvez modifier votre choix à tout moment. <a href="cookies.html">Politique de cookies</a></p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="reject"><span>Tout refuser</span></button>
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="accept"><span>Tout accepter</span></button>
+      <button type="button" class="textlink consent__more" data-consent="customize">Personnaliser</button>
+    </div>
+  </div>
+  <form class="consent__view" data-consent-view="panel" hidden>
+    <div class="consent__text">
+      <h2 id="consent-panneau" class="consent__title">Personnaliser mes choix</h2>
+      <fieldset class="consent__choices" aria-labelledby="consent-panneau">
+        <label class="checkbox"><input type="checkbox" checked disabled><span><strong class="u-strong">Cookies nécessaires</strong>. Toujours actifs&nbsp;: ils mémorisent votre choix et assurent le fonctionnement du site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="mesure"><span><strong class="u-strong">Mesure d’audience</strong>. Statistiques de fréquentation, pour améliorer le site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="medias"><span><strong class="u-strong">Contenus externes</strong>. Cartes et vidéos fournies par des tiers, qui peuvent déposer leurs propres cookies.</span></label>
+      </fieldset>
+    </div>
+    <div class="consent__actions">
+      <button type="submit" class="cr-btn cr-btn--secondary"><span>Enregistrer</span></button>
+      <button type="button" class="textlink consent__more" data-consent="back">Retour</button>
+    </div>
+  </form>
+</section>
+<!-- /partial:cookies -->
   <div class="hdr-sticky">
 <!-- partial:header -->
 <!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
@@ -80,7 +110,7 @@
           <div class="cr-heading"><h1 class="cr-title cr-title--display">Mentions<br><span class="cr-accent">légales.</span></h1><p class="cr-lead">Qui édite ce site, qui l’héberge et dans quelles conditions vous pouvez l’utiliser.</p></div>
         </div>
         <div class="prose">
-          <p class="note">Texte type, à compléter et à faire valider par l’entreprise avant la mise en ligne <span class="tbc">[à confirmer]</span></p>
+          <p class="note">Texte rédigé pour le site, à faire valider par l’entreprise ou son conseil avant la mise en ligne <span class="tbc">[à confirmer]</span></p>
           <h2 class="cr-title cr-title--h3">Éditeur du site</h2>
           <dl class="recap">
             <dt>Raison sociale</dt><dd>Crescend’eau EURL</dd>
@@ -88,6 +118,7 @@
             <dt>Siège social</dt><dd>9 rue Principale, 67140 Gertwiller</dd>
             <dt>SIREN</dt><dd>793&nbsp;638&nbsp;701</dd>
             <dt>SIRET</dt><dd>793&nbsp;638&nbsp;701&nbsp;00045</dd>
+            <dt>Registre du commerce</dt><dd>RCS, greffe <span class="tbc">[à confirmer]</span></dd>
             <dt>Activité (NAF / APE)</dt><dd>Nettoyage courant des bâtiments, 8121Z</dd>
             <dt>TVA intracommunautaire</dt><dd>FR93&nbsp;793&nbsp;638&nbsp;701</dd>
             <dt>Directeur de la publication</dt><dd>Yolande Paquet</dd>
@@ -96,16 +127,25 @@
           </dl>
           <h2 class="cr-title cr-title--h3">Hébergeur</h2>
           <dl class="recap">
-            <dt>Société</dt><dd>OVH SAS</dd>
-            <dt>Adresse</dt><dd>2 rue Kellermann, 59100 Roubaix <span class="tbc">[à confirmer]</span></dd>
+            <dt>Société</dt><dd>OVH SAS, société par actions simplifiée au capital de 50&nbsp;000&nbsp;000&nbsp;€</dd>
+            <dt>Immatriculation</dt><dd>RCS Lille Métropole 424&nbsp;761&nbsp;419&nbsp;00045</dd>
+            <dt>Siège social</dt><dd>2 rue Kellermann, 59100 Roubaix, France</dd>
             <dt>Téléphone</dt><dd>09&nbsp;72&nbsp;10&nbsp;10&nbsp;07 <span class="tbc">[à confirmer]</span></dd>
+            <dt>Site</dt><dd><a href="https://www.ovhcloud.com/fr/">www.ovhcloud.com</a></dd>
           </dl>
           <h2 class="cr-title cr-title--h3">Propriété intellectuelle</h2>
-          <p>Les textes, photographies, pictogrammes, logo et mise en page de ce site sont la propriété de Crescend’eau ou de ses partenaires. Toute reproduction, même partielle, est soumise à une autorisation écrite préalable.</p>
+          <p>Les textes, photographies, pictogrammes, logo, marques et mise en page de ce site sont la propriété de Crescend’eau ou de ses partenaires, et protégés par le droit de la propriété intellectuelle. Toute reproduction, représentation, modification ou exploitation, même partielle, est interdite sans autorisation écrite préalable.</p>
+          <h2 class="cr-title cr-title--h3">Responsabilité</h2>
+          <p>Crescend’eau s’efforce de fournir des informations exactes et à jour, sans pouvoir garantir l’absence d’erreur ou d’omission. Les informations du site ont une valeur indicative&nbsp;: seul un devis signé engage Crescend’eau. Crescend’eau ne peut être tenue responsable d’une interruption du site, d’un dysfonctionnement technique ou d’un dommage lié à son utilisation.</p>
+          <h2 class="cr-title cr-title--h3">Liens hypertextes</h2>
+          <p>Le site peut renvoyer vers des sites tiers dont Crescend’eau ne contrôle pas le contenu et dont elle n’est pas responsable. Un lien vers le site est possible sans autorisation, à condition de ne pas porter atteinte à l’image de Crescend’eau ni d’en laisser croire une validation.</p>
+          <h2 class="cr-title cr-title--h3">Données personnelles et cookies</h2>
+          <p>Le traitement de vos données est décrit dans la <a href="politique-confidentialite.html">politique de confidentialité</a>. L’usage des cookies et la gestion de votre consentement sont décrits dans la <a href="cookies.html">politique de cookies</a>.</p>
           <h2 class="cr-title cr-title--h3">Crédits</h2>
           <p>Photographies&nbsp;: visuels de démonstration, à remplacer par des photos de chantier <span class="tbc">[à confirmer]</span>. Conception et réalisation du site&nbsp;: <span class="tbc">[à confirmer]</span></p>
-          <h2 class="cr-title cr-title--h3">Données personnelles</h2>
-          <p>Le traitement de vos données est décrit dans la <a href="politique-confidentialite.html">politique de confidentialité</a> et sur la page <a href="cookies.html">gestion des cookies</a>.</p>
+          <h2 class="cr-title cr-title--h3">Droit applicable</h2>
+          <p>Le site et ses mentions légales sont soumis au droit français. En cas de litige, et à défaut d’accord amiable, les tribunaux français sont seuls compétents.</p>
+          <p class="note">Éditeur et hébergeur sont désignés conformément à l’article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique.</p>
         </div>
       </div>
     </section>
@@ -168,7 +208,10 @@
       <nav class="ftr__legal" aria-label="Informations légales">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="cookies.html">Gestion des cookies</a>
+        <a href="cgu.html">CGU</a>
+        <a href="cgv.html">CGV</a>
+        <a href="cookies.html">Politique de cookies</a>
+        <button type="button" class="ftr__legal-btn" data-consent-open>Gérer mes cookies</button>
         <a href="plan-du-site.html">Plan du site</a>
       </nav>
     </div>

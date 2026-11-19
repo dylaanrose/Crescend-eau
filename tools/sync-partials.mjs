@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Recopie partials/header.html et partials/footer.html dans toutes les pages du site.
+// Recopie partials/header.html, partials/footer.html et partials/cookies.html dans toutes les pages du site.
 //
 //   node tools/sync-partials.mjs          met les pages à jour
 //   node tools/sync-partials.mjs --check  vérifie seulement (code de sortie 1 si une page n’est pas à jour)
@@ -18,7 +18,7 @@ import { join } from 'node:path';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const checkOnly = process.argv.includes('--check');
-const BLOCK = /<!-- partial:(header|footer)((?: [\w=-]+)*) -->[\s\S]*?<!-- \/partial:\1 -->/g;
+const BLOCK = /<!-- partial:(header|footer|cookies)((?: [\w=-]+)*) -->[\s\S]*?<!-- \/partial:\1 -->/g;
 
 function render(name, options, page) {
   let html = readFileSync(join(root, 'partials', name + '.html'), 'utf8').trim();

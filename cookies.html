@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gestion des cookies — Crescend’eau</title>
+<title>Politique de cookies — Crescend’eau</title>
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/components.css">
@@ -13,6 +13,36 @@
 </head>
 <body data-page="cookies">
 <div class="site">
+<!-- partial:cookies -->
+<!-- Généré depuis partials/cookies.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<section class="consent" id="consent" role="dialog" aria-labelledby="consent-titre" hidden>
+  <div class="consent__view" data-consent-view="banner">
+    <div class="consent__text">
+      <h2 id="consent-titre" class="consent__title">Vos choix sur les cookies</h2>
+      <p>Ce site utilise uniquement les cookies nécessaires à son fonctionnement. Avec votre accord, il pourra aussi utiliser des cookies de mesure d’audience et charger des contenus externes. Refuser ne change rien à votre navigation, et vous pouvez modifier votre choix à tout moment. <a href="cookies.html">Politique de cookies</a></p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="reject"><span>Tout refuser</span></button>
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="accept"><span>Tout accepter</span></button>
+      <button type="button" class="textlink consent__more" data-consent="customize">Personnaliser</button>
+    </div>
+  </div>
+  <form class="consent__view" data-consent-view="panel" hidden>
+    <div class="consent__text">
+      <h2 id="consent-panneau" class="consent__title">Personnaliser mes choix</h2>
+      <fieldset class="consent__choices" aria-labelledby="consent-panneau">
+        <label class="checkbox"><input type="checkbox" checked disabled><span><strong class="u-strong">Cookies nécessaires</strong>. Toujours actifs&nbsp;: ils mémorisent votre choix et assurent le fonctionnement du site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="mesure"><span><strong class="u-strong">Mesure d’audience</strong>. Statistiques de fréquentation, pour améliorer le site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="medias"><span><strong class="u-strong">Contenus externes</strong>. Cartes et vidéos fournies par des tiers, qui peuvent déposer leurs propres cookies.</span></label>
+      </fieldset>
+    </div>
+    <div class="consent__actions">
+      <button type="submit" class="cr-btn cr-btn--secondary"><span>Enregistrer</span></button>
+      <button type="button" class="textlink consent__more" data-consent="back">Retour</button>
+    </div>
+  </form>
+</section>
+<!-- /partial:cookies -->
   <div class="hdr-sticky">
 <!-- partial:header -->
 <!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
@@ -75,16 +105,24 @@
   <main id="contenu">
     <section class="sec u-pt-48">
       <div class="wrap">
-        <nav class="crumbs" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Gestion des cookies</span></nav>
+        <nav class="crumbs" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Politique de cookies</span></nav>
         <div class="u-mb-56">
-          <div class="cr-heading"><h1 class="cr-title cr-title--display">Gestion<br><span class="cr-accent">des cookies.</span></h1><p class="cr-lead">Ce site fonctionne sans cookie de suivi.</p></div>
+          <div class="cr-heading"><h1 class="cr-title cr-title--display">Politique<br><span class="cr-accent">de cookies.</span></h1><p class="cr-lead">Ce que ce site enregistre sur votre appareil, et comment le maîtriser.</p></div>
         </div>
         <div class="prose">
-          <h2 class="cr-title cr-title--h3">Aucun cookie de mesure ni de publicité</h2>
-          <p>Ce site ne dépose aucun cookie de mesure d’audience, de publicité ou de réseau social. Aucun bandeau de consentement n’est donc affiché.</p>
-          <p class="note">À revoir si un outil de mesure d’audience, une carte ou une vidéo intégrée est ajouté au site <span class="tbc">[à confirmer]</span></p>
-          <h2 class="cr-title cr-title--h3">Vos réglages</h2>
-          <p>Vous pouvez à tout moment bloquer ou supprimer les cookies depuis les réglages de votre navigateur.</p>
+          <p>Un cookie est un petit fichier enregistré sur votre appareil par un site. Le stockage local du navigateur joue un rôle comparable. La loi (article 82 de la loi Informatique et Libertés, RGPD) impose de vous informer et de recueillir votre accord avant tout dépôt non nécessaire au fonctionnement du site.</p>
+          <h2 class="cr-title cr-title--h3">Ce que fait ce site</h2>
+          <p>Ce site ne dépose aucun cookie de publicité ni de réseau social. Il ne charge pour l’instant aucun outil de mesure d’audience ni contenu externe susceptible de déposer des cookies. Si l’un d’eux est ajouté, il ne s’activera qu’avec votre accord.</p>
+          <dl class="recap">
+            <dt>Nécessaires</dt><dd>Mémorisation de votre choix sur les cookies. Stockage local « cr-consent », conservé 6&nbsp;mois. Aucun accord n’est requis.</dd>
+            <dt>Mesure d’audience</dt><dd>Aucun outil actuellement. Refusée par défaut.</dd>
+            <dt>Contenus externes</dt><dd>Aucun contenu actuellement (cartes, vidéos de tiers). Refusés par défaut.</dd>
+          </dl>
+          <h2 class="cr-title cr-title--h3">Gérer mes choix</h2>
+          <p>Vous pouvez accepter ou refuser chaque catégorie, et changer d’avis à tout moment&nbsp;: refuser est aussi simple qu’accepter, et le lien « Gérer mes cookies » reste en bas de chaque page. Votre choix est conservé 6&nbsp;mois, puis nous vous le demandons de nouveau.</p>
+          <div><button type="button" class="cr-btn cr-btn--secondary" data-consent-open><span>Gérer mes cookies</span></button></div>
+          <h2 class="cr-title cr-title--h3">Régler votre navigateur</h2>
+          <p>Vous pouvez aussi bloquer ou supprimer les cookies depuis les réglages de votre navigateur. Le site reste utilisable, sauf les fonctions qui dépendent d’un cookie que vous auriez refusé. Pour en savoir plus&nbsp;: <a href="https://www.cnil.fr/fr/cookies-et-autres-traceurs">cnil.fr</a>.</p>
           <h2 class="cr-title cr-title--h3">En savoir plus</h2>
           <p>L’utilisation de vos données est décrite dans la <a href="politique-confidentialite.html">politique de confidentialité</a>.</p>
         </div>
@@ -149,7 +187,10 @@
       <nav class="ftr__legal" aria-label="Informations légales">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="cookies.html">Gestion des cookies</a>
+        <a href="cgu.html">CGU</a>
+        <a href="cgv.html">CGV</a>
+        <a href="cookies.html">Politique de cookies</a>
+        <button type="button" class="ftr__legal-btn" data-consent-open>Gérer mes cookies</button>
         <a href="plan-du-site.html">Plan du site</a>
       </nav>
     </div>

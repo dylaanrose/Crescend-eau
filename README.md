@@ -122,6 +122,28 @@ La carte est graduée en kilomètres autour de la base (au centre, sans nom de v
 `css/pages.css` avec ses écarts réels, `.map__pt--<nom> { --dx: …; --dy: … }` (km vers l’est et vers le sud). Les deux
 cercles (10 et 20 km) sont `.map__ring--10` et `.map__ring--20`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran.
 
+## Cookies et consentement (RGPD)
+
+Le bandeau et son panneau sont dans `partials/cookies.html` (recopié dans chaque page par `node tools/sync-partials.mjs`),
+le comportement dans `js/consent.js`, les styles `.consent*` dans `css/site.css`. Aucun cookie non nécessaire n’est déposé
+avant le choix ; « Tout refuser » et « Tout accepter » sont identiques ; le choix est gardé 6 mois (`localStorage`,
+clé `cr-consent`) ; « Gérer mes cookies » (pied de page et `cookies.html`, attribut `data-consent-open`) rouvre le panneau.
+
+Pour ajouter un outil, le mettre en attente dans la page, il ne s’active qu’avec l’accord de sa catégorie :
+
+```html
+<script type="text/plain" data-consent-category="mesure" src="https://…"></script>
+<iframe data-consent-category="medias" data-src="https://…" title="…"></iframe>
+```
+
+Catégories : `mesure` (mesure d’audience) et `medias` (contenus externes). Penser alors à mettre à jour `cookies.html`
+et `politique-confidentialite.html`.
+
+## Pages juridiques
+
+`mentions-legales.html`, `cgu.html`, `cgv.html`, `politique-confidentialite.html` et `cookies.html` portent les mentions
+« à confirmer » pour tout ce qui relève de choix de l’entreprise (délais de paiement, préavis, durées de conservation…).
+
 ## Hero de l’accueil
 
 Le hero fait défiler une séquence d’images au rythme de la page (`js/scrolly.js`, styles `.scrolly` dans `css/site.css`).

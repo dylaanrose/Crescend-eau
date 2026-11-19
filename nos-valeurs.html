@@ -13,6 +13,36 @@
 </head>
 <body data-page="valeurs">
 <div class="site">
+<!-- partial:cookies -->
+<!-- Généré depuis partials/cookies.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<section class="consent" id="consent" role="dialog" aria-labelledby="consent-titre" hidden>
+  <div class="consent__view" data-consent-view="banner">
+    <div class="consent__text">
+      <h2 id="consent-titre" class="consent__title">Vos choix sur les cookies</h2>
+      <p>Ce site utilise uniquement les cookies nécessaires à son fonctionnement. Avec votre accord, il pourra aussi utiliser des cookies de mesure d’audience et charger des contenus externes. Refuser ne change rien à votre navigation, et vous pouvez modifier votre choix à tout moment. <a href="cookies.html">Politique de cookies</a></p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="reject"><span>Tout refuser</span></button>
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="accept"><span>Tout accepter</span></button>
+      <button type="button" class="textlink consent__more" data-consent="customize">Personnaliser</button>
+    </div>
+  </div>
+  <form class="consent__view" data-consent-view="panel" hidden>
+    <div class="consent__text">
+      <h2 id="consent-panneau" class="consent__title">Personnaliser mes choix</h2>
+      <fieldset class="consent__choices" aria-labelledby="consent-panneau">
+        <label class="checkbox"><input type="checkbox" checked disabled><span><strong class="u-strong">Cookies nécessaires</strong>. Toujours actifs&nbsp;: ils mémorisent votre choix et assurent le fonctionnement du site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="mesure"><span><strong class="u-strong">Mesure d’audience</strong>. Statistiques de fréquentation, pour améliorer le site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="medias"><span><strong class="u-strong">Contenus externes</strong>. Cartes et vidéos fournies par des tiers, qui peuvent déposer leurs propres cookies.</span></label>
+      </fieldset>
+    </div>
+    <div class="consent__actions">
+      <button type="submit" class="cr-btn cr-btn--secondary"><span>Enregistrer</span></button>
+      <button type="button" class="textlink consent__more" data-consent="back">Retour</button>
+    </div>
+  </form>
+</section>
+<!-- /partial:cookies -->
   <div class="hdr-sticky">
 <!-- partial:header -->
 <!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
@@ -175,7 +205,10 @@
       <nav class="ftr__legal" aria-label="Informations légales">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="cookies.html">Gestion des cookies</a>
+        <a href="cgu.html">CGU</a>
+        <a href="cgv.html">CGV</a>
+        <a href="cookies.html">Politique de cookies</a>
+        <button type="button" class="ftr__legal-btn" data-consent-open>Gérer mes cookies</button>
         <a href="plan-du-site.html">Plan du site</a>
       </nav>
     </div>

@@ -13,6 +13,36 @@
 </head>
 <body data-page="confidentialite">
 <div class="site">
+<!-- partial:cookies -->
+<!-- Généré depuis partials/cookies.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
+<section class="consent" id="consent" role="dialog" aria-labelledby="consent-titre" hidden>
+  <div class="consent__view" data-consent-view="banner">
+    <div class="consent__text">
+      <h2 id="consent-titre" class="consent__title">Vos choix sur les cookies</h2>
+      <p>Ce site utilise uniquement les cookies nécessaires à son fonctionnement. Avec votre accord, il pourra aussi utiliser des cookies de mesure d’audience et charger des contenus externes. Refuser ne change rien à votre navigation, et vous pouvez modifier votre choix à tout moment. <a href="cookies.html">Politique de cookies</a></p>
+    </div>
+    <div class="consent__actions">
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="reject"><span>Tout refuser</span></button>
+      <button type="button" class="cr-btn cr-btn--secondary" data-consent="accept"><span>Tout accepter</span></button>
+      <button type="button" class="textlink consent__more" data-consent="customize">Personnaliser</button>
+    </div>
+  </div>
+  <form class="consent__view" data-consent-view="panel" hidden>
+    <div class="consent__text">
+      <h2 id="consent-panneau" class="consent__title">Personnaliser mes choix</h2>
+      <fieldset class="consent__choices" aria-labelledby="consent-panneau">
+        <label class="checkbox"><input type="checkbox" checked disabled><span><strong class="u-strong">Cookies nécessaires</strong>. Toujours actifs&nbsp;: ils mémorisent votre choix et assurent le fonctionnement du site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="mesure"><span><strong class="u-strong">Mesure d’audience</strong>. Statistiques de fréquentation, pour améliorer le site.</span></label>
+        <label class="checkbox"><input type="checkbox" name="medias"><span><strong class="u-strong">Contenus externes</strong>. Cartes et vidéos fournies par des tiers, qui peuvent déposer leurs propres cookies.</span></label>
+      </fieldset>
+    </div>
+    <div class="consent__actions">
+      <button type="submit" class="cr-btn cr-btn--secondary"><span>Enregistrer</span></button>
+      <button type="button" class="textlink consent__more" data-consent="back">Retour</button>
+    </div>
+  </form>
+</section>
+<!-- /partial:cookies -->
   <div class="hdr-sticky">
 <!-- partial:header -->
 <!-- Généré depuis partials/header.html par « node tools/sync-partials.mjs » : ne pas modifier ici. -->
@@ -82,7 +112,7 @@
         <div class="prose">
           <p class="note">Texte type, à compléter et à faire valider par l’entreprise avant la mise en ligne <span class="tbc">[à confirmer]</span></p>
           <h2 class="cr-title cr-title--h3">Responsable du traitement</h2>
-          <p>Crescend’eau, dont les coordonnées figurent dans les <a href="mentions-legales.html">mentions légales</a> <span class="tbc">[à confirmer]</span></p>
+          <p>Crescend’eau EURL, 9 rue Principale, 67140 Gertwiller (SIREN 793&nbsp;638&nbsp;701). Contact pour vos données&nbsp;: <a href="mailto:contactpro@crescendeau.fr">contactpro@crescendeau.fr</a>. Les autres coordonnées figurent dans les <a href="mentions-legales.html">mentions légales</a>.</p>
           <h2 class="cr-title cr-title--h3">Données collectées</h2>
           <ul class="ticks">
             <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Demande de devis&nbsp;: type de site, surface, code postal, ville, prestations souhaitées, nom, fonction, entreprise, e-mail, téléphone et pièce jointe éventuelle.</li>
@@ -92,12 +122,19 @@
           <h2 class="cr-title cr-title--h3">Utilisation</h2>
           <p>Vos données servent uniquement à traiter votre demande et ne sont jamais cédées.</p>
           <h2 class="cr-title cr-title--h3">Base légale et durée de conservation</h2>
-          <p>Base légale du traitement et durées de conservation par type de demande&nbsp;: <span class="tbc">[à confirmer]</span></p>
+          <ul class="ticks">
+            <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Demande de devis, de contact ou de rappel&nbsp;: mesures précontractuelles prises à votre demande, et intérêt légitime de répondre aux professionnels qui nous sollicitent. Conservation&nbsp;: 3&nbsp;ans après le dernier contact <span class="tbc">[à confirmer]</span></li>
+            <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Clients&nbsp;: exécution du contrat. Conservation pendant la durée du contrat, puis le temps de la prescription légale et des obligations comptables <span class="tbc">[à confirmer]</span></li>
+            <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Candidature&nbsp;: mesures précontractuelles. Conservation&nbsp;: 2&nbsp;ans après le dernier contact, sauf demande de suppression <span class="tbc">[à confirmer]</span></li>
+            <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Choix sur les cookies&nbsp;: obligation légale. Conservation&nbsp;: 6&nbsp;mois.</li>
+          </ul>
           <h2 class="cr-title cr-title--h3">Destinataires</h2>
-          <p>Les équipes de Crescend’eau chargées de votre demande. Prestataires techniques (hébergement, envoi des e-mails)&nbsp;: <span class="tbc">[à confirmer]</span></p>
+          <p>Les équipes de Crescend’eau chargées de votre demande, et nos prestataires techniques qui traitent les données pour notre compte&nbsp;: OVH SAS pour l’hébergement du site (Roubaix, France), et le prestataire d’envoi des e-mails <span class="tbc">[à confirmer]</span>. Aucune donnée n’est vendue ni cédée à des tiers. Aucun transfert hors de l’Union européenne n’est prévu <span class="tbc">[à confirmer]</span>.</p>
+          <h2 class="cr-title cr-title--h3">Cookies</h2>
+          <p>Le site ne dépose de cookie non nécessaire qu’avec votre accord, que vous pouvez retirer à tout moment. Voir la <a href="cookies.html">politique de cookies</a>.</p>
           <h2 class="cr-title cr-title--h3">Vos droits</h2>
-          <p>Vous pouvez demander l’accès à vos données, leur rectification, leur effacement, la limitation du traitement ou vous y opposer, en écrivant à <a href="mailto:contactpro@crescendeau.fr">contactpro@crescendeau.fr</a></p>
-          <p>Vous pouvez aussi adresser une réclamation à la CNIL&nbsp;: <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
+          <p>Vous disposez des droits d’accès, de rectification, d’effacement, de limitation, d’opposition et de portabilité de vos données, ainsi que du droit de définir des directives sur leur sort après votre décès. Pour les exercer, écrivez à <a href="mailto:contactpro@crescendeau.fr">contactpro@crescendeau.fr</a>&nbsp;: nous répondons dans un délai d’un mois. Une pièce d’identité peut être demandée en cas de doute.</p>
+          <p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL (3 place de Fontenoy, TSA 80715, 75334 Paris Cedex 07)&nbsp;: <a href="https://www.cnil.fr">www.cnil.fr</a>.</p>
         </div>
       </div>
     </section>
@@ -160,7 +197,10 @@
       <nav class="ftr__legal" aria-label="Informations légales">
         <a href="mentions-legales.html">Mentions légales</a>
         <a href="politique-confidentialite.html">Politique de confidentialité</a>
-        <a href="cookies.html">Gestion des cookies</a>
+        <a href="cgu.html">CGU</a>
+        <a href="cgv.html">CGV</a>
+        <a href="cookies.html">Politique de cookies</a>
+        <button type="button" class="ftr__legal-btn" data-consent-open>Gérer mes cookies</button>
         <a href="plan-du-site.html">Plan du site</a>
       </nav>
     </div>

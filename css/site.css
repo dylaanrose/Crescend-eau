@@ -314,6 +314,25 @@ textarea.input { height: auto; min-height: 120px; padding: 14px 16px; resize: ve
 .ftr__legal { display: flex; flex-wrap: wrap; gap: 8px 24px; }
 .ftr__legal a { color: var(--ink-muted); text-decoration: none; }
 .ftr__legal a:hover { color: var(--ink); }
+.ftr__legal-btn { padding: 0; border: 0; background: none; font: inherit; color: var(--ink-muted); cursor: pointer; }
+.ftr__legal-btn:hover { color: var(--ink); }
+@media (scripting: none) { .ftr__legal-btn { display: none; } }
+
+/* ---------- Consentement aux cookies (partials/cookies.html, js/consent.js) ---------- */
+/* Bandeau non bloquant en bas de page, au-dessus de la barre d’appel mobile. « Tout refuser » et « Tout accepter »
+   ont le même bouton, la même taille et le même poids. */
+.consent { position: fixed; left: var(--space-4); right: var(--space-4); bottom: var(--space-4); z-index: calc(var(--z-callbar) + 1); box-sizing: border-box; max-width: 1080px; max-height: calc(100dvh - var(--space-7)); margin-inline: auto; padding: var(--space-5) var(--space-6); overflow-y: auto; background: var(--surface-300); border: 1px solid var(--line-strong); border-radius: var(--radius-md); box-shadow: var(--elevation-1); color: var(--ink-soft); }
+.consent__view { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-5) var(--space-6); align-items: center; }
+.consent__text { display: flex; flex-direction: column; gap: var(--space-3); font-size: 15px; line-height: 24px; }
+.consent__text a { color: var(--ink); }
+.consent__title { font: var(--text-card); color: var(--ink); }
+.consent__choices { display: flex; flex-direction: column; gap: var(--space-3); margin: 0; padding: 0; border: 0; }
+.consent__actions { display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+.consent__more { padding: var(--space-2) 0; border: 0; background: none; cursor: pointer; }
+@media (max-width: 720px) {
+  .consent { left: var(--space-3); right: var(--space-3); bottom: var(--space-3); padding: var(--space-4); }
+  .consent__view { grid-template-columns: 1fr; }
+}
 .ftr__wave { position: absolute; left: 0; right: 0; bottom: -18px; height: 120px; pointer-events: none; opacity: .9; }
 
 /* ---------- Pages intérieures ---------- */
