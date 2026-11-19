@@ -262,9 +262,10 @@
 .site .u-text-20 { font-size: 20px; line-height: 32px; }
 .site .u-text-22 { font-size: 22px; line-height: 34px; }
 
-/* Accueil : les deux dernières tuiles de la grille se partagent la ligne (la maquette en avait quatre). */
-@media (min-width: 1101px) {
-  .site .tile--half { grid-column: span 6; }
+/* Accueil : six tuiles ; la dernière ligne en compte trois sur ordinateur, et la sixième prend toute la
+   largeur sur tablette pour que la grille à deux colonnes n’ait pas de vide. */
+@media (min-width: 721px) and (max-width: 1100px) {
+  .site .tile--last { grid-column: span 2; }
 }
 
 /* ---------- Pied de page réduit ---------- */
@@ -287,3 +288,22 @@
 /* ---------- Méthode de l’accueil : sans le filet bleu au-dessus des étapes ---------- */
 /* Les étapes gardent leur décalage en escalier ; seul le trait disparaît. */
 .crescendo__step { border-top: 0; }
+
+/* ---------- Transitions fluides entre les sections ---------- */
+/* Plus de filet ni de bord net : les bandes de couleur (.sec--alt, bandeau de chiffres, pied de page)
+   s’estompent vers le fond de page, et les séparateurs d’étapes s’effacent sur les côtés. */
+.phero { border-bottom: 0; }
+.stats { border-bottom: 0; background: linear-gradient(to bottom, var(--surface-000) calc(100% - var(--space-7)), var(--surface-100)); }
+.ftr { border-top: 0; background: linear-gradient(to bottom, var(--surface-100), var(--surface-000) var(--space-9)); }
+.steprow { border-top: 0; background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent) top / 100% 1px no-repeat; }
+
+/* ---------- Pied de page mobile : une vague tracée à sa taille réelle ---------- */
+/* Sur mobile, la vague était écrasée dans la largeur de l’écran et passait sous les liens légaux et sous la
+   barre d’appel. Elle garde ses proportions, déborde de part et d’autre (le pied de page rogne) et se pose
+   au-dessus de la barre d’appel, avec la place nécessaire sous les liens. */
+@media (max-width: 720px) {
+  .ftr__bottom { padding-bottom: calc(var(--space-9) * 2 + var(--space-3)); }
+  .ftr__wave { left: 50%; right: auto; width: 960px; height: 140px; bottom: var(--space-8); transform: translateX(-50%); opacity: .75; }
+  .ftr__wave .cr-wave__glow path { stroke-width: 4; opacity: .3; }
+  .ftr__wave .cr-wave__lines path { vector-effect: non-scaling-stroke; }
+}
