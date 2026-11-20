@@ -128,7 +128,7 @@
 }
 
 /* ---------- Carte de la zone d’intervention : repères, en kilomètres autour de la base ---------- */
-/* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 57 sur mobile) : tout se place en
+/* La carte couvre --w × --h km (64 × 58 sur ordinateur, 50 × 58 sur mobile) : tout se place en
    km autour de la base, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
 .map { --w: 64; --h: 58; height: auto; aspect-ratio: var(--w) / var(--h); }
 .map__bg { left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
@@ -148,7 +148,9 @@
 .map__region--allemagne { left: auto; right: var(--space-3); top: 88%; }
 .map__region--rhin { left: calc(50% + 22 * 100% / var(--w)); top: calc(50% - 12 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
 @media (max-width: 720px) {
-  .map { --w: 48; --h: 57; }
+  .map { --w: 50; --h: 58; }
+  /* La carte prend toute la largeur de l’écran (le décor s’estompe sur ses bords). */
+  .map-wrap { margin-inline: calc(-1 * var(--space-5)); }
 }
 /* Renvoi « Votre site est à la limite ? » : aligné à gauche sous le texte. */
 .site .zone__grid .targets { justify-content: flex-start; margin-top: var(--space-5); }
@@ -162,6 +164,13 @@
 .map__pt:hover span, .map__pt.is-hint span, .map__pt.is-on span { color: var(--ink); }
 /* Ville survolée, ou dont la fiche est ouverte : le point prend l’éclat du repère de la base. */
 .map__pt:hover i, .map__pt.is-hint i, .map__pt.is-on i { background: var(--accent-hover); box-shadow: 0 0 0 6px rgba(17, 212, 217, .16), 0 0 24px rgba(17, 212, 217, .55); }
+/* Mobile : étiquettes plus compactes, et celles de l’est (Erstein, Strasbourg) passent à gauche de leur point
+   pour ne pas sortir de la carte ni se chevaucher. */
+@media (max-width: 720px) {
+  .map__pt span { padding: 2px var(--space-2); font-size: 12px; line-height: 16px; }
+  .map__pt--erstein { flex-direction: row-reverse; transform: translate(calc(-100% + 5px + var(--space-2)), -50%); }
+  .map__region { font-size: 11px; letter-spacing: .3em; }
+}
 
 
 /* Fiche d’une ville : élément [popover], placé sur son repère par js/zone.js (--x et --y, en px dans la page).
@@ -285,12 +294,16 @@
 .ftr { background: linear-gradient(to bottom, var(--surface-100), var(--surface-000) var(--space-9)); }
 
 /* ---------- Pied de page mobile : une vague tracée à sa taille réelle ---------- */
-/* Sur mobile, la vague était écrasée dans la largeur de l’écran et passait sous les liens légaux et sous la
-   barre d’appel. Elle garde ses proportions, déborde de part et d’autre (le pied de page rogne) et se pose
-   au-dessus de la barre d’appel, avec la place nécessaire sous les liens. */
+/* Sur mobile, la vague garde ses proportions, plus haute et plus large que l’écran (le pied de page rogne
+   les côtés), avec une lueur derrière elle ; elle se pose au-dessus de la barre d’appel, sous les liens. */
 @media (max-width: 720px) {
-  .ftr__bottom { padding-bottom: calc(var(--space-9) * 2 + var(--space-3)); }
-  .ftr__wave { left: 50%; right: auto; width: 960px; height: 140px; bottom: var(--space-8); transform: translateX(-50%); opacity: .75; }
-  .ftr__wave .cr-wave__glow path { stroke-width: 4; opacity: .3; }
+  .ftr__bottom { padding-bottom: calc(var(--space-9) * 2 + var(--space-3) + var(--space-5)); }
+  .ftr__wave { left: 50%; right: auto; width: 1100px; height: 210px; bottom: var(--space-7); transform: translateX(-50%); opacity: 1; }
+  /* Une lueur douce derrière les lignes, qui donne de la profondeur sans bord net. */
+  .ftr__wave::before { content: ""; position: absolute; inset: 10% 0 -20% 0; background: radial-gradient(ellipse at 50% 45%, color-mix(in srgb, var(--accent) 17%, transparent), transparent 68%); -webkit-mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent); mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 70%, transparent); }
+  .ftr__wave .cr-wave__glow path { stroke-width: 6; opacity: .34; }
   .ftr__wave .cr-wave__lines path { vector-effect: non-scaling-stroke; }
+  .ftr__wave .cr-wave__l0 { stroke-width: 2.5; }
+  .ftr__wave .cr-wave__l1 { stroke-width: 1.6; opacity: .8; }
+  .ftr__wave .cr-wave__l2 { stroke-width: 1.2; opacity: .7; }
 }
