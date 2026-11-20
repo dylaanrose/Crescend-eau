@@ -43,12 +43,12 @@ img { max-width: 100%; }
 @keyframes crPulse { 0% { transform: translate(-50%, -50%) scale(.6); opacity: .7; } 100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; } }
 .wave-fill .cr-wave__lines { animation: crWave 9s ease-in-out infinite; }
 .wave-fill .cr-wave__glow { animation: crWave 9s ease-in-out infinite, crGlow 6s ease-in-out infinite; }
-/* Pied de page : en plus de la dérive d’ensemble, chaque ligne respire à son propre rythme (amplitude verticale
-   qui varie), sans que les extrémités quittent leur place. */
-@keyframes crBreathe { 0%, 100% { transform: scaleY(.7); } 50% { transform: scaleY(1.6); } }
-.ftr__wave .cr-wave__lines path, .ftr__wave .cr-wave__glow path { transform-box: fill-box; transform-origin: center; animation: crBreathe 8s ease-in-out infinite; }
-.ftr__wave .cr-wave__l1 { animation-duration: 10s; animation-delay: -3s; }
-.ftr__wave .cr-wave__l2 { animation-duration: 12s; animation-delay: -6s; }
+/* Pied de page : en plus de la dérive d’ensemble, chaque ligne ondule à son propre rythme et en opposition de phase
+   avec sa voisine : l’amplitude verticale s’inverse (elle passe par zéro), si bien que les lignes se croisent. */
+@keyframes crCross { 0%, 100% { transform: scaleY(1.5); } 50% { transform: scaleY(-.9); } }
+.ftr__wave .cr-wave__lines path, .ftr__wave .cr-wave__glow path { transform-box: fill-box; transform-origin: center; animation: crCross 9s ease-in-out infinite; }
+.ftr__wave .cr-wave__lines .cr-wave__l1 { animation-delay: -4.5s; }
+.ftr__wave .cr-wave__lines .cr-wave__l2 { animation-duration: 12s; animation-delay: -2s; }
 
 /* ---------- En-tête ---------- */
 .hdr-sticky { position: sticky; top: 0; z-index: var(--z-header); height: var(--hdr-h); pointer-events: none; }

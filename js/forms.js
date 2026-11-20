@@ -80,14 +80,16 @@ export async function send(form) {
   const numero = requestNumber();
   if (DEMO) return { state: 'demo', numero };
   const data = new FormData(form);
-  // Cases à cocher multiples : une seule valeur par nom, lisible par n’importe quel serveur.
+  // Envoi en JSON, lisible par n’importe quel serveur : une valeur texte par champ.
+  // Cases multiples : valeurs réunies par « , ». Pièce jointe : seul son nom est transmis.
+  const corps = {};
   for (const name of new Set(data.keys())) {
-    const values = data.getAll(name);
-    if (values.length > 1 && values.every((v) => typeof v === 'string')) data.set(name, values.join(', '));
+    const values = data.getAll(name).map((v) => (typeof v === 'string' ? v : v.name)).filter(Boolean);
+    corps[name] = values.join(', ');
   }
-  data.set('numero', numero);
+  corps.numero = numero;
   try {
-    const response = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+    const response = await fetch(FORM_ENDPOINT, { method: 'POST', body: JSON.stringify(corps), headers: { 'Content-Type': 'application/json', Accept: 'application/json' } });
     return { state: response.ok ? 'sent' : 'error', numero };
   } catch {
     return { state: 'error', numero };
