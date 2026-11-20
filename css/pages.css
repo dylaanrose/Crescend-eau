@@ -52,13 +52,8 @@
   .stepper .cr-steps__label { white-space: normal; }
 }
 
-/* Carte de la zone d’intervention : la légende est sortie du cadre .map (parent .map-wrap).
-   Même position sur ordinateur ; sur mobile elle passe sous la carte au lieu de recouvrir Saint-Louis,
-   et « Allemagne » s’aligne à droite au lieu d’être coupé. */
+/* Carte de la zone d’intervention : les fiches des villes se placent par rapport à ce cadre. */
 .map-wrap { position: relative; }
-@media (max-width: 720px) {
-  .map__legend { position: static; margin-top: var(--space-3); }
-}
 
 /* ---------- Réglages portés par des classes existantes ---------- */
 .hdr-root, .ftr { font-family: var(--font-body); color: var(--ink-soft); }
@@ -136,12 +131,8 @@
 /* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 57 sur mobile) : tout se place en
    km autour de la base, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
 .map { --w: 64; --h: 58; height: auto; aspect-ratio: var(--w) / var(--h); }
-.map__svg { inset: auto; left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
-.map__ring, .map__pulse, .map__pt--hq { left: 50%; top: 50%; }
-.map__ring { aspect-ratio: 1; }
-.map__ring--10 { width: calc(20 * 100% / var(--w)); }
-.map__ring--20 { width: calc(40 * 100% / var(--w)); }
-.map__ring span { top: 85.36%; bottom: auto; left: 14.64%; transform: translate(-50%, -50%); } /* Étiquette au sud-ouest, loin des villes du sud. */
+.map__bg { left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
+.map__pulse, .map__pt--hq { left: 50%; top: 50%; }
 .map__pt { left: calc(50% + var(--dx, 0) * 100% / var(--w)); top: calc(50% + var(--dy, 0) * 100% / var(--h)); }
 .map__pt--obernai { --dx: 1; --dy: -5.7; }
 .map__pt--rosheim { --dx: .1; --dy: -9.5; }
@@ -160,8 +151,7 @@
   .map { --w: 48; --h: 57; }
 }
 /* Renvoi « Votre site est à la limite ? » : aligné à gauche sous le texte. */
-.site .zone__grid .note { margin-top: var(--space-5); }
-.site .zone__grid .targets { justify-content: flex-start; margin-top: 0; }
+.site .zone__grid .targets { justify-content: flex-start; margin-top: var(--space-5); }
 
 /* ---------- Carte cliquable de la zone d’intervention (secteurs.html, js/zone.js) ---------- */
 /* Les repères des villes sont des boutons. Leur marge intérieure agrandit la zone cliquable ;
@@ -291,10 +281,8 @@
 /* ---------- Transitions fluides entre les sections ---------- */
 /* Plus de filet ni de bord net : les bandes de couleur (.sec--alt, bandeau de chiffres, pied de page)
    s’estompent vers le fond de page ; les étapes de la méthode n’ont plus de filet entre elles. */
-.phero { border-bottom: 0; }
-.stats { border-bottom: 0; background: linear-gradient(to bottom, var(--surface-000) calc(100% - var(--space-7)), var(--surface-100)); }
-.ftr { border-top: 0; background: linear-gradient(to bottom, var(--surface-100), var(--surface-000) var(--space-9)); }
-.steprow { border-top: 0; }
+.stats { background: linear-gradient(to bottom, var(--surface-000) calc(100% - var(--space-7)), var(--surface-100)); }
+.ftr { background: linear-gradient(to bottom, var(--surface-100), var(--surface-000) var(--space-9)); }
 
 /* ---------- Pied de page mobile : une vague tracée à sa taille réelle ---------- */
 /* Sur mobile, la vague était écrasée dans la largeur de l’écran et passait sous les liens légaux et sous la

@@ -70,7 +70,7 @@ body { margin: 0; background: var(--surface-100); color: var(--ink-soft); font-f
 }
 
 /* ---------- LogoCloud ---------- */
-.cr-logos { background: var(--surface-100); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: var(--space-7) var(--space-5); text-align: center; }
+.cr-logos { background: var(--surface-100); padding: var(--space-7) var(--space-5); text-align: center; }
 .cr-logos__title { margin-bottom: var(--space-6); }
 .cr-logos__list { list-style: none; margin: 0 auto; padding: 0; max-width: var(--container); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-6); }
 .cr-logos__item { flex: 1 1 140px; display: flex; justify-content: center; }

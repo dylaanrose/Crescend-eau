@@ -120,7 +120,7 @@ Sur `secteurs.html`. Une ville tient en deux éléments, reliés par le même id
 
 La carte est graduée en kilomètres autour de la base (au centre, sans nom de village) : la position d’un point se règle dans
 `css/pages.css` avec ses écarts réels, `.map__pt--<nom> { --dx: …; --dy: … }` (km vers l’est et vers le sud). Les deux
-cercles (10 et 20 km) sont `.map__ring--10` et `.map__ring--20`. Sans JavaScript, les fiches s’ouvrent au centre de l’écran.
+décor (relief des Vosges, Rhin, cercle de 20 km avec son halo) est l’image `assets/img/carte-fond-1210.webp`, calée à 64 × 58 km autour de la base : la carte n’utilise plus de SVG. Sans JavaScript, les fiches s’ouvrent au centre de l’écran.
 
 ## Cookies et consentement (RGPD)
 
