@@ -291,11 +291,11 @@
 
 /* ---------- Transitions fluides entre les sections ---------- */
 /* Plus de filet ni de bord net : les bandes de couleur (.sec--alt, bandeau de chiffres, pied de page)
-   s’estompent vers le fond de page, et les séparateurs d’étapes s’effacent sur les côtés. */
+   s’estompent vers le fond de page ; les étapes de la méthode n’ont plus de filet entre elles. */
 .phero { border-bottom: 0; }
 .stats { border-bottom: 0; background: linear-gradient(to bottom, var(--surface-000) calc(100% - var(--space-7)), var(--surface-100)); }
 .ftr { border-top: 0; background: linear-gradient(to bottom, var(--surface-100), var(--surface-000) var(--space-9)); }
-.steprow { border-top: 0; background: linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent) top / 100% 1px no-repeat; }
+.steprow { border-top: 0; }
 
 /* ---------- Pied de page mobile : une vague tracée à sa taille réelle ---------- */
 /* Sur mobile, la vague était écrasée dans la largeur de l’écran et passait sous les liens légaux et sous la

@@ -123,9 +123,23 @@
           <p class="muted" aria-live="polite" data-count data-one="prestation" data-many="prestations">5 prestations</p>
         </div>
         <div class="filters" role="group" aria-label="Filtrer par secteur">
-          <button type="button" class="filter" data-filter="tous" aria-pressed="true">Tous les secteurs</button><button type="button" class="filter" data-filter="bureaux" aria-pressed="false">Bureaux et commerces</button><button type="button" class="filter" data-filter="industries" aria-pressed="false">Industries</button><button type="button" class="filter" data-filter="copro" aria-pressed="false">Copropriétés et syndics</button><button type="button" class="filter" data-filter="collectivites" aria-pressed="false">Collectivités</button>
+          <button type="button" class="filter" data-filter="tous" aria-pressed="true">Tous les secteurs</button><button type="button" class="filter" data-filter="bureaux" aria-pressed="false">Bureaux et commerces</button><button type="button" class="filter" data-filter="industries" aria-pressed="false">Industries</button><button type="button" class="filter" data-filter="copro" aria-pressed="false">Copropriété</button><button type="button" class="filter" data-filter="collectivites" aria-pressed="false">Collectivités</button>
         </div>
         <div class="plist">
+
+          <article class="pcard pcard--photo pcard--wide" id="coproprietes" data-sec="copro">
+            <div class="pcard__media"><img src="assets/img/secteur-coproprietes-600.webp" srcset="assets/img/secteur-coproprietes-600.webp 600w, assets/img/secteur-coproprietes-1200.webp 1200w" sizes="(max-width: 960px) 100vw, 500px" width="1200" height="1608" loading="lazy" decoding="async" alt=""></div>
+            <div class="pcard__body">
+              <h3 class="pcard__title">Entretien de copropriétés</h3>
+              <p class="pcard__desc">Parties communes, parkings et abords des résidences, pour les syndics et les conseils syndicaux.</p>
+              <ul class="ticks">
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Halls, escaliers et paliers</li>
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Caves, parkings et locaux communs</li>
+                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Abords et espaces extérieurs</li>
+              </ul>
+              <div class="pcard__foot"><span class="note">Copropriétés · Syndics</span><a class="textlink" href="devis.html?prestations=Entretien+de+copropri%C3%A9t%C3%A9s">Demander un devis</a></div>
+            </div>
+          </article>
 
           <a class="pcard pcard--photo" id="bureaux" href="prestation-bureaux.html" data-sec="bureaux copro collectivites">
             <div class="pcard__media"><img src="assets/img/prestation-bureaux-800.webp" srcset="assets/img/prestation-bureaux-800.webp 800w, assets/img/prestation-bureaux-1600.webp 1600w" sizes="(max-width: 1100px) 100vw, 590px" width="1600" height="1062" loading="lazy" decoding="async" alt=""></div>
@@ -137,7 +151,6 @@
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Sanitaires désinfectés et réapprovisionnés</li>
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Vidage des corbeilles et tri sélectif</li>
               </ul>
-              <div class="pcard__meta"><span class="chip">Quotidien</span><span class="chip">Hebdomadaire</span><span class="chip">En journée</span></div>
               <div class="pcard__foot"><span class="note">Bureaux · Copropriétés · Collectivités</span><span class="textlink">Voir le détail</span></div>
             </div>
           </a>
@@ -152,7 +165,6 @@
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Dégraissage des sols et des machines à l’arrêt</li>
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Respect de vos règles HSE et d’hygiène</li>
               </ul>
-              <div class="pcard__meta"><span class="chip">Horaires décalés</span><span class="chip">Arrêts techniques</span><span class="chip">Week-end</span></div>
               <div class="pcard__foot"><span class="note">Industries</span><a class="textlink" href="devis.html?prestations=Nettoyage+industriel">Demander un devis</a></div>
             </div>
           </article>
@@ -181,22 +193,7 @@
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Lavage haute pression des places et des rampes</li>
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Traitement des taches d’hydrocarbures</li>
               </ul>
-              <div class="pcard__meta"><span class="chip">Campagne annuelle</span><span class="chip">Trimestriel</span><span class="chip">Ponctuel</span></div>
               <div class="pcard__foot"><span class="note">Copropriétés · Bureaux · Collectivités</span><a class="textlink" href="devis.html?prestations=Parkings+et+haute+pression">Demander un devis</a></div>
-            </div>
-          </article>
-
-          <article class="pcard pcard--photo pcard--wide" id="coproprietes" data-sec="copro">
-            <div class="pcard__media"><img src="assets/img/secteur-coproprietes-600.webp" srcset="assets/img/secteur-coproprietes-600.webp 600w, assets/img/secteur-coproprietes-1200.webp 1200w" sizes="(max-width: 960px) 100vw, 500px" width="1200" height="1608" loading="lazy" decoding="async" alt=""></div>
-            <div class="pcard__body">
-              <h3 class="pcard__title">Entretien de copropriétés</h3>
-              <p class="pcard__desc">Parties communes, parkings et abords des résidences, pour les syndics et les conseils syndicaux.</p>
-              <ul class="ticks">
-                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Halls, escaliers et paliers</li>
-                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Caves, parkings et locaux communs</li>
-                <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Abords et espaces extérieurs</li>
-              </ul>
-              <div class="pcard__foot"><span class="note">Copropriétés · Syndics</span><a class="textlink" href="devis.html?prestations=Entretien+de+copropri%C3%A9t%C3%A9s">Demander un devis</a></div>
             </div>
           </article>
 
@@ -212,7 +209,6 @@
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Petits travaux&nbsp;: fixation, montage, réglage et remplacement de divers équipements</li>
                 <li><svg class="cr-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"></path></svg>Maintenance immobilière&nbsp;: interventions ponctuelles dans les parties communes, copropriétés et locaux professionnels</li>
               </ul>
-              <div class="pcard__meta"><span class="chip">Ponctuel</span><span class="chip">Sur demande</span></div>
               <div class="pcard__foot"><span class="note">Tous secteurs <span class="tbc">[à confirmer]</span></span><a class="textlink" href="devis.html?prestations=D%C3%A9pannage+%26+Multiservices">Demander un devis</a></div>
             </div>
           </article>
@@ -270,7 +266,7 @@
       <ul>
         <li><a href="secteurs.html">Bureaux et commerces</a></li>
         <li><a href="secteurs.html">Industries</a></li>
-        <li><a href="secteurs.html">Copropriétés et syndics</a></li>
+        <li><a href="secteurs.html">Copropriété</a></li>
         <li><a href="secteurs.html">Collectivités</a></li>
       </ul>
     </nav>
