@@ -133,7 +133,7 @@
 }
 
 /* ---------- Carte de la zone d’intervention : repères, en kilomètres autour de la base ---------- */
-/* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 52 sur mobile) : tout se place en
+/* La carte couvre --w × --h km (64 × 58 sur ordinateur, 48 × 57 sur mobile) : tout se place en
    km autour de la base, au centre. --dx vers l’est, --dy vers le sud ; positions réelles des villes. */
 .map { --w: 64; --h: 58; height: auto; aspect-ratio: var(--w) / var(--h); }
 .map__svg { inset: auto; left: 50%; top: 50%; width: calc(64 * 100% / var(--w)); height: calc(58 * 100% / var(--h)); transform: translate(-50%, -50%); }
@@ -141,7 +141,7 @@
 .map__ring { aspect-ratio: 1; }
 .map__ring--10 { width: calc(20 * 100% / var(--w)); }
 .map__ring--20 { width: calc(40 * 100% / var(--w)); }
-.map__ring span { top: auto; bottom: -10px; }
+.map__ring span { top: 85.36%; bottom: auto; left: 14.64%; transform: translate(-50%, -50%); } /* Étiquette au sud-ouest, loin des villes du sud. */
 .map__pt { left: calc(50% + var(--dx, 0) * 100% / var(--w)); top: calc(50% + var(--dy, 0) * 100% / var(--h)); }
 .map__pt--obernai { --dx: 1; --dy: -5.7; }
 .map__pt--rosheim { --dx: .1; --dy: -9.5; }
@@ -150,11 +150,14 @@
 .map__pt--benfeld { --dx: 9.2; --dy: 4.5; }
 .map__pt--erstein { --dx: 14.3; --dy: -1.2; }
 .map__pt--selestat { --dx: -1.1; --dy: 16.8; }
+.map__pt--wasselonne { --dx: -2.6; --dy: -25.5; }
+.map__pt--schirmeck { --dx: -18.5; --dy: -8.2; }
+.map__pt--strasbourg { --dx: 21; --dy: -18.2; }
 .map__region--vosges { left: 6%; top: 12%; }
 .map__region--allemagne { left: auto; right: var(--space-3); top: 88%; }
 .map__region--rhin { left: calc(50% + 22 * 100% / var(--w)); top: calc(50% - 12 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
 @media (max-width: 720px) {
-  .map { --w: 48; --h: 52; }
+  .map { --w: 48; --h: 57; }
 }
 /* Renvoi « Votre site est à la limite ? » : aligné à gauche sous le texte. */
 .site .zone__grid .note { margin-top: var(--space-5); }
@@ -284,10 +287,6 @@
   .ftr__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
   .ftr__bottom { padding-bottom: 104px; }
 }
-
-/* ---------- Méthode de l’accueil : sans le filet bleu au-dessus des étapes ---------- */
-/* Les étapes gardent leur décalage en escalier ; seul le trait disparaît. */
-.crescendo__step { border-top: 0; }
 
 /* ---------- Transitions fluides entre les sections ---------- */
 /* Plus de filet ni de bord net : les bandes de couleur (.sec--alt, bandeau de chiffres, pied de page)

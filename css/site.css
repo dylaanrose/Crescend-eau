@@ -44,20 +44,18 @@ img { max-width: 100%; }
 @keyframes crPulse { 0% { transform: translate(-50%, -50%) scale(.6); opacity: .7; } 100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; } }
 .wave-fill .cr-wave__lines { animation: crWave 9s ease-in-out infinite; }
 .wave-fill .cr-wave__glow { animation: crWave 9s ease-in-out infinite, crGlow 6s ease-in-out infinite; }
+/* Pied de page : en plus de la dérive d’ensemble, chaque ligne respire à son propre rythme (amplitude verticale
+   qui varie), sans que les extrémités quittent leur place. */
+@keyframes crBreathe { 0%, 100% { transform: scaleY(.7); } 50% { transform: scaleY(1.6); } }
+.ftr__wave .cr-wave__lines path, .ftr__wave .cr-wave__glow path { transform-box: fill-box; transform-origin: center; animation: crBreathe 8s ease-in-out infinite; }
+.ftr__wave .cr-wave__l1 { animation-duration: 10s; animation-delay: -3s; }
+.ftr__wave .cr-wave__l2 { animation-duration: 12s; animation-delay: -6s; }
 
 /* ---------- En-tête ---------- */
 .hdr-sticky { position: sticky; top: 0; z-index: var(--z-header); height: var(--hdr-h); pointer-events: none; }
 .hdr-sticky .hdr-root > * { pointer-events: auto; }
 .hdr { position: relative; background: var(--surface-000); border-bottom: 1px solid var(--line); font-family: var(--font-body); transition: box-shadow var(--dur-2) var(--ease-out); }
 .hdr.is-compact { box-shadow: var(--elevation-1); }
-.hdr__top { border-bottom: 1px solid var(--line); overflow: hidden; max-height: 40px; transition: max-height var(--dur-2) var(--ease-out), opacity var(--dur-2) var(--ease-out); }
-.hdr.is-compact .hdr__top { max-height: 0; opacity: 0; }
-.hdr__top-in { display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 40px; font-size: 13px; line-height: 20px; color: var(--ink-muted); }
-.hdr__top-in p { display: flex; align-items: center; gap: 10px; }
-.hdr__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
-.hdr__util { display: flex; align-items: center; gap: 24px; }
-.hdr__util a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-muted); text-decoration: none; }
-.hdr__util a:hover { color: var(--ink); }
 .hdr__bar { display: flex; align-items: center; gap: 24px; height: var(--header-height); transition: height var(--dur-2) var(--ease-out); }
 .hdr.is-compact .hdr__bar { height: 68px; }
 .hdr__logo { flex: none; line-height: 0; }
@@ -82,7 +80,7 @@ img { max-width: 100%; }
 .mnav__links a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-muted); text-decoration: none; min-height: 44px; }
 @media (max-width: 1240px) { .hdr__tel { display: none; } .hdr__nav { gap: 16px; } }
 @media (max-width: 960px) {
-  .hdr__top, .hdr__nav, .hdr__right { display: none; }
+  .hdr__nav, .hdr__right { display: none; }
   .hdr__bar, .hdr.is-compact .hdr__bar { height: 64px; }
   .hdr__logo .cr-logo__img { height: 34px !important; }
   .hdr__mob { display: flex; }
@@ -137,7 +135,6 @@ img { max-width: 100%; }
 .proof { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 32px; font-size: 15px; line-height: 24px; color: var(--ink-soft); }
 .proof li { display: inline-flex; align-items: center; gap: 8px; }
 .proof .cr-icon { color: var(--accent); }
-.hero__wave { position: absolute; right: 0; bottom: 0; width: 46%; height: 46%; z-index: 1; pointer-events: none; }
 
 /* Hero des pages intérieures */
 .phero { border-bottom: 1px solid var(--line); min-height: 520px; }
@@ -178,6 +175,27 @@ img { max-width: 100%; }
 .tile__img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .tile--photo { justify-content: flex-end; }
 .tile--photo::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, transparent 0%, var(--overlay-soft) 42%, var(--surface-300) 94%); }
+/* Tuiles photo en grille : chaque tuile reprend les lignes de la grille (image, titre, texte). Les titres se
+   retrouvent ainsi sur la même ligne, les textes aussi, quelle que soit leur longueur. Sur mobile, les tuiles s’empilent. */
+@media (min-width: 721px) {
+  .bento, .cols3, .cols4 { grid-auto-rows: auto; align-content: start; }
+  :is(.bento, .cols3, .cols4) > .tile--photo { display: grid; grid-row: span 3; grid-template-rows: subgrid; gap: 0; justify-content: normal; }
+  /* Réserve de hauteur au-dessus du titre : elle donne sa hauteur à la tuile et laisse voir l’image. */
+  :is(.bento, .cols3, .cols4) > .tile--photo::after { content: ""; grid-row: 1; grid-column: 1; min-height: 220px; }
+  .bento > .tile--photo::after { min-height: 80px; }
+  :is(.bento, .cols3, .cols4) > .tile--photo .tile__body { display: contents; }
+  :is(.bento, .cols3, .cols4) > .tile--photo .tile__title { grid-row: 2; grid-column: 1; align-self: start; }
+  :is(.bento, .cols3, .cols4) > .tile--photo .tile__desc { grid-row: 3; grid-column: 1; align-self: start; max-width: 460px; margin-top: 10px; }
+  /* La grande tuile couvre deux bandes : son texte se place sur la seconde. */
+  .bento > .tile--xl { grid-row: span 6; }
+  .bento > .tile--xl .tile__title { grid-row: 5; }
+  .bento > .tile--xl .tile__desc { grid-row: 6; }
+}
+@media (min-width: 721px) and (max-width: 1100px) {
+  .bento > .tile--xl { grid-row: span 3; }
+  .bento > .tile--xl .tile__title { grid-row: 2; }
+  .bento > .tile--xl .tile__desc { grid-row: 3; }
+}
 
 /* ---------- Secteurs ---------- */
 .sectors .cr-card { min-height: 290px; justify-content: flex-start; padding: 40px 28px; }
@@ -350,10 +368,10 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 .ticks li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 24px; color: var(--ink-soft); }
 .ticks .cr-icon { color: var(--accent); margin-top: 4px; }
 .pcard__meta { display: flex; flex-wrap: wrap; gap: 8px; }
-.pcard__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+.pcard__foot { margin-top: auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; padding-top: 20px; border-top: 1px solid var(--line); }
 .pcard__foot .textlink { white-space: nowrap; }
 /* Carte de prestation avec photo : l’image coiffe la carte, le texte vient dessous. */
-.pcard--photo { grid-template-columns: 1fr; gap: 0; padding: 0; overflow: hidden; }
+.pcard--photo { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 0; padding: 0; overflow: hidden; }
 .pcard__media { aspect-ratio: 16 / 9; }
 .pcard__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .pcard--photo .pcard__body { padding: var(--space-6); }
@@ -485,13 +503,9 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 .swatch b { color: var(--ink); font-weight: 500; }
 
 /* ---------- Méthode en une ligne (accueil) ---------- */
-/* Quatre étapes qui montent de gauche à droite, le filet s’épaissit à chaque marche : un crescendo. */
+/* Quatre étapes côte à côte, alignées sur la même ligne. */
 .crescendo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
-.crescendo__step { display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-5); border-top: 1px solid var(--accent); }
-.crescendo__step:nth-child(1) { margin-top: calc(3 * var(--space-6)); }
-.crescendo__step:nth-child(2) { margin-top: calc(2 * var(--space-6)); border-top-width: 2px; }
-.crescendo__step:nth-child(3) { margin-top: var(--space-6); border-top-width: 3px; }
-.crescendo__step:nth-child(4) { border-top-width: 4px; }
+.crescendo__step { display: flex; flex-direction: column; gap: var(--space-3); padding-top: var(--space-5); }
 .crescendo__title { font: var(--text-card); color: var(--ink); }
 .crescendo__step p { font-size: 15px; line-height: 24px; color: var(--ink-muted); }
 
@@ -543,7 +557,6 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 @media (max-width: 960px) {
   .method__grid, .zone__grid, .ba-grid, .cta-card, .split, .qwrap { grid-template-columns: 1fr; }
   .crescendo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .crescendo__step:nth-child(n) { margin-top: 0; }
   .quotes, .cols3 { grid-template-columns: 1fr; }
   .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fact:nth-child(3) { border-left: 0; padding-left: 0; }
@@ -564,8 +577,7 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
   .scrolly__content { justify-content: flex-end; gap: var(--space-5); padding-bottom: calc(var(--callbar-h) + var(--space-8)); }
   .scrolly .cr-hero__actions, .scrolly__zone { display: none; }
   .crescendo { grid-template-columns: 1fr; }
-  .hero__wave { display: none; }
-  .proof { gap: 10px 20px; margin-top: 24px; }
+    .proof { gap: 10px 20px; margin-top: 24px; }
   .phero .cr-hero__media { height: 220px; }
   .phero .cr-hero__content { padding-top: 0; padding-bottom: 48px; }
   .crumbs { margin-bottom: 20px; }
