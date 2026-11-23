@@ -106,9 +106,10 @@ function valeurAffichee(nom, valeur) {
 }
 
 function numeroDemande(champs) {
-  if (/^CR-\d{4}-\d{4}$/.test(champs.numero || '')) return champs.numero;
+  if (/^CR-\d{6}-\d{4}$/.test(champs.numero || '')) return champs.numero;
   const maintenant = new Date();
-  return 'CR-' + String(maintenant.getFullYear()).slice(2) + String(maintenant.getMonth() + 1).padStart(2, '0') + '-' + String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+  const deux = (n) => String(n).padStart(2, '0');
+  return 'CR-' + String(maintenant.getFullYear()).slice(2) + deux(maintenant.getMonth() + 1) + deux(maintenant.getDate()) + '-' + deux(maintenant.getHours()) + deux(maintenant.getMinutes());
 }
 
 function lignes(champs, formulaire) {

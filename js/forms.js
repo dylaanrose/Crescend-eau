@@ -67,12 +67,12 @@ export function setState(form, state) {
   form.querySelectorAll('[data-when]').forEach((block) => { block.hidden = !block.dataset.when.split(' ').includes(state); });
 }
 
-// Numéro de demande au format de la maquette : CR-AAMM-NNNN.
-// ponytail: tiré au hasard dans le navigateur, donc pas garanti unique. Le serveur devra l’attribuer une fois branché.
+// Numéro de demande : CR-AAMMJJ-HHMM, soit la date puis l’heure d’envoi (heure du visiteur).
+// Lisible et classé dans l’ordre des demandes ; deux demandes dans la même minute seraient seules à partager un numéro.
 function requestNumber() {
   const now = new Date();
-  const yymm = String(now.getFullYear()).slice(2) + String(now.getMonth() + 1).padStart(2, '0');
-  return 'CR-' + yymm + '-' + String(Math.floor(Math.random() * 10000)).padStart(4, '0');
+  const two = (n) => String(n).padStart(2, '0');
+  return 'CR-' + String(now.getFullYear()).slice(2) + two(now.getMonth() + 1) + two(now.getDate()) + '-' + two(now.getHours()) + two(now.getMinutes());
 }
 
 // Envoie le formulaire. Renvoie { state, numero }.

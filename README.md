@@ -98,7 +98,7 @@ Quatre formulaires : devis rapide (accueil), contact, devis en 3 étapes, candid
 
 - **Envoi par courriel** : `FORM_ENDPOINT` (`js/config.js`) vaut `/api/demande`, la fonction `api/demande.js` de Vercel.
   Le navigateur lui envoie le formulaire en JSON (une valeur texte par champ, cases multiples séparées par des
-  virgules, pièce jointe : son nom seulement) avec `formulaire` et `numero` (`CR-AAMM-NNNN`). La fonction envoie par
+  virgules, pièce jointe : son nom seulement) avec `formulaire` et `numero` (`CR-AAMMJJ-HHMM`). La fonction envoie par
   [Resend](https://resend.com) deux courriers : le **compte rendu à `contactpro@crescendeau.fr`** (réponse directe au
   visiteur) et un **accusé de réception au visiteur** s’il a donné son e-mail. Leur mise en forme est dans `api/_email.js`.
 - **À régler dans Vercel** (Settings > Environment Variables) : `RESEND_API_KEY` (clé Resend), `MAIL_FROM`
@@ -110,7 +110,7 @@ Quatre formulaires : devis rapide (accueil), contact, devis en 3 étapes, candid
   (obligatoire pour les messageries) : ce ne sont pas des pages du site.
 - **Mode démonstration** : une `FORM_ENDPOINT` vide, ou `?etat=…` dans l’adresse, valide les formulaires sans rien envoyer.
 - **Limites** : la pièce jointe (devis, candidature) n’est pas transmise par courriel (la limite d’une fonction Vercel
-  est de 4,5 Mo) ; pas d’anti-spam au-delà de la validation. Le numéro de demande est tiré au hasard dans le navigateur.
+  est de 4,5 Mo) ; pas d’anti-spam au-delà de la validation. Le numéro de demande est la date puis l’heure d’envoi (heure du visiteur) : deux demandes dans la même minute auraient le même.
 - **Sous-services du devis** : une prestation peut ouvrir un bloc de sous-services. Dans `devis.html`, sa case porte
   `aria-controls="identifiant"` et le bloc est un `<fieldset class="qgroup subs" id="identifiant" disabled>` qui
   contient des cases avec leur propre `name`. Aucun JavaScript à écrire. Champ envoyé aujourd’hui :

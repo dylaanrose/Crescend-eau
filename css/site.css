@@ -225,6 +225,7 @@ img { max-width: 100%; }
 /* ---------- Engagements ---------- */
 .pledges { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
 .pledges--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pledges--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .pledge { display: flex; flex-direction: column; gap: 16px; }
 .pledge :is(h2, h3) { font: var(--text-card-sm); color: var(--ink); }
 .pledge p { font-size: 15px; line-height: 24px; color: var(--ink-muted); }

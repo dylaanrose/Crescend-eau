@@ -19,6 +19,49 @@ export function initDevis() {
   const subsOf = (input) => document.getElementById(input.getAttribute('aria-controls'));
   const syncSubs = () => all('[name="prestations"][aria-controls]').forEach((input) => { subsOf(input).disabled = !input.checked; });
 
+  // Les prestations proposées dépendent du type de site (data-sec : types qui les concernent ; « autre site » voit tout).
+  const syncPrestas = () => {
+    const type = picked('type_site')[0];
+    all('[name="prestations"]').forEach((input) => {
+      const pick = input.closest('.pick');
+      const ok = !type || type.value === 'autre' || pick.dataset.sec.split(' ').includes(type.value);
+      pick.hidden = !ok;
+      input.disabled = !ok; // un champ désactivé n’est ni validé ni envoyé
+      if (!ok) input.checked = false;
+    });
+    syncSubs();
+  };
+
+  // Code postal d’Alsace → communes correspondantes (table locale, aucun appel à un service externe).
+  const cp = one('#f-cp');
+  const ville = form.elements.ville;
+  const villes = one('[data-villes]');
+  let table;
+  let posee = ''; // dernière ville posée par nous, remplaçable sans écraser une saisie
+  const suggest = async () => {
+    const code = cp.value.trim();
+    villes.hidden = true;
+    if (!/^\d{5}$/.test(code)) return;
+    table ||= fetch(new URL('assets/data/codes-postaux.json', document.baseURI)).then((r) => r.json()).catch(() => ({}));
+    const found = (await table)[code] || [];
+    if (cp.value.trim() !== code) return; // le code a changé pendant le chargement
+    if (ville.value === posee) ville.value = posee = '';
+    if (found.length === 1) {
+      if (!ville.value) ville.value = posee = found[0];
+    } else if (found.length > 1) {
+      villes.querySelector('.picks').replaceChildren(...found.map((name) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'pick';
+        button.textContent = name;
+        button.addEventListener('click', () => { ville.value = posee = name; villes.hidden = true; });
+        return button;
+      }));
+      villes.hidden = false;
+    }
+  };
+  cp.addEventListener('input', suggest);
+
   let step = 1;           // 1 à 3 : étapes ; 4 : confirmation
   let showing = false;    // les erreurs n’apparaissent qu’après une tentative de passage à la suite
   const errors = () => (step <= 3 ? invalid(form, one('[data-step="' + step + '"]')) : []);
@@ -111,8 +154,9 @@ export function initDevis() {
   });
   // Une fois les erreurs affichées, elles se mettent à jour pendant la correction.
   form.addEventListener('input', () => { if (showing) render(); });
-  form.addEventListener('change', syncSubs);
-  syncSubs(); // prestations déjà cochées par l’adresse
+  form.addEventListener('change', (event) => { if (event.target.name === 'type_site') syncPrestas(); else syncSubs(); });
+  syncPrestas(); // type de site et prestations déjà choisis par l’adresse
+  suggest();
 
   // État de la maquette demandé par l’adresse (les champs sont déjà préremplis par forms.js).
   const preset = STATES[new URLSearchParams(window.location.search).get('etat')];
