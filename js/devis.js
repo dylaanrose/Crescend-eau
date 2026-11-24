@@ -19,12 +19,12 @@ export function initDevis() {
   const subsOf = (input) => document.getElementById(input.getAttribute('aria-controls'));
   const syncSubs = () => all('[name="prestations"][aria-controls]').forEach((input) => { subsOf(input).disabled = !input.checked; });
 
-  // Les prestations proposées dépendent du type de site (data-sec : types qui les concernent ; « autre site » voit tout).
+  // Prestations et créneaux dépendent du type de site (data-sec : types concernés ; sans data-sec, toujours proposé).
   const syncPrestas = () => {
     const type = picked('type_site')[0];
-    all('[name="prestations"]').forEach((input) => {
+    all('[name="prestations"], [name="creneaux"]').forEach((input) => {
       const pick = input.closest('.pick');
-      const ok = !type || type.value === 'autre' || pick.dataset.sec.split(' ').includes(type.value);
+      const ok = !type || !pick.dataset.sec || pick.dataset.sec.split(' ').includes(type.value);
       pick.hidden = !ok;
       input.disabled = !ok; // un champ désactivé n’est ni validé ni envoyé
       if (!ok) input.checked = false;

@@ -74,9 +74,6 @@ img { max-width: 100%; }
 .hdr__panel { display: none; }
 .mnav a { display: flex; align-items: center; justify-content: space-between; min-height: 56px; color: var(--ink); text-decoration: none; font: 500 20px/28px var(--font-body); }
 .mnav__extra { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-top: 24px; }
-.mnav__extra .mnav__links { align-self: stretch; }
-.mnav__links { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; }
-.mnav__links a { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-muted); text-decoration: none; min-height: 44px; }
 @media (max-width: 1240px) { .hdr__tel { display: none; } .hdr__nav { gap: 16px; } }
 @media (max-width: 960px) {
   .hdr__nav, .hdr__right { display: none; }
@@ -264,7 +261,7 @@ img { max-width: 100%; }
 .map__pt span { padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: color-mix(in srgb, var(--surface-000) 58%, transparent); backdrop-filter: blur(8px); box-shadow: 0 4px 14px rgba(0, 0, 0, .35); font-size: 13px; line-height: 16px; color: var(--ink-soft); white-space: nowrap; }
 .map__pt--left { flex-direction: row-reverse; transform: translate(calc(-100% + 5px), -50%); }
 .map__pt--hq { transform: translate(-8px, -50%); }
-.map__pt--hq i { position: relative; width: 16px; height: 16px; background: var(--accent-hover); box-shadow: 0 0 0 7px rgba(17, 212, 217, .14), 0 0 0 16px rgba(17, 212, 217, .07), 0 0 28px rgba(17, 212, 217, .45), 0 0 90px 24px rgba(17, 212, 217, .16); }
+.map__pt--hq i { position: relative; width: 16px; height: 16px; background: var(--accent-hover); box-shadow: 0 0 0 7px rgba(17, 212, 217, .12), 0 0 0 16px rgba(17, 212, 217, .05), 0 0 20px rgba(17, 212, 217, .3); }
 .map__pt--hq span { font: var(--text-button); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
 .map__pulse { position: absolute; width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--accent-hover); animation: crPulse 3s ease-out infinite; pointer-events: none; }
 .map__region { position: absolute; font: 500 13px/16px var(--font-display); letter-spacing: .4em; text-transform: uppercase; color: var(--ink-soft); }
@@ -449,7 +446,7 @@ a.pcard:hover { background: var(--surface-400); border-color: var(--accent); }
 .choice:has(input:checked) .choice__check { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .choices.is-error .choice { border-color: var(--danger); }
 .picks { display: flex; flex-wrap: wrap; gap: 10px; }
-.pick { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); color: var(--ink-soft); font-size: 15px; line-height: 20px; cursor: pointer; transition: border-color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out); }
+.pick { position: relative; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px; border: 1px solid var(--line-strong); border-radius: var(--radius-pill); background: transparent; color: var(--ink-soft); font: inherit; font-size: 15px; line-height: 20px; cursor: pointer; transition: border-color var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-out); }
 .pick:hover { border-color: var(--ink-muted); }
 .pick input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .pick .cr-icon { display: none; color: var(--accent); }
