@@ -145,10 +145,11 @@
 .map__pt--schirmeck { --dx: -18.5; --dy: -8.2; }
 .map__pt--strasbourg { --dx: 21; --dy: -18.2; }
 .map__region--vosges { left: 6%; top: 12%; }
-.map__region--allemagne { left: auto; right: var(--space-3); top: 88%; }
 .map__region--rhin { left: calc(50% + 27.4 * 100% / var(--w)); top: calc(50% - 12 * 100% / var(--h)); transform: translateX(-100%); letter-spacing: .2em; }
 @media (max-width: 720px) {
   .map { --w: 50; --h: 58; }
+  /* Le Rhin sortirait de la carte : son libellé se cale sur le bord droit. */
+  .map__region--rhin { left: auto; right: var(--space-3); transform: none; }
   /* La carte prend toute la largeur de l’écran (le décor s’estompe sur ses bords). */
   .map-wrap { margin-inline: calc(-1 * var(--space-5)); }
 }
